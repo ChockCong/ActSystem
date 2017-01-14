@@ -6,7 +6,7 @@
   */
  class Sqlhelper
  {
-     var $dbname = "test";
+     var $dbname = "rsql";
      var $host = "localhost";
      var $username = "root";
      var $userpass = "";
