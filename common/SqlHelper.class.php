@@ -31,19 +31,17 @@
          $rs = mysql_fetch_assoc($res);
          return $rs;
      }
-     function execute_dql2 ($sql)
-     {
-         $res = mysql_query($sql) or die(
-         "SQL查询语句有误");
-         $rs_arr = array();
-         while ($rs = mysql_fetch_assoc($res)) {
-             $rs_arr[] = $rs;
-         }
-         //可以立马释放资源
-         mysql_free_result($res);
-         $this->my_close();
-         return $rs_arr; //返回一个数组
-     }
+	 	function execute_dql2 ($sql)
+	{
+		$res = mysql_query($sql) or die(
+				"SQL查询语句有误");
+		$rs_arr = array();
+		while ($rs = mysql_fetch_assoc($res)) {
+			$rs_arr[] = $rs;
+		}
+		mysql_free_result($res);
+		
+	}
      //添加，删除，修改
      function execute_dml ($sql)
      {
@@ -60,18 +58,38 @@
          } else {
              return "nono";
          }
+         $this->my_close ();
      }
     
     
      //分页的查询调用
  //因为分页功能是一个通用的功能.所有也一个函数来处理   
         function execute_dql_page($sqls,$fenyepage){
+        	$res=$this->execute_dql2 ($sqls[0]);
            //执行SQL语句，查出有多少条记录 
-           $fenyepage->rowcount = mysql_num_rows ( mysql_query ( $sqls[0] ) );
+             //$fenyepage->rowcount = mysql_num_rows ( mysql_query ( $sqls[0] ) );
            //echo $fenyepage->rowcount; exit();
            //执行SQL语句，查出要查看的记录
-           $fenyepage->res=$this->execute_dql2($sqls[1]);
-  
+           $fenyepage->pageCount= ceil($res[0]['count(*)']/($fenyepage->pageSize));
+           $fenyepage->rowCount=$res[0]['count(*)'];
+           $fenyepage->res=$this->execute_dql2 ($sqls[1]);
+ 
+           
+           //显示上一页
+           if($fenyepage->pageNow>1){
+           	 $pre_page=$fenyepage->pageNow-1;
+           	 $fenyepage->navigator.="<a 
+           	 href='<{$fenyepage->Url}?pageNow=<{$pre_page}><{$fenyepage->condition}>'>上一页</a>
+           	 &nbsp;&nbsp;";
+           }
+           
+           //显示下一页
+           if($fenyepage->pageNow<$fenyepage->pageCount){
+           	$next_page=$fenyepage->pageNow+1;
+           	$fenyepage->navigator.="<a
+           	href='<{$fenyepage->Url}?pageNow=<{$next_page}><{$fenyepage->condition}>'>下一页</a>
+           	&nbsp;&nbsp;";
+           }
         }
        
     
@@ -79,13 +97,14 @@
      function my_close ()
      {
          if (! empty($this->conn)) {
-             mysql_close(
-             $this->conn);
+             mysql_close($this->conn);
          }
      }
-    
+     
+     
+ 
        
-    Function Runtime($mode=0){
+/*     Function Runtime($mode=0){
     Static $s;
     IF(!$mode){
         $s=microtime();
@@ -95,7 +114,7 @@
     $s=Explode(" ", $s);
     $e=Explode(" ", $e);
     Return Sprintf("%.2f ms",($e[1]+$e[0]-$s[1]-$s[0])*1000);
-}
+} */
        
        
  } 

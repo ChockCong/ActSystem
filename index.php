@@ -2,6 +2,7 @@
 <?php
     
     //require_once 'common/global.php';
-	header("Location: Controller/UIcontroller.php");
+	header("Location: Controller/testController.php");
 	//$smarty->display("index.html");
+	
 ?>

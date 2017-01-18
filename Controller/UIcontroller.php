@@ -3,17 +3,22 @@
    header("Content-type:text/html;charset=utf8");
    require_once '../common/global.php';
    
-   $sh=new SqlHelper();
+   $marty=new SqlHelper();
    $user=$_POST['username'];
    $pwd=$_POST['password'];
-   $adminsql="select * from admin where ausername=$user";
+   //$adminsql="select * from admin where ausername=$user";
+   //$rs=$sh->execute_dql ($adminsql);
    
-   $rs=$sh->execute_dql ($adminsql);
-   if($pwd==$rs[2]){
-   	 $_SESSION['aid']=$rs[0];
-   	 $smarty->assign("admin",$user);
-   	 $smarty->assign("index.html"); 
+   if($pwd==$rs['apassword']){
+   	 $_SESSION['aid']=$rs['aid'];
+   	 $smarty->assign("admin",$rs['ausername']);
+   	 $smarty->display("index.html"); 
    	 
    }
- 
+  /*  $_SESSION['aid']=$rs['aid'];
+   $smarty->assign("session",$_SESSION['aid']); */
+   
+   $smarty->my_close ();
+   
+   
 ?>
