@@ -11,12 +11,13 @@ a:hover{
 	text-decoration: underline;
 }
 header{
-	height: 10%;
+	height: 15%;
+	box-sizing: border-box;
 	width: 1100px;
 	margin: 0 auto;
 	font-family: "微软雅黑";
 	padding-top: 20px;
-	padding-bottom: 40px;
+	padding-bottom: 20px;
 }
 #left{
 	float: left;
@@ -66,8 +67,9 @@ header{
 	border-right: none;
 }
 #main{
+	box-sizing: border-box;
 	width: 1100px;
-	height: 80%;
+	height: 85%;
 	margin: 0 auto;
 	position: relative;
 }
@@ -144,9 +146,11 @@ header{
 	font-size: 1.6em;
 	letter-spacing: 5px;
 	font-family: "幼圆";
-	margin: 440px auto 0px;
 	width: 260px;
-	padding-left: 5px;
+	position: absolute;
+	left: 50%;
+	margin-left: -130px;
+	top: 75%;
 }
 #center a {
 	color: #ffffff;
@@ -158,8 +162,11 @@ header{
 	display: block;
 	text-align: center;
 	padding-top: 10px;
-	margin: 30px auto 0;
 	padding-left: 5px;
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;
+	top: 85%;
 }
 #center a:hover{
 	text-decoration: none;
