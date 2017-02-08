@@ -3,7 +3,7 @@ class fpage{
 	
 	var $pageNow=1;
 	var $pageCount;
-	var $pageSize=10;
+	var $pageSize=1;
 	var $rowCount;
 	var $navigator;
 	var $res="";

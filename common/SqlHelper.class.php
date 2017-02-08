@@ -31,16 +31,15 @@
          $rs = mysql_fetch_assoc($res);
          return $rs;
      }
-	 	function execute_dql2 ($sql)
+ 	function execute_dql2 ($sql)
 	{
 		$res = mysql_query($sql) or die(
 				"SQL查询语句有误");
-		$rs_arr = array();
+		//$rs_arr = array();
 		while ($rs = mysql_fetch_assoc($res)) {
 			$rs_arr[] = $rs;
 		}
-		mysql_free_result($res);
-		
+		return $rs_arr;
 	}
      //添加，删除，修改
      function execute_dml ($sql)
