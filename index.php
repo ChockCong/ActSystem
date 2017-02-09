@@ -2,8 +2,9 @@
 <?php
 
     require_once 'Smarty/smarty.class.php';
-    if($smarty.cookies.sid==0) 
-	header("Location: Controller/UIController.php");
+    
+    if(!isset($_COOKIE['sid'])) 
+	header("Location: Controller/Logincontroller.php");
 	//$smarty->display("index.html");
 	
 

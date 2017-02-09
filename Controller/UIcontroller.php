@@ -8,7 +8,7 @@
 
    if(!empty($_GET['title'])){
    	switch($_GET['title']){
-   		case 1 : $smarty->display("index。html"); break;
+   		case 1 : $smarty->display("index.html"); break;
    		case 2 : $smarty->display("declare.html"); break;
    		case 3 : $smarty->display(""); break;
    		case 4 : $smarty->display(""); break;
@@ -22,7 +22,8 @@
    		case 3 : $smarty->display("");
    	}
    }
-   if(count($_GET)==0) $smarty->display("login.html");
+   
+   if(count($_GET)==0) $smarty->display("index.html"); 
   /*  $_SESSION['aid']=$rs['aid'];
    $smarty->assign("session",$_SESSION['aid']); */
    
