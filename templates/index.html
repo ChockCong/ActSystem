@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<title>社会实践管理系统</title>
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
-		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 	</head>
 	<body>
 		<header>
@@ -12,16 +13,16 @@
 				<div class="logo"></div>
 				<div class="title">
 					<p>社会实践</p>
-					<a href="#">蔡国聪	</a>
-					<a href="#">注销</a>
+					<a href="#"><{$smarty.cookies.student}></a>
+					<a href="<{$logoff}>">注销</a>
 				</div>
 			</div>
 			<div id="nav">
 				<ul>
-					<li><a href="#">公告通知</a></li>
-					<li><a href="#">活动申报</a></li>
-					<li><a href="#">个人活动</a></li>
-					<li><a href="#">个人信息</a></li>
+					<li><a href="UIcontroller.php?title=1">公告通知</a></li>
+					<li><a href="UIcontroller.php?title=2">活动申报</a></li>
+					<li><a href="UIcontroller.php?title=3">个人活动</a></li>
+					<li><a href="UIcontroller.php?title=4">个人信息</a></li>
 				</ul>
 			</div>
 		</header>

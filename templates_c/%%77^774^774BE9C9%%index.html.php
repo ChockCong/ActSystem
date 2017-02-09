@@ -1,28 +1,50 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-08 03:06:40
+<?php /* Smarty version 2.6.30, created on 2017-02-09 03:54:05
          compiled from index.html */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'print_r', 'index.html', 9, false),)), $this); ?>
-<meta charset="utf8">
-<html>
-Hello,my Activity System
-<!-- <?php $_from = $this->_tpl_vars['row']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['contact']):
-?>
- <?php $_from = $this->_tpl_vars['contact']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['item']):
-?>
- <?php echo $this->_tpl_vars['item']; ?>
-<br>
- <?php endforeach; endif; unset($_from); ?>
-<?php endforeach; endif; unset($_from); ?> 
-<?php echo print_r($this->_tpl_vars['row']); ?>
--->
-<form name="form1" method="post" action="Controller/personcontroller.php">
-姓名：<input type="text" value="<?php echo $this->_tpl_vars['admin']; ?>
-"><br>
-密码：<input type="text"><br>
-<input type="submit" value="修改" style="align:center">
-</form>
+<!DOCTYPE html>
 
-<iframe src="../Controller/test.php" style="width:100% height:100%"></iframe>
-</html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>社会实践管理系统</title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	</head>
+	<body>
+		<header>
+			<div id="left">
+				<div class="logo"></div>
+				<div class="title">
+					<p>社会实践</p>
+					<a href="#"><?php echo $_COOKIE['student']; ?>
+</a>
+					<a href="<?php echo $this->_tpl_vars['logoff']; ?>
+">注销</a>
+				</div>
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="UIcontroller.php?title=1">公告通知</a></li>
+					<li><a href="UIcontroller.php?title=2">活动申报</a></li>
+					<li><a href="UIcontroller.php?title=3">个人活动</a></li>
+					<li><a href="UIcontroller.php?title=4">个人信息</a></li>
+				</ul>
+			</div>
+		</header>
+		<div id="main">
+			<div id="img">					
+				<div class="pic"></div>
+				<div class="pic"></div>
+				<div class="pic"></div>
+				<div class="pic"></div>
+			</div>
+			<div id="center">				
+				<div id="circle">
+					<div id="shsjc"></div>
+					<span>一日一善</span>	
+				</div>
+				<p>服务在我心		实践看我行</p>
+				<a href="#">活动公告查看</a>
+			</div>
+		</div>
+	</body>
+</html>
