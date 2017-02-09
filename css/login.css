@@ -73,10 +73,9 @@
 .title h1{
 	font-family: "Baron";
 	position: absolute;
-	top: 150px;
-	left: 200px;
+	top: 30%;
+	left: 10%;
 	font-size: 55px;
-	/*font-weight: 500;*/
 	letter-spacing:4px;
 	line-height: 55px;
 	text-shadow: 2px 2px 1px rgba(0,0,0,.3);
@@ -89,8 +88,8 @@
 	height: 200px;
 	background: url(../img/logo.png) 50% no-repeat;
 	background-size: 100%;
-	right: 400px;
-	top: 80px;
+	right: 25%;
+	top: 10%;
 	position: absolute;
 	animation-name:flicker;
   	animation-duration: 3.6s;
@@ -106,8 +105,8 @@
 	font-family: "微软雅黑";
 	letter-spacing: 2px;
 	position: absolute;
-	left: 300px;
-	bottom: 100px;
+	left: 20%;
+	bottom: 20%;
 	animation-name: show;
 	animation-duration: 5s;
 	animation-timing-function: ease;

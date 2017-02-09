@@ -101,7 +101,7 @@ a:hover{
 	line-height: 1.5em;
 	letter-spacing: 5px;
 	padding-left: 70px;
-	padding-top: 80px;
+	padding-top: 60px;
 	position: relative;
 }
 label{
@@ -175,7 +175,8 @@ input[type="text"]:hover,.form-group-sm textarea:hover,select:hover{
 	box-shadow: 0px 0px 5px rgb(149,199,239);
 }
 .form-group-sm textarea{
-	width: 82%;
+	width: 90%;
+	resize: none;
 }
 .radius {
 	width: 130px;
@@ -186,23 +187,36 @@ input[type="text"]:hover,.form-group-sm textarea:hover,select:hover{
 	text-align: center;
 	font-family: "微软雅黑";
 }
-form{
+/*form{
 	position: relative;
+}*/
+#btn-sub{
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	margin-left: -35px;
 }
 input[type="submit"]{
 	background: #FFFFFF;
+	width: 70px;
 	border: 1px solid #516886;
 	border-radius: 5px;
-	padding: 8px;
+	padding: 7px 8px 8px 23px;
 	font-family: "微软雅黑";
-	position: absolute;
-	bottom: -50px;
-	left: 50%;
-	margin-left: -60px;
 	cursor: pointer;
 	font-size: 0.9em;
 }
 input[type="submit"]:hover{
 	background-color: #516886;
 	color: #FFFFFF;
+}
+input[type="submit"]:hover + i{
+	background-color: transparent;
+	color: #FFFFFF;
+}
+.pac i{
+	position: absolute;
+	left: 10px;
+	top: 11px;
+	font-size: 0.8em;
 }
