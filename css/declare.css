@@ -7,8 +7,38 @@ body,html{
 	width: 1100px;
 	height: 100%;
 	margin: 0 auto;
+	position: relative;
 }
-
+/* 网站导航 */
+#nav {
+	width: 360px;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	top: 30px;
+}
+li	a{
+	color: #FFFFFF;
+	font-family: "微软雅黑";
+	text-shadow: 1px 1px 1px rgba(0,0,0,3);
+}
+a:hover{
+	color: #000000;
+	border-bottom: 1px solid #555151;
+	text-shadow: none;	
+	text-decoration: none;
+	padding-bottom: 3px;
+}
+#nav li{
+	float: left;
+	margin-right: 15px;
+	font-size: 1.2em;
+	border-right: 1px solid #555151;
+	padding-right: 15px;
+}
+#nav li:last-child{
+	border-right: none;
+}
 /* 切换导航 */
 *{margin:0px;padding:0px;}
 body{margin:0px;padding:0px;}
