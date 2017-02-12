@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-09 03:54:05
+<?php /* Smarty version 2.6.30, created on 2017-02-12 06:01:51
          compiled from index.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'index.html', 21, false),)), $this); ?>
 <!DOCTYPE html>
 
 <html>
@@ -17,17 +19,12 @@
 					<p>社会实践</p>
 					<a href="#"><?php echo $_COOKIE['student']; ?>
 </a>
-					<a href="<?php echo $this->_tpl_vars['logoff']; ?>
-">注销</a>
+					<a href="../Controller/Indexcontroller.php">注销</a>
 				</div>
 			</div>
 			<div id="nav">
-				<ul>
-					<li><a href="UIcontroller.php?title=1">公告通知</a></li>
-					<li><a href="UIcontroller.php?title=2">活动申报</a></li>
-					<li><a href="UIcontroller.php?title=3">个人活动</a></li>
-					<li><a href="UIcontroller.php?title=4">个人信息</a></li>
-				</ul>
+			  <?php echo smarty_function_Menu(array(), $this);?>
+
 			</div>
 		</header>
 		<div id="main">

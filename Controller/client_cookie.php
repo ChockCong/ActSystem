@@ -1,5 +1,12 @@
 <?php     
     require_once '../Smarty/smarty.class.php';
-    if(!isset($_COOKIE['sid'])) 
-	$smarty->display("login.html");
+    if(!isset($_COOKIE['sid'])) {
+    	echo "<script type='text/javascript'>";
+    	echo "if(confirm('身份过期或请先登录!'))
+    			location.href='Indexcontroller.php';";
+    	echo "</script>";
+    	
+    	exit();
+    }
+
     ?>

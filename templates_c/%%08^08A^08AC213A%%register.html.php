@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-08 14:34:06
+<?php /* Smarty version 2.6.30, created on 2017-02-12 03:20:17
          compiled from register.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'register.html', 31, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,12 +32,8 @@
 		</div>-->
 		<div id="main">
 			<div id="nav">
-				<ul>
-					<li><a href="#">公告通知</a></li>
-					<li><a href="#">活动申报</a></li>
-					<li><a href="#">个人活动</a></li>
-					<li><a href="#">个人信息</a></li>
-				</ul>
+			  <?php echo smarty_function_Menu(array(), $this);?>
+
 			</div>
 			<!--左边修饰图片-->
 			<div id="add">
@@ -75,15 +73,19 @@
 					</div>
 					<div class="form-group-sm">
 						<label id="actype">活动内容</label><br />
-						<textarea class="form-control" rows="4" cols="40"></textarea>
+						<textarea class="form-control" rows="5" cols="30"></textarea>
 					</div>
-					<input type="submit" value="登记"/>
+					<div id="btn-sub">
+						<input type="submit" value="登记"/>
+						<i class="glyphicon glyphicon-check"></i>
+					</div>
+					
 				</form>
 			</div>
 		</div>
-		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/timedropper.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/datedropper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/timedropper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/datedropper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 		$("#pickdate").dateDropper({
 			animate: false,

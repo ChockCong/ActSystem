@@ -19,7 +19,7 @@ class action extends  Sqlhelper{
         </body>
         </html>';
 		echo $msg;
-
+		header("Refresh:1;$url");
 		
 		
 	}
