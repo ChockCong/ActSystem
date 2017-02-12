@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.30, created on 2017-02-11 11:14:26
+         compiled from result.html */ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -77,4 +79,4 @@
 	});
 		</script>
 	</body>
-</html>
+</html>

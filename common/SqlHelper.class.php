@@ -50,12 +50,12 @@
              $rows = mysql_affected_rows(
              $this->conn);
              if ($rows > 0) {
-                 return "ok";
+                 return true;
              } else {
-                 return "no";
+                 return 0;
              }
          } else {
-             return "nono";
+             return 0;
          }
          $this->my_close ();
      }

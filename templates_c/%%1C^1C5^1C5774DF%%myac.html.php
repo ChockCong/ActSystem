@@ -1,3 +1,7 @@
+<?php /* Smarty version 2.6.30, created on 2017-02-12 03:21:33
+         compiled from myac.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'myac.html', 21, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +22,8 @@
 				</div>
 				<!--导航-->
 				<div id="nav">
-				  <{Menu}>
+				  <?php echo smarty_function_Menu(array(), $this);?>
+
 				</div>
 			</div>
 			<div id="actab">
@@ -239,4 +244,4 @@
 	});
 	</script>
 	</body>
-</html>
+</html>
