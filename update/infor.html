@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>社会实践管理系统</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/infor.css"/>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-2 col-md-2"></div>
+				<div class="col-xs-12 col-sm-8 col-md-8">
+					<div id="main">
+						<div id="nav">
+							<ul>
+								<li><a href="#">公告通知</a></li>
+								<li><a href="#">活动申报</a></li>
+								<li><a href="#">个人活动</a></li>
+								<li><a href="#">个人信息</a></li>
+							</ul>
+						</div>
+						<div id="left"></div>
+						<div id="right">
+							<div id="bubble">
+								<p>my information</p>
+							</div>
+							<div id="panel">
+								<div id="box">
+									<div class="line">										
+										<label for="username">学号：<p id="username">201324133234</p></label>
+										<label for="nation">民族：<p id="nation">汉族</p></label>
+										<label for="idnum">身份证：<p id="idnum">445366198305234452</p></label>
+										<label for="source">生源地：<p id="source">广东汕头</p></label>
+										<label for="longtell">长号：<span  id="longtell">18898832453</span><p class="vital">	*</p></label>
+										<label for="mail">邮箱：<span id="mail">345298342@qq.com</span><p class="vital"> *</p></label>
+										<label for="grade">年级：<p id="grade">2013</p></label>
+										<label for="subject">专业：<p id="subject">通信工程</p></label>
+										<label for="scsys">学制：<p id="scsys">4</p></label>
+									</div>
+									<div class="line">
+										<label for="stuname">姓名：<span  id="stuname">张三四</span><p class="vital">	*</p></label>
+										<label for="sex">性别：<p id="sex">男</p></label>
+										<label for="polistatus">政治面貌：<span  id="polistatus"> 团员</span></label>
+										<label for="stupassword">密码：<span id="stupassword">abcde123</span><p class="vital"> *</p></label>
+										<label for="shorttell">短号：<span  id="shorttell">669234</span></label>
+										<label for="institute">学院：<p id="institute">电子信息与通信工程学院</p></label>
+										<label for="class">班号：<p id="class">2013241332</p></label>
+										<label for="level">层次：<p id="level">本科</p></label>										
+									</div>
+								</div>
+									<p class="tip">温馨提示：填写<邮箱>以便管理员可以给你发送重要信息。</p>
+									<input type="button" id="alter" value="修改"/>
+									<input type="button" id="finish" value="完成"/>
+									<!--<input type="text" name="" id="" value="" />
+									<input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-2 col-md-2"></div>
+				
+			</div>
+		</div>
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		$(function(){
+			var $abtn = $("#alter");
+			var $finish = $("#finish");
+			var $al = $("span");
+			
+			$abtn.click(function(){
+				$(this).hide();
+				$finish.show();
+				$al.each(function(index,element){
+					var cnt = $(this).html();
+					$(this).html("<input type='text' id='"+$(this).attr("id")+"' class='revive' placeholder='"+cnt+"' value='"+cnt+"'/>");
+				});
+			});
+			
+			$finish.click(function(){
+				$(this).hide();
+				$abtn.show();
+				$al.each(function(index,element){
+					var cnt = $(this).find("input").val();
+					$(this).html(cnt);
+				});
+			});
+			
+		});
+		</script>
+	</body>
+</html>
