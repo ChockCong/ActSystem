@@ -1,7 +1,5 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-12 03:20:17
+<?php /* Smarty version 2.6.30, created on 2017-02-14 00:56:10
          compiled from register.html */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'register.html', 31, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -32,8 +30,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reg
 		</div>-->
 		<div id="main">
 			<div id="nav">
-			  <?php echo smarty_function_Menu(array(), $this);?>
-
 			</div>
 			<!--左边修饰图片-->
 			<div id="add">
@@ -48,7 +44,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reg
 				<div id="wrap">
 					<p id="ribbon">活动登记</p>
 				</div>
-				<form action="perac" class="pac" method="post">
+				<form action="Peractcontroller.php" class="pac" method="post">
 					<div class="form-group-sm">
 						<label for="acname">活动名称</label>
 						<input type="text" class="form-control" name="acname" id="acname" />
@@ -58,28 +54,29 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reg
 						<input type="text" class="form-control" name="acaddr" id="acaddr"  />
 					</div>					
 					<div class="form-group-sm">
-						<label>活动时间<p><input type="text" class="input" id="pickdate" />-<input type="text" class="input" id="pickdate2" /></p></label>						
+						<label>活动时间<p><input type="text" class="input" id="pickdate" name="pickdate"/>-<input type="text" class="input" id="pickdate2" name="pickdate2"/></p></label>						
 					</div>
 					<div class="form-group-sm">
-						<label>活动时长<p><input type="text" class="input" id="picktime" />-<input type="text" class="input" id="picktime2" /></label>
+						<label>活动时长<p><input type="text" class="input" id="picktime" name="picktime"/>-<input type="text" class="input" id="picktime2" name="picktime2"/></label>
 					</div>
 					<div class="form-group-sm">
 						<label>活动类型
-							<select class="input radius">
-								<option value="sc" selected="selected">社会实践</option>
+							<select class="input radius" name="actype">
+								<option value="sc" selected="selected" >社会实践</option>
 								<option value="vs">志愿服务</option>
 							</select>
 						</label>
 					</div>
 					<div class="form-group-sm">
 						<label id="actype">活动内容</label><br />
-						<textarea class="form-control" rows="5" cols="30"></textarea>
+						<textarea class="form-control" name="acdetail" rows="5" cols="30"></textarea>
 					</div>
 					<div id="btn-sub">
-						<input type="submit" value="登记"/>
+						<input type="submit" value="登记" name="submit"/>
 						<i class="glyphicon glyphicon-check"></i>
 					</div>
-					
+					 <input type="hidden" name="originator" value="<?php echo $_SESSION['code']; ?>
+">
 				</form>
 			</div>
 		</div>

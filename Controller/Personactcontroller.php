@@ -1,35 +1,39 @@
+
+
 <?php 
 require '../common/global.php';
+require_once 'client_cookie.php';
  class Peract{
-	var $time="";
-	var $actname="";
-	var $mark=0;
-	function __set($time,$actname,$mark){
-		
-		$this->time=$time;
-		$this->actname=$actname;
-		$this->mark=$actname;
-	}
-	function get(){
-		echo $this->actname;
-		//return $this;
-	}
+ 	public function Showperact($sid,$con=""){
+ 		$sh=new SqlHelper();
+ 		if(empty($con))
+ 			$hdsql="select * from studenthd where sid=$sid and xf!=0";
+ 		else
+ 			$hdsql="select * from studenthd where sid=$sid and xf=0";
+ 		$acts=$sh->execute_dql2 ($hdsql);
+ 		//$actrow=$sh->execute_dml ($hdsql);
+ 		return $acts;
+ 		//print_r($acts);
+ 	}
 	
 } 
-if(isset($_COOKIE['sid'])){
+if($_GET['myac_title']=="history"){
+	if(isset($_COOKIE['sid'])){
 	$sid=$_COOKIE['sid'];
-	$sh=new SqlHelper();
-	$peract=new Peract();
-	$hdsql="select * from studenthd where sid=$sid";
-	
-	$acts=$sh->execute_dql2 ($hdsql);
-	$actrow=$sh->execute_dml ($hdsql);
-	
-	echo $acts[0]['fwsj'].$acts[0]['shname'].$acts[0]['xf'];
-	for($i=0;$i<$actrow;$i++){
-		$peract->set($acts[i]['fwsj'],$acts[i]['shname'],$acts[i]['xf']);
-		$peract->get();
+	$peract=new Peract();	
+	$Acts=$peract->Showperact($sid);
+
+	$smarty->assign("acts",$Acts);
+	$smarty->display('myac.html');
 	}
-	echo $$peract->actname;
+}else{
+	if(isset($_COOKIE['sid'])){
+		$sid=$_COOKIE['sid'];
+		$peract=new Peract();
+		$Acts=$peract->Showperact($sid,1);
+	
+		$smarty->assign("acts",$Acts);
+	$smarty->display("result.html");
+	}
 }
 ?>

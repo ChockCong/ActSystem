@@ -31,10 +31,12 @@
 			var sources = function(){
 				var result = [];
 
-				for(var i = 1; i <= 20; i++){
-					
-					result.push("<ul class='acresult'><li>雷锋月电脑义务维修</li><li>2015.3.5</li><li>未审核</li></ul>");
-				}
+				//for(var i = 1; i <= 20; i++){
+				<{section name=akey loop=$acts}>
+					<{literal}>result.push("<ul class='acresult'><li><{/literal}><{$acts[akey].shname}><{literal}></li><li><{/literal}><{$acts[akey].kssj}><{literal}></li><li><{/literal}>未审核<{literal}></li></ul>");<{/literal}>
+				<{/section}>	
+					//result.push(/"<ul class='acresult'><li>雷锋月电脑义务维修</li><li>2015.3.5</li><li>未审核</li></ul>");
+				//}
 
 				return result;
 			}();
