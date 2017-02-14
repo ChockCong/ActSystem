@@ -28,7 +28,8 @@
 							</div>
 							<div id="panel">
 								<div id="box">
-									<div class="line">										
+									<div class="line">
+										<form action="" method="post">
 										<label for="username">学号：<p id="username">201324133234</p></label>
 										<label for="nation">民族：<p id="nation">汉族</p></label>
 										<label for="idnum">身份证：<p id="idnum">445366198305234452</p></label>
@@ -52,9 +53,9 @@
 								</div>
 									<p class="tip">温馨提示：填写<邮箱>以便管理员可以给你发送重要信息。</p>
 									<input type="button" id="alter" value="修改"/>
-									<input type="button" id="finish" value="完成"/>
-									<!--<input type="text" name="" id="" value="" />
-									<input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>-->
+									<input type="submit" id="finish" value="完成"/>
+									<input type="button" id="cancel" value="取消" />
+									</form>
 							</div>
 						</div>
 					</div>
@@ -68,19 +69,32 @@
 		$(function(){
 			var $abtn = $("#alter");
 			var $finish = $("#finish");
+			var $can = $("#cancel");
 			var $al = $("span");
-			
+			var cnc=[];
+			$al.each(function(index,element){
+				cnc[index] = 	$(this).html();
+			});
 			$abtn.click(function(){
 				$(this).hide();
 				$finish.show();
+				$can.show();
 				$al.each(function(index,element){
 					var cnt = $(this).html();
 					$(this).html("<input type='text' id='"+$(this).attr("id")+"' class='revive' placeholder='"+cnt+"' value='"+cnt+"'/>");
 				});
 			});
-			
+			$can.click(function(){
+				$(this).hide();
+				$finish.hide();
+				$abtn.show();
+				$al.each(function(index,element){
+					$(this).html(cnc[index]);
+				});
+			});
 			$finish.click(function(){
 				$(this).hide();
+				$can.hide();
 				$abtn.show();
 				$al.each(function(index,element){
 					var cnt = $(this).find("input").val();
