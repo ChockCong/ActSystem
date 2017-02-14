@@ -3,7 +3,7 @@ header("Content-type:text/html;charset=utf-8");
 error_reporting(0);
 include_once '../configs/configs.php';
 include_once '../smarty/Smarty.class.php';
-
+include_once '../smarty/Smarty.class.php';
 include_once 'SqlHelper.class.php';
 //include_once 'action.class.php';
 

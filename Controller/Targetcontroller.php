@@ -1,6 +1,6 @@
 <?php 
 require_once '../common/global.php';
-require_once 'client_cookie.php';
+
 if(!empty($_GET['declare_title'])){
 	switch($_GET['declare_title']){
 		case 1 : $smarty->display("register.html"); break;
