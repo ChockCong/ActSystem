@@ -9,7 +9,7 @@ require_once 'client_cookie.php';
  		if(empty($con))
  			$hdsql="select * from studenthd where sid=$sid and xf!=0";
  		else
- 			$hdsql="select * from studenthd where sid=$sid and xf=0";
+ 			$hdsql="select * from studenthd where sid=$sid and xf=0 and shnum!=0";
  		$acts=$sh->execute_dql2 ($hdsql);
  		//$actrow=$sh->execute_dml ($hdsql);
  		return $acts;

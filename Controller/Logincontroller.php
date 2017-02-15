@@ -12,7 +12,6 @@
    $user=$cf->str_confirm($_POST['username']);
    $pwd=$cf->str_confirm($_POST['password']);
    $tag=$_POST['status'];
-   $logoff="Indexcontroller.php";
    $ac=new action();
 
    

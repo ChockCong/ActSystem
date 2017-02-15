@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-14 00:56:10
+<?php /* Smarty version 2.6.30, created on 2017-02-15 03:56:58
          compiled from register.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +44,7 @@
 				<div id="wrap">
 					<p id="ribbon">活动登记</p>
 				</div>
-				<form action="Peractcontroller.php" class="pac" method="post">
+				<form action="Declarecontroller.php?declare_title=1" class="pac" method="post">
 					<div class="form-group-sm">
 						<label for="acname">活动名称</label>
 						<input type="text" class="form-control" name="acname" id="acname" />
