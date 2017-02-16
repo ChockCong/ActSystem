@@ -16,13 +16,14 @@ require_once 'client_cookie.php';
  		//print_r($acts);
  	}
 	
-} 
+} //活动信息model
+
+
 if($_GET['myac_title']=="history"){
 	if(isset($_COOKIE['sid'])){
 	$sid=$_COOKIE['sid'];
 	$peract=new Peract();	
-	$Acts=$peract->Showperact($sid);
-
+	$Acts=$peract->Showperact($sid);     //选择历史活动
 	$smarty->assign("acts",$Acts);
 	$smarty->display('myac.html');
 	}
@@ -30,10 +31,9 @@ if($_GET['myac_title']=="history"){
 	if(isset($_COOKIE['sid'])){
 		$sid=$_COOKIE['sid'];
 		$peract=new Peract();
-		$Acts=$peract->Showperact($sid,1);
-	
+		$Acts=$peract->Showperact($sid,1);    //选择报名结果
 		$smarty->assign("acts",$Acts);
-	$smarty->display("result.html");
+		$smarty->display("result.html");
 	}
 }
 ?>

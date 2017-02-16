@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-14 02:31:36
+<?php /* Smarty version 2.6.30, created on 2017-02-16 06:48:35
          compiled from myac.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'myac.html', 24, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'myac.html', 21, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,32 +14,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'mya
 		<link rel="stylesheet" type="text/css" href="../css/default.css"/>
 	</head>
 	<body>
-	<?php unset($this->_sections['akey']);
-$this->_sections['akey']['name'] = 'akey';
-$this->_sections['akey']['loop'] = is_array($_loop=$this->_tpl_vars['acts']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
-$this->_sections['akey']['show'] = true;
-$this->_sections['akey']['max'] = $this->_sections['akey']['loop'];
-$this->_sections['akey']['step'] = 1;
-$this->_sections['akey']['start'] = $this->_sections['akey']['step'] > 0 ? 0 : $this->_sections['akey']['loop']-1;
-if ($this->_sections['akey']['show']) {
-    $this->_sections['akey']['total'] = $this->_sections['akey']['loop'];
-    if ($this->_sections['akey']['total'] == 0)
-        $this->_sections['akey']['show'] = false;
-} else
-    $this->_sections['akey']['total'] = 0;
-if ($this->_sections['akey']['show']):
-
-            for ($this->_sections['akey']['index'] = $this->_sections['akey']['start'], $this->_sections['akey']['iteration'] = 1;
-                 $this->_sections['akey']['iteration'] <= $this->_sections['akey']['total'];
-                 $this->_sections['akey']['index'] += $this->_sections['akey']['step'], $this->_sections['akey']['iteration']++):
-$this->_sections['akey']['rownum'] = $this->_sections['akey']['iteration'];
-$this->_sections['akey']['index_prev'] = $this->_sections['akey']['index'] - $this->_sections['akey']['step'];
-$this->_sections['akey']['index_next'] = $this->_sections['akey']['index'] + $this->_sections['akey']['step'];
-$this->_sections['akey']['first']      = ($this->_sections['akey']['iteration'] == 1);
-$this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] == $this->_sections['akey']['total']);
-?>
-	
-	<?php endfor; endif; ?>
 		<div id="main">
 			<div id="head">
 				<div id="title">
@@ -128,7 +102,7 @@ $this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] 
 							<li>审批情况</li>
 						</ul>
 						<div class="acpage">
-						<iframe src="Targetcontroller.php?myac_title=1" id="result" width="100%" height="100%" frameborder="0" name="result"></iframe>
+						<iframe src="Personactcontroller.php?myac_title=end" id="result" width="100%" height="100%" frameborder="0" name="result"></iframe>
 						<!--<ul class="acresult">
 							<li>雷锋月电脑义务维修</li>
 							<li>2015.3.5</li>
@@ -164,6 +138,8 @@ $this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] 
 				</div>
 			</div>
 		</div>
+		
+
 		<!--活动详情弹出框-->
 	<div class="modal fade" id="acdetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -172,8 +148,8 @@ $this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] 
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">活动记录详情</h4>
 				</div>
-				<div class="modal-body">
-					<ul>
+				<div class="modal-body" id="modal-body">
+					<!-- <ul>
 						<li>活动名称：
 							<p><?php echo $this->_tpl_vars['acts'][0]['shname']; ?>
 </p>
@@ -191,7 +167,7 @@ $this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] 
 						<li>实践得分：
 							<p>0.3</p>
 						</li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 		</div>
@@ -200,6 +176,26 @@ $this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] 
 	<script src="../js/jquery-1.12.3.min.js"  type="text/javascript"></script>
 	<script src="../js/pagination.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	function showacd(id){
+        //$("#testAjax").click(function(){
+              
+              //Ajax调用处理
+            $.ajax({
+               type: "GET",
+               url: "Detailcontroller.php",
+               data: "hid="+id,
+               success: function(data){
+                        $("#modal-body").html("查询异常!");
+                  },
+               error: function(){
+            	        $("#modal-body").html("查询异常!");
+            	  }
+            });
+            
+         //});
+        }
+	</script>
 	<script type="text/javascript">
 		$(function(){
 			var $tab = $(".tab");
@@ -256,7 +252,9 @@ $this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] 
 <?php echo $this->_tpl_vars['acts'][$this->_sections['akey']['index']]['kssj']; ?>
 <?php echo '</li><li>'; ?>
 <?php echo $this->_tpl_vars['acts'][$this->_sections['akey']['index']]['xf']; ?>
-<?php echo '</li><li><i class=\'glyphicon glyphicon-menu-hamburger\' class=\'btnacdetail\' data-toggle=\'modal\' data-target=\'#acdetail\'></i></li></ul>");'; ?>
+<?php echo '</li><li><i class=\'glyphicon glyphicon-menu-hamburger\' class=\'btnacdetail\' data-toggle=\'modal\' data-target=\'#acdetail\' onclick=\'showacd('; ?>
+<?php echo $this->_tpl_vars['acts'][$this->_sections['akey']['index']]['shid']; ?>
+<?php echo ')\'></i></li></ul>");'; ?>
 
 				
 				<?php endfor; endif; ?>

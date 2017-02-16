@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-13 08:01:47
+<?php /* Smarty version 2.6.30, created on 2017-02-16 02:26:08
          compiled from declare.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'menu', 'declare.html', 15, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'declare.html', 15, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +16,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'menu', 'dec
 	<body>
 		<div id="all">			
 			<div id="nav">
-			<?php echo smarty_function_menu(array(), $this);?>
+			 <?php echo smarty_function_Menu(array(), $this);?>
 
 			</div>
 			<div class="menuHolder">
@@ -26,13 +26,12 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'menu', 'dec
 							<ul class="p2">
 								<li class="s2"><a href="Declarecontroller.php?declare_title=1" target="change"><span>登记</span></a></li>
 								<li class="s2"><a href="Declarecontroller.php?declare_title=2" target="change"><span>修改</span></a></li>
-								<li class="s2"><a href="Declarecontroller.php?declare_title=3"><span>审批</span></a></li>
+								<!--<li class="s2"><a href="reaccess.html"><span>审批</span></a></li>-->
 								</ul>
 							</li>
 						</ul>
 					</div>
 				</div>
-
 		<iframe src="Declarecontroller.php?declare_title=1" width="100%" height="100%" frameborder="0" name="change"></iframe>
 		</div>
 		<script src="../js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>

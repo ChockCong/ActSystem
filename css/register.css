@@ -3,7 +3,6 @@ body,html{
 	width: 100%;
 	font-family: "微软雅黑";
 }
-
 #main{
 	width: 100%;
 	height: 100%;
@@ -191,4 +190,226 @@ input[type="submit"]:hover + i{
 	left: 10px;
 	top: 11px;
 	font-size: 0.8em;
+}
+
+/*--------修改页面--------*/
+/*-----搜索栏------*/
+#search{
+	width: 36%;
+	height: 80px;
+	margin-top: 100px;
+	display: inline-block;
+	margin-left: 32%;
+	position: relative;
+}
+@keyframes flicker{
+	0%{
+		opacity: 1;
+	}
+	20%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 0.8;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+#search p{
+	float: right;
+	margin-top: 5px;
+	margin-right: 60px;
+	color: #555151;
+	animation-name: flicker;
+	animation-iteration-count: infinite;
+	-moz-animation-iteration-count:infinite;
+	-webkit-animation-iteration-count: infinite;
+	-ms-animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	animation-delay: 2s;
+	animation-duration: 3s;
+}
+#scon{
+	width: 90%;
+	height: 30px;
+	border-radius: 8px;
+	border: 1px solid #eee;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+#sbtn{
+	width: 50px;
+	height: 30px;
+	margin-left: -8px;
+	border: 1px solid #516886;
+	border-left: none;
+	background: #516886;
+	color: #fff;
+	letter-spacing: 2px;
+	font-family: "黑体";
+	text-align: center;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+	border-radius: 0 8px 8px 0;
+	position: absolute;
+	right: 4px;
+}
+/*------活动显示------*/
+#query{
+	width: 30%;
+	height: 65%;
+	margin-left: 12%;
+	position: relative;
+	border-right: 1px solid #fff;
+	box-sizing: border-box;
+	overflow: hidden;
+	float: left;
+	display: none;
+}
+#scroll{
+	width: 120%;
+	height: 80%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+#query li{
+	color: #47525d;
+	line-height: 2.5em;
+	font-size: 1.3em;
+	letter-spacing: 3px;
+	display: inline-block;
+	border-bottom: 2px dashed #dcdcdc;
+	width: 75%;
+	padding-left: 10%;
+	cursor: pointer;
+}
+#query p{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	color: #6c7378;
+}
+.more {
+	position: absolute;
+	right: 0;
+	bottom: 20px;
+	display: block;
+	width: 34px;
+	height: 34px;
+}
+.more b {
+	background: url(../img/tobottom2.png);
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	-webkit-animation: start 1.5s infinite ease-in-out;
+	animation: start 1.5s infinite ease-in-out;
+	background-size: cover;
+}
+/* 箭头 */
+@-webkit-keyframes start {
+	 0%, 30% {
+	opacity: 0.2;
+	-webkit-transform: translate(0, -5px);
+	}
+	 60% {
+	opacity: 1;
+	-webkit-transform: translate(0, 0);
+	}
+	 100% {
+	opacity: 0.2;
+	-webkit-transform: translate(0, 5px);
+	}
+}
+ @keyframes start {
+	0%,30% {
+	opacity: 0.2;
+	transform: translate(0, -5px);
+	}
+	 60% {
+	opacity: 1;
+	transform: translate(0, 0);
+	}
+	 100% {
+	opacity: 0.2;
+	transform: translate(0, 5px);
+	}
+}
+/*具体修改*/
+#acal{
+	width: 35%;
+	height: 65%;
+	float: left;
+	margin-left: 70px;
+	font-size: 1.3em;
+	line-height: 1.5em;
+	position: relative;
+	display: none;
+}
+#acal form{
+	margin-top: -5px;
+}
+#acal .form-group-sm{
+	margin-top: 10px;
+}
+#acal input[type="text"],#acal textarea,#acal select{
+	border-radius: 5px;
+	box-sizing: border-box;
+	box-shadow: 1px 2px 4px rgba(0,0,0,.3);
+	margin-right: 10px;
+	background: #fbfbfb;
+}
+#acal textarea{
+	width: 100%;
+}
+#acal label{
+	margin-right: 10px;
+	color: #516886;
+	text-shadow: 2px 2px 2px rgba(255,255,255,.6);
+}
+#acal select{
+	height: 30px;
+	padding: 1px;
+	width: 100px;
+	margin-left: 10px;
+	font-size: 0.9em;
+}
+#btn-sub2{
+	width: 150px;
+	height: 30px;
+	margin: 30px auto 0;
+}
+#btn-sub2 input[type="submit"]{
+	background: #FFFFFF;
+	width: 70px;
+	border: 1px solid #516886;
+	border-radius: 5px;
+	padding: 6px 0 6px 12px;
+	font-family: "微软雅黑";
+	cursor: pointer;
+	height: 30px;
+}
+#btn-sub2 input[type="button"]{
+	width: 70px;
+	height: 30px;
+	font-family: "微软雅黑";
+	padding: 6px 0 6px 12px;
+	border-radius: 5px;
+	border: 1px solid #516886;
+	background: #fff;
+}
+#btn-sub2 input[type="button"]:hover{
+	background-color: #516886;
+    color: #FFFFFF;
+}
+#btn-sub2 input[type="button"]:hover + i{
+	color:#FFFFFF;
+}
+.icon{
+	position: relative;
+	float: left;
+}
+#btn-sub2 div:first-of-type{
+	margin-right: 10px;
 }

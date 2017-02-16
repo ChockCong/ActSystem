@@ -10,9 +10,6 @@
 		<link rel="stylesheet" type="text/css" href="../css/default.css"/>
 	</head>
 	<body>
-	<{section name=akey loop=$acts}>
-	
-	<{/section}>
 		<div id="main">
 			<div id="head">
 				<div id="title">
@@ -100,7 +97,7 @@
 							<li>审批情况</li>
 						</ul>
 						<div class="acpage">
-						<iframe src="Targetcontroller.php?myac_title=1" id="result" width="100%" height="100%" frameborder="0" name="result"></iframe>
+						<iframe src="Personactcontroller.php?myac_title=end" id="result" width="100%" height="100%" frameborder="0" name="result"></iframe>
 						<!--<ul class="acresult">
 							<li>雷锋月电脑义务维修</li>
 							<li>2015.3.5</li>
@@ -136,6 +133,8 @@
 				</div>
 			</div>
 		</div>
+		
+
 		<!--活动详情弹出框-->
 	<div class="modal fade" id="acdetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -144,10 +143,10 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">活动记录详情</h4>
 				</div>
-				<div class="modal-body">
-					<ul>
+				<div class="modal-body" id="modal-body">
+					<!-- <ul>
 						<li>活动名称：
-							<p><{$acts[0].shname}></p>
+							<p>敬老服务</p>
 						</li>
 						<li>活动时间：
 							<p>2015.3.5-2015.3.6</p>
@@ -162,7 +161,7 @@
 						<li>实践得分：
 							<p>0.3</p>
 						</li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 		</div>
@@ -171,6 +170,26 @@
 	<script src="../js/jquery-1.12.3.min.js"  type="text/javascript"></script>
 	<script src="../js/pagination.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	function showacd(id){
+        //$("#testAjax").click(function(){
+              
+              //Ajax调用处理
+            $.ajax({
+               type: "GET",
+               url: "Detailcontroller.php",
+               data: "hid="+id,
+               success: function(data){
+                        $("#modal-body").html(data);
+                  },
+               error: function(){
+            	        $("#modal-body").html("查询异常!");
+            	  }
+            });
+            
+         //});
+        }
+	</script>
 	<script type="text/javascript">
 		$(function(){
 			var $tab = $(".tab");
@@ -198,7 +217,7 @@
 
 				//for(var i = 0; i <= 10; i++){
 				<{section name=akey loop=$acts}>
-					<{literal}>result.push("<ul class='acinfor'><li><{/literal}><{$acts[akey].shname}><{literal}></li><li><{/literal}><{$acts[akey].kssj}><{literal}></li><li><{/literal}><{$acts[akey].xf}><{literal}></li><li><i class='glyphicon glyphicon-menu-hamburger' class='btnacdetail' data-toggle='modal' data-target='#acdetail'></i></li></ul>");<{/literal}>
+					<{literal}>result.push("<ul class='acinfor'><li><{/literal}><{$acts[akey].shname}><{literal}></li><li><{/literal}><{$acts[akey].kssj}><{literal}></li><li><{/literal}><{$acts[akey].xf}><{literal}></li><li><i class='glyphicon glyphicon-menu-hamburger' class='btnacdetail' data-toggle='modal' data-target='#acdetail' onclick='showacd(<{/literal}><{$acts[akey].shid}><{literal}>)'></i></li></ul>");<{/literal}>
 				
 				<{/section}>
 				//}

@@ -11,21 +11,29 @@ class Permsg{
 		return $smsg;
 	}
 	function altmsg($sid){
+		$cf=new comfunc;
 		foreach($_POST as $val)
 			foreach($val as $key => $val2)
-				$arr[$key]=$val2;
-		$sq=new SqlHelper();
+				$arr[$key]=$cf->str_confirm($val2);
+		
+		if($cf->spamcheck($arr[1])){
 		if(!empty($arr[4])){
-			$arr[4]=md5($arr[4]);
 			$altsql="update student set sdh='$arr[0]',smail='$arr[1]',sname='$arr[2]',szjmm='$arr[3]',spassword='$arr[4]',sdh2='$arr[5]'"
 					." where sid=$sid";
 		}else 
 			$altsql="update student set sdh='$arr[0]',smail='$arr[1]',sname='$arr[2]',szjmm='$arr[3]',sdh2='$arr[5]'"
 			." where sid=$sid";
+		
+		$sq=new SqlHelper();
 		$smsg=$sq->execute_dml ($altsql);
 		return $smsg;
+		
+		}else{
+			echo "e-mail填写错误请返回!";
+		}
 	}
-}
+
+}  //个人信息model
 
 
 if($_GET['info']=="look"){

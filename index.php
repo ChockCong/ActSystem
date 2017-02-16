@@ -1,9 +1,7 @@
 <meta charset="utf8">
 <?php
 
-    require_once 'Smarty/smarty.class.php';
-    
-	header("Location: Controller/Indexcontroller.php");
+	header("Location: Controller/Indexcontroller.php");   //smarty入口
 	//$smarty->display("index.html");
 	
 

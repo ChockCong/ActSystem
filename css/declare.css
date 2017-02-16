@@ -21,6 +21,7 @@ li	a{
 	color: #FFFFFF;
 	font-family: "微软雅黑";
 	text-shadow: 1px 1px 1px rgba(0,0,0,3);
+	text-decoration: none;
 }
 a:hover{
 	color: #000000;
@@ -94,12 +95,13 @@ transform:rotate(60deg);
 .menuHolder li.s2:nth-of-type(1) > a:hover{
 	margin-top: -3px;
 }
-.menuHolder li.s2:nth-of-type(2) > a {background:#ccc;
--webkit-transform:rotate(30deg);
--moz-transform:rotateZ(30deg);
--ms-transform:rotate(30deg);
--o-transform:rotate(30deg);
-transform:rotate(30deg);
+.menuHolder li.s2:nth-of-type(2) > a {
+background:#ccc;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotateZ(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
 }
 .menuHolder li.s2:nth-of-type(2) > a:hover{
 	margin-top: -1px;
@@ -114,7 +116,7 @@ transform:rotate(0deg);
 }
 
 .menuHolder ul li:hover > a {background:#516886; color:#fff;}
-.menuHolder li.s2:hover > a {background:#7a9ebb; color:#fff;}
+.menuHolder li.s2:hover > a {background:#7197d4; color:#fff;}
 
 .menuWindow {width:110px; height:110px; overflow:hidden; position:absolute; left:0; top:0; z-index:100;
 -webkit-transition:0s 1s;
@@ -131,13 +133,13 @@ transition:0s 1s;
 transition:0s 0s;
 }
 .menuHolder span {display:block; 
--webkit-transform:rotate(5deg);
--moz-transform:rotateZ(5deg);
--ms-transform:rotate(5deg);
--o-transform:rotate(5deg);
-transform:rotate(5deg);
+-webkit-transform:rotate(25deg);
+-moz-transform:rotateZ(25deg);
+-ms-transform:rotate(25deg);
+-o-transform:rotate(25deg);
+transform:rotate(25deg);
 font-size: 1.1em;
-margin-top: 12px;
+margin-top: 25px;
 }
 .menuHolder ~ img.close {width:0; height:0; position:fixed; z-index:-1; left:0; top:0;}
 .menuHolder:hover ~ img.close {width:100%; height:100%;}

@@ -20,13 +20,18 @@ class comfunc{
 		echo "history.go(-1);";
 	    echo "</script>";
 	}
-	function menu(){
-		echo "	<ul>
-				<li><a href='UIcontroller.php?title=1'>公告通知</a></li>
-				<li><a href='UIcontroller.php?title=2'>活动申报</a></li>
-				<li><a href='UIcontroller.php?title=3'>个人活动</a></li>
-				<li><a href='UIcontroller.php?title=4'>个人信息</a></li>
-			   </ul>";
+	function spamcheck($field)
+	{
+		$field=filter_var($field, FILTER_SANITIZE_EMAIL);   //删除邮箱中非法字符
+	
+		if(filter_var($field, FILTER_VALIDATE_EMAIL))   //验证邮箱
+		{
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
 	}
 	
 	function protect(){

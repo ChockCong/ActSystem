@@ -18,7 +18,7 @@ class Act{
 				."(NULL, '$name', '', '$sid', '', '$date1', '$date1', '$time1', '$time2', '$addr', '$type', '$detail', '')";
 				//$sq->execute_dml ($addhdsql);
 	}
-}
+}  //活动信息申报model
 
 
 if($_GET['declare_title']=="declare"){
@@ -27,7 +27,7 @@ if($_GET['declare_title']=="declare"){
 	if(isset($_POST['submit'])&&isset($_COOKIE['sid'])){
 		$cf=new comfunc();
 		$act=new Act();
-		$act->subact();
+		$act->subact();                         //类方法subact提交活动
 		$cf->protect();
 	}else{
 		$code = mt_rand(0,1000000);            //避免重复提交的标记
@@ -35,7 +35,7 @@ if($_GET['declare_title']=="declare"){
 		$smarty->display("register.html");
 	}
 }else if($_GET['declare_title']==2){
-	$smarty->display("alter.html");
+	$smarty->display("acalter.html");
 }else{
 
 }
