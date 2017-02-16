@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-14 02:31:37
+<?php /* Smarty version 2.6.30, created on 2017-02-16 05:27:30
          compiled from result.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@
 		<script src="../js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/pagination.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(function(){
+	$(function(){
 
 		function createDemo(name){
 			var container = $('#pagination-' + name);
@@ -108,6 +108,7 @@ $this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] 
 		createDemo('demo1');
 
 	});
+
 		</script>
 	</body>
 </html>
