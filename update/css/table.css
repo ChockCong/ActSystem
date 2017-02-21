@@ -1,0 +1,141 @@
+/*table*/
+.site-table tbody tr td {text-align: center;}
+.site-table tbody tr td .layui-btn+.layui-btn{margin-left: 0px;}
+.admin-table-page {position: fixed;z-index: 19940201;bottom: 0;width: 100%;background-color: #eee;border-bottom: 1px solid #ddd;left: 0px;}
+.admin-table-page .page{padding-left:20px;}
+.admin-table-page .page .layui-laypage {margin: 6px 0 0 0;}
+.table-hover tbody tr:hover{ background-color: #EEEEEE; }
+/*--活动审核--*/
+.btntime{
+	color: #fff;
+	background: #516886;
+	border: 1px solid #516886;
+	padding: 3px;
+	border-radius: 10px;
+	float: right;
+	margin: 0 20px 10px 0;
+	font-size: 0.9em;
+	cursor: pointer;
+}
+.btntime:hover{
+	color: #516886;
+	background: #FFFFFF;
+}
+.btntime:active{
+	color: lightcoral;
+	background: #FFFFFF;
+	font-weight: 700;
+}
+/*--学生查询--*/
+.line{
+	display: inline-block;
+	width: 41%;
+	line-height: 2em;
+}
+.blockleft div:first-of-type{
+	margin-left: 12%;
+}
+.sdblock{
+	top: 50%;
+	margin-top: -175px;
+}
+tr th{
+	text-align: center;
+}
+/*--表格共有--*/
+label{
+	font-weight: 500;
+	display: block;
+}
+p{
+	display: inline;
+}
+.passb2{
+	line-height: 2em;
+	padding: 20px 30px;
+}
+/*评分弹窗*/
+#scoring{
+	display: none;
+	width: 260px;
+	height: 180px;
+	background: #393d49;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -150px;
+	margin-top: -100px;
+	z-index: 10;
+	box-shadow: 0px 0px 20px rgba(255,255,255,.8) inset;
+	border-radius: 5px;
+}
+#scoring:target{
+	display: block;
+}
+
+.stitle{
+	color: #ffffff;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 20px;
+}
+.ss{
+	width: 100px;
+    height: 30px;
+    border: 2px solid #fffe80;
+    border-radius: 5px;
+    margin-left: 80px;
+}
+#surescore{
+	width: 50px;
+	padding: 5px;
+	border: 1px solid #FFFFFF;
+	border-radius: 5px;
+	background: #393d49;
+	color: #FFFFFF;
+	font-size: 0.9em;
+	margin-left: 105px;
+	margin-top: 20px;
+}
+#surescore:hover{
+	background: #FFFFFF;
+	color: #393D49;	
+}
+/*人员名单弹窗*/
+#list{
+	display: none;
+	width: 60%;
+    min-height: 300px;
+    background: rgb(255, 254, 254);
+    position: fixed;
+    left: 50%;
+    top: 200px;
+    margin-left: -30%;
+    z-index: 10;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+}
+#list:target{
+	display: block;
+}
+#list button{
+	border: none;
+    background: transparent;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 1.5em;
+}
+#list label{
+	text-align: center;
+	font-weight: 600;
+	color: #31708F;
+	font-size: 1.5em;
+}
+#list th{
+	background: #516886;
+	color: #FFFFFF;
+}
+#list i{
+	cursor: pointer;
+}

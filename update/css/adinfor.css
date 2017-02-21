@@ -1,0 +1,43 @@
+#insti{
+	width: 150px;
+	text-align: left;
+	line-height: 2.6em;
+}
+#institute{
+	padding: 5px;
+}
+.inline{
+	display: inline;
+}
+.left{
+	text-align: left;
+}
+.center{
+	margin-top: 30px;
+	margin-left: 150px;
+}
+.layui-btn{
+	display: block;
+}
+#finish,#cancel{
+	display: none;
+}
+input[type="button"],input[type="submit"]{
+	height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #516886;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: .9;
+}
+input[type="button"]:hover,input[type="submit"]:hover{
+	opacity: .8;
+}
+.layui-elem-field legend{
+	margin-bottom: 20px;
+}
