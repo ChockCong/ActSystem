@@ -1,8 +1,8 @@
 
-
 <?php 
 require '../common/global.php';
 require_once 'client_cookie.php';
+
  class Peract{
  	public function Showperact($sid,$con=""){
  		$sh=new SqlHelper();

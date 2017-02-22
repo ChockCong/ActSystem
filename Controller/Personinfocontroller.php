@@ -1,10 +1,10 @@
 <?php 
 require_once '../common/global.php';
+require_once  '../common/comfunc.class.php';
 require_once 'client_cookie.php';
-require_once '../common/comfunc.class.php';
 
 class Permsg{
-	public function showmsg($sid){
+	function showmsg($sid){
 		$sq=new SqlHelper();
 		$msgsql="select * from student where sid=$sid";
 		$smsg=$sq->execute_dql ($msgsql);
@@ -15,7 +15,7 @@ class Permsg{
 		foreach($_POST as $val)
 			foreach($val as $key => $val2)
 				$arr[$key]=$cf->str_confirm($val2);
-		
+		$arr[4]=md5($arr[4]);
 		if($cf->spamcheck($arr[1])){
 		if(!empty($arr[4])){
 			$altsql="update student set sdh='$arr[0]',smail='$arr[1]',sname='$arr[2]',szjmm='$arr[3]',spassword='$arr[4]',sdh2='$arr[5]'"

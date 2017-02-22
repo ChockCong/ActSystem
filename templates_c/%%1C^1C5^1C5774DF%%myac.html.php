@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-16 06:48:35
+<?php /* Smarty version 2.6.30, created on 2017-02-22 07:13:50
          compiled from myac.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'myac.html', 21, false),)), $this); ?>
@@ -151,8 +151,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'mya
 				<div class="modal-body" id="modal-body">
 					<!-- <ul>
 						<li>活动名称：
-							<p><?php echo $this->_tpl_vars['acts'][0]['shname']; ?>
-</p>
+							<p>敬老服务</p>
 						</li>
 						<li>活动时间：
 							<p>2015.3.5-2015.3.6</p>
@@ -177,20 +176,27 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'mya
 	<script src="../js/pagination.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-	function showacd(id){
+	function showacd(hid){
         //$("#testAjax").click(function(){
               
               //Ajax调用处理
             $.ajax({
                type: "GET",
                url: "Detailcontroller.php",
-               data: "hid="+id,
-               success: function(data){
-                        $("#modal-body").html("查询异常!");
+               data: "shid="+hid,
+               success: function(data){  
+                        $("#modal-body").html(data);
                   },
                error: function(){
             	        $("#modal-body").html("查询异常!");
-            	  }
+            	  },
+               beforeSend:function(){
+            	        $("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
+            	  },
+               complete:function(){
+            	        
+            	        $("#modal-body").html(data);
+                  }
             });
             
          //});

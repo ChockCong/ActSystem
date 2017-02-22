@@ -21,10 +21,10 @@
    		$rownum=$sh->execute_dml ($adminsql);                    //表示是否匹配到数据是1否0
    		
    		if($rownum && md5($pwd)==$rs['spassword']){                //判断身份
-   			setcookie("sid", $rs['sid'], time()+360);               //客户cookies
+   			setcookie("sid", $rs['sid'], time()+600);               //客户cookies
    			setcookie("tag", $tag, time()+600);
    			setcookie("student", $rs['sname'], time()+600);
-   			//$smarty->assign("student",$rs['sname']);
+   			$smarty->assign("student",$rs['sname']);
    			$ac->get_show_msg("UIcontroller.php");
    			//header("Location:UIcontroller.php");
    			//$smarty->display("index.html");

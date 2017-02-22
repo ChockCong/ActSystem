@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-16 02:34:22
+<?php /* Smarty version 2.6.30, created on 2017-02-22 06:53:55
          compiled from acalter.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -14,67 +14,55 @@
 	<body>
 		<div id="main">
 			<div id="search">
-				<input type="text" id="scon" value="" placeholder="请输入活动名称"/>
-				<input type="button" id="sbtn" value="搜索" />
+			<form method="post" action="?declare_title=2">
+				<input type="text" id="scon" value="" placeholder="请输入活动名称" name="text"/>
+				<input type="submit" id="sbtn" value="搜索" />
 				<p>查看全部请直接点击搜索</p>
+				</form>
 			</div>
 			<div id="query">
 				<div id="scroll">
 				<ul>
-					<li>雷锋月电脑义务维修</li>
-					<li>开学迎接新生</li>
-					<li>暑期“三下乡”社会实践</li>
-					<li>南国中英文小学朝阳行动</li>
-					<li>社区环保行动</li>
-					<li>“美丽肇庆”城市清洁</li>
-					<li>川仪小学义教</li>
-					<li>雷锋月电脑义务维修</li>
-					<li>开学迎接新生</li>
-					<li>暑期“三下乡”社会实践</li>
-					<li>南国中英文小学朝阳行动</li>
-					<li>社区环保行动</li>
-					<li>“美丽肇庆”城市清洁</li>
-					<li>川仪小学义教</li>
-					<li>雷锋月电脑义务维修</li>
-					<li>开学迎接新生</li>
-					<li>暑期“三下乡”社会实践</li>
-					<li>南国中英文小学朝阳行动</li>
-					<li>社区环保行动</li>
-					<li>“美丽肇庆”城市清洁</li>
-					<li>川仪小学义教</li>
+				 <?php $_from = $this->_tpl_vars['Acts']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['acts']):
+?>
+					<li onclick="showact(<?php echo $this->_tpl_vars['acts']['shid']; ?>
+)"><?php echo $this->_tpl_vars['acts']['shname']; ?>
+</li>
+				 <?php endforeach; endif; unset($_from); ?>
 				</ul>
 				</div>
 				<span class="more"><b></b></span>
 				<p>tips:向下滚动显示更多</p>
 			</div>
 			<div id="acal">
-				<form action="perac" class="pac" method="post">
+				<form action="?declare_title=2" class="pac" method="post" id="pac">
 					<div class="form-group-sm">
-						<label for="acname">活动名称</label>
-						<input type="text" class="form-control" name="acname" id="acname" value="三下乡社会实践活动"/>
+						<label for="acname">活动名称</label>			
+						<input type="text" class="form-control" name="acname" id="acname" value=""/>
+						<input name="actid" id="actid" type="text" hidden/>
 					</div>
 					<div class="form-group-sm">
 						<label for="acaddr">活动地点</label>	
-						<input type="text" class="form-control" name="acaddr" id="acaddr" value="绿春县大兴镇" />
+						<input type="text" class="form-control" name="acaddr" id="acaddr" value="" />
 					</div>					
 					<div class="form-group-sm">
-						<label>活动时间<p><input type="text" class="input" id="pickdate" name="pickdate" value="2017.7.3"/>-<input type="text" class="input" id="pickdate2" name="pickdate2" value="2017.7.10"/></p></label>						
+						<label>活动时间<p><input type="text" class="input" id="pickdate" name="pickdate" value=""/>-<input type="text" class="input" id="pickdate2" name="pickdate2" value=""/></p></label>						
 					</div>
 					<div class="form-group-sm">
-						<label>活动时长<p><input type="text" class="input" id="picktime" name="picktime" value="9:00"/>-<input type="text" class="input" id="picktime2" name="picktime2" value="17:00"/></label>
+						<label>活动时长<p><input type="text" class="input" id="picktime" name="picktime" value=""/>-<input type="text" class="input" id="picktime2" name="picktime2" value=""/></label>
 					</div>
 					<div class="form-group-sm">
 						<label>活动类型
-							<select class="input radius" name="actype">
+							<select class="input radius" name="astype" id="astype">
 								<option value="sc" selected="selected">社会实践</option>
-								<option value="vs">志愿服务</option>
+								<option value="vs" >志愿服务</option>
 							</select>
 						</label>
 					</div>
 					<div class="form-group-sm">
-						<label id="actype">活动内容</label><br />
-						<textarea class="form-control" rows="5" cols="30" name="actype" id="actype">图书馆建设：具体根据前期调研情况，选择绿春县一乡村学校援建图书室。走访环节：走访绿春县大兴镇牛洪村及大寨村贫困生家庭，配送物资并填写调查问卷。总结交流会：和中学生展开面对面交流会。牵手帮扶计划：采取一对三帮扶，一名志愿者帮扶三名绿春学子，互留联系方式，长期联系。采访教师：组织采访三名在校代课老师
-						</textarea>
+						<label>活动内容</label><br />
+						<textarea class="form-control" rows="5" cols="30" name="actype" id="actype"></textarea>
 					</div>
 					<div id="btn-sub2">
 						<div class="icon">
@@ -82,30 +70,34 @@
 						<i class=" glyphicon glyphicon-saved"></i>							
 						</div>
 						<div class="icon">							
-						<input type="button" id="acdele" name="acdele" value="删除" />
+						<input type="submit" id="acdele" name="acdele" value="删除" />
 						<i class="glyphicon glyphicon-trash"></i>
 						</div>
 					</div>
-					
+				</form>
 			</div>
 		</div>
 		<script src="../js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/timedropper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/datedropper.min.js" type="text/javascript" charset="utf-8"></script>
+
 		<script>
 			//点击显示
 			$(function(){
-				var $sea = $("#sbtn");
-				var $que = $("#query");
-				var $ch = $("#acal");
-				var $li = $("li");
-				($sea).click(function(){
-					$que.show();
-				});
-				($li).click(function(){
-					$ch.show();
-				});
+				//var $sea = $("#sbtn");
+				//var $que = $("#query");
+				//var $ch = $("#acal");
+				//var $li = $("li");
+				//($sea).click(function(){
+					//$que.show();
+				//});
+				//($li).click(function(){
+					//$ch.show();
+					
+				//});
+				
 			})
+
 			//时间控制器
 		$("#pickdate").dateDropper({
 			animate: false,
@@ -125,6 +117,41 @@
 			meridians: false,
 			format: 'HH:mm',
 		});
+		</script>
+		<script>
+		function showact(hid){
+            $.ajax({
+	               type: "get",
+	               url: "Detailcontroller.php",
+	               dataType: 'json',
+	               data: "chid="+hid,
+	               complete: function(){ $("#acal").show(); },
+	               success: function(response){
+	            	   //var dataObj = eval("("+response+")");//就当是json语法，只能死记硬背了
+	            	   $.each(response,function(idx,item){   
+	            	    //输出  
+	            	    $("#actid").val(item.shid);
+	            	    $("#acname").val(item.shname);
+	            	    $("#acaddr").val(item.fwdw);
+	            	    $("#pickdate").val(item.kssj);$("#pickdate2").val(item.jssj);
+	            	    $("#picktime").val(item.time1);$("#picktime2").val(item.time2);
+	            	    if(item.fwlx=="vs"){
+	            	    	$("#astype").get(0).selectedIndex=1;   	    	
+	            	    }else
+	            	    	$("#astype").get(0).selectedIndex=0; 
+	            	    
+	            	    $("#actype").text(item.nr);
+	            		   
+	            	   }) 
+	                  },
+	               error: function(data){
+	            	        $("#acal").html("查询异常!");
+	            	  },
+//		           beforeSend: function(){
+//	            	        $("#acal").html("<h2>正在获取数据...</h2>");
+//	            	  },
+	            });
+	 }
 		</script>
 	</body>
 </html>

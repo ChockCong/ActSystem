@@ -2,6 +2,6 @@
 require_once '../common/global.php';
 
 
-header("Location:UIcontroller.php");
+$smarty->display("index.html");
 
 ?>

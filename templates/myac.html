@@ -171,20 +171,27 @@
 	<script src="../js/pagination.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-	function showacd(id){
+	function showacd(hid){
         //$("#testAjax").click(function(){
               
               //Ajax调用处理
             $.ajax({
                type: "GET",
                url: "Detailcontroller.php",
-               data: "hid="+id,
-               success: function(data){
+               data: "shid="+hid,
+               success: function(data){  
                         $("#modal-body").html(data);
                   },
                error: function(){
             	        $("#modal-body").html("查询异常!");
-            	  }
+            	  },
+               beforeSend:function(){
+            	        $("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
+            	  },
+               complete:function(){
+            	        
+            	        $("#modal-body").html(data);
+                  }
             });
             
          //});

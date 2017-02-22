@@ -37,16 +37,16 @@ class comfunc{
 	function protect(){
 		if(isset($_POST['originator'])) {
 			if($_POST['originator'] == $_SESSION['code']){
-				unset($_SESSION["code"]);               //将其清除掉此时再按F5则无效
+				unset($_SESSION['code']);               //将其清除掉此时再按F5则无效
 				echo "<script type='text/javascript'>";
 				echo "alert('操作成功!');";
-				echo "history.go(-1);";
+				echo "location.href='Declarecontroller.php?declare_title=2';";
 				echo "</script>";
 				//header("Location:Declarecontroller.php?declare_title=1");
 			}else{
 				echo "<script type='text/javascript'>";
 				echo "confirm('请不要刷新本页面或重复提交表单');";
-				echo "location.href='Personinfocontroller.php?info=look';";
+				echo "location.href='Declarecontroller.php?declare_title=2';";
 				echo "</script>";
 			}
 		}
