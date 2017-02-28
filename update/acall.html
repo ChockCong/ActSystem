@@ -21,7 +21,7 @@
 					<div class="layui-form-item">
 						<div class="layui-inline">						
 							<label class="layui-form-label">状态</label>
-							<div class="layui-input-block">
+							<div class="layui-input-block" style="float: left;margin-left: 0;">
 								<select name="grade">
 									<option value="1"selected="">全部</option>
 									<option value="2">已完成</option>
@@ -29,6 +29,8 @@
 									<option value="4">已发布</option>
 								</select>
 							</div>
+							<input type="button" id="sure" class="layui-btn" style="margin-left: 20px;" value="删除" />
+								<!--<button class="layui-btn" lay-submit="" >删除</button>-->
 						</div>
 
 						<!--<div class="layui-input-inline">
@@ -40,13 +42,12 @@
 			<!--查询结果区域-->
 			<fieldset class="layui-elem-field">
 				<legend>查询结果</legend>
-					<button class="layui-btn" lay-submit="" style="margin-left: 50px;">删除</button>
-				<!--<button ng-click="col='username';desc=!desc" type="button" class="btntime">按年级</button>-->
+				<button ng-click="col='time';desc=!desc" type="button" class="btntime">按时间</button>
 				<div class="layui-field-box">
 					<table class="site-table table-hover">
 						<thead>
 							<tr>
-								<th style="width: 15%;"><input type="checkbox" id="selected-all"> 全选</th>
+								<th style="width: 15%;"><input type="checkbox" id="selected-all" ng-model="ischeckAll" ng-click="selectAll(datas)"> 全选</th>
 								<th style="width: 20%;">活动名称</th>
 								<th style="width: 15%;">参与人数</th>
 								<th style="width: 20%;">活动时间</th>
@@ -56,13 +57,13 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="x in stus | orderBy:col:desc">
-								<td><input type="checkbox"></td>
+								<td><input type="checkbox" ng-model="x.ck"></td>
 								<td><a href="#"  data-toggle="modal" data-target="#sdblock">{{x.acname}}</a></td>
 								<td>{{x.count}}</td>
 								<td>{{x.time}}</td>
 								<td>{{x.state}}</td>
 								<td>
-									<a href="#list" class="layui-btn layui-btn-small layui-btn-radius"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i class="fa fa-angle-double-right"  style="font-size: 1.2em;"></i></a>
 								</td>
 							</tr>					
 							
@@ -131,16 +132,27 @@
 		<script src="tjs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="plugins/layui/layui.js"></script>
 		<script type="text/javascript">
+			$(function(){
+				$cl = $("#close");
+				$li = $("#list");
+				$tl = $(".tolist");
+				($tl).click(function(){
+					($li).show();
+				});
+				($cl).click(function(){
+					($li).hide();
+				});
+			});
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
 			  $scope.stus = [
-				{acname:"三下乡社会实践活动",count:"20",time:"2012/7/16 15:45",state:"已完成"},
-				{acname:"南国中英文小学义教",count:"50",time:"2014/10/3 16:00",state:"已完成"},
-				{acname:"社区环保活动",count:"30",time:"2015/5/3 14:30",state:"未完成"},
-				{acname:"朝阳行动",count:"80",time:"2014/5/3 16:30",state:"未完成"},
-				{acname:"雷锋月爱心义卖",count:"20",time:"2014/4/10 9:00",state:"已完成"},
-				{acname:"电脑义务维修",count:"30",time:"2015/11/20 14:00",state:"已发布"},
-				{acname:"迎接新生",count:"150",time:"2015/9/1 10:00",state:"已发布"},
+				{ck: false,acname:"三下乡社会实践活动",count:"20",time:"2012/7/16 15:45",state:"已完成"},
+				{ck: false,acname:"南国中英文小学义教",count:"50",time:"2014/10/3 16:00",state:"已完成"},
+				{ck: false,acname:"社区环保活动",count:"30",time:"2015/5/3 14:30",state:"未完成"},
+				{ck: false,acname:"朝阳行动",count:"80",time:"2014/5/3 16:30",state:"未完成"},
+				{ck: false,acname:"雷锋月爱心义卖",count:"20",time:"2014/4/10 9:00",state:"已完成"},
+				{ck: false,acname:"电脑义务维修",count:"30",time:"2015/11/20 14:00",state:"已发布"},
+				{ck: false,acname:"迎接新生",count:"150",time:"2015/9/1 10:00",state:"已发布"},
 			  ]
 			$scope.slist = [
 				{username:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
@@ -151,12 +163,25 @@
 				{username:"201513152217",stuname:"李旭花",classname:"室内设计",longtell:"18327163823"},
 				{username:"201622162333",stuname:"张佳佳",classname:"人力资源与管理",longtell:"18869937264"},
 				{username:"201431143328",stuname:"邵凤星",classname:"会计",longtell:"13547736289"},
-			]
+			];
+				$scope.ischeckAll = false;
+				$scope.selectAll = function(stus) {
+					if($scope.ischeckAll) {
+						for(var i = 0; i < $scope.stus.length; i++) {
+							$scope.stus[i].ck = true;
+						}
+					} else {
+						for(var i = 0; i < $scope.stus.length; i++) {
+							$scope.stus[i].ck = false;
+						}
+					}
+				};
 			});
 			layui.use(['form', 'laydate'], function() {
 				var form = layui.form(),
 					laydate = layui.laydate;
 			});
+			
 		</script>
 	</body>
 

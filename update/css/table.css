@@ -8,16 +8,15 @@
 /*--活动审核--*/
 .btntime{
 	color: #fff;
-	background: #516886;
-	border: 1px solid #516886;
-	padding: 3px;
-	border-radius: 10px;
-	float: right;
-	margin: 0 20px 10px 0;
-	font-size: 0.9em;
-	cursor: pointer;
+    background: #516886;
+    border: 1px solid #516886;
+    padding: 5px;
+    border-radius: 8px;
+    float: right;
+    margin: 0 20px 10px 10px;
+    cursor: pointer;
 }
-.btntime:hover{
+.btntime:hover,.dele:hover{
 	color: #516886;
 	background: #FFFFFF;
 }
@@ -25,6 +24,15 @@
 	color: lightcoral;
 	background: #FFFFFF;
 	font-weight: 700;
+}
+.dele{
+	background: #516886;
+    color: #fff;
+    padding: 5px;
+    border: 1px solid #516886;
+    margin: 0 0 10px 80px;
+    border-radius: 8px;
+    float: left;
 }
 /*--学生查询--*/
 .line{
