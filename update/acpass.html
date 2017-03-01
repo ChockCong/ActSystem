@@ -35,12 +35,14 @@
 			
 			<fieldset class="layui-elem-field">
 				<legend>待审核活动</legend>
+				<button class="dele">通过</button>
+				<button class="dele" style="margin-left: 15px;">不通过</button>
 				<button ng-click="col='time';desc=!desc" type="button" class="btntime">时间</button>
 				<div class="layui-field-box">
 					<table class="site-table table-hover">
 						<thead>
 							<tr>
-								<th style="width: 15%;"><input type="checkbox" id="selected-all"> 全选</th>
+								<th style="width: 15%;"><input type="checkbox" id="selected-all" ng-model="ischeckAll" ng-click="selectAll(datas)"> 全选</th>
 								<th style="width: 25%;">活动名称</th>
 								<th style="width: 15%;">参与着</th>
 								<th style="width: 25%;">活动时间</th>
@@ -49,7 +51,7 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="x in records | orderBy:col:desc">
-								<td><input type="checkbox"></td>
+								<td><input type="checkbox" ng-model="x.ck"></td>
 								<td>
 									<a href="#" data-toggle="modal" data-target="#acblock">{{x.a}}</a>
 								</td>
@@ -75,7 +77,7 @@
 		
 				<!--评分框-->
 		<div  id="scoring">
-			<form action="">
+			<form action="acpass.html">
 				<label class="stitle">评分</label>
 				<select class="ss" name="score">
 					<option value="1">0.2</option>
@@ -119,14 +121,26 @@
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
 			  $scope.records = [
-				{a:"三下乡社会实践活动",b:"张黑黑",time:"2012/7/16 15:45"},
-				{a:"南国中英文小学义教",b:"李媚媚",time:"2014/10/3 16:00"},
-			    {a:"社区环保活动",b:"林采欣",time:"2015/5/3 14:30"},
-			    {a:"朝阳行动",b:"李倩",time:"2014/5/3 16:30"},
-			    {a:"雷锋月爱心义卖",b:"徐宏城",time:"2014/4/10 9:00"},
-			    {a:"电脑义务维修",b:"齐静怡",time:"2015/11/20 14:00"},
-			    {a:"迎接新生",b:"宋立强",time:"2015/9/1 10:00"},
-			  ]
+				{ck: false,a:"三下乡社会实践活动",b:"张黑黑",time:"2012/7/16 15:45"},
+				{ck: false,a:"南国中英文小学义教",b:"李媚媚",time:"2014/10/3 16:00"},
+			    {ck: false,a:"社区环保活动",b:"林采欣",time:"2015/5/3 14:30"},
+			    {ck: false,a:"朝阳行动",b:"李倩",time:"2014/5/3 16:30"},
+			    {ck: false,a:"雷锋月爱心义卖",b:"徐宏城",time:"2014/4/10 9:00"},
+			    {ck: false,a:"电脑义务维修",b:"齐静怡",time:"2015/11/20 14:00"},
+			    {ck: false,a:"迎接新生",b:"宋立强",time:"2015/9/1 10:00"},
+			  ];
+			$scope.ischeckAll = false;
+				$scope.selectAll = function(records) {
+					if($scope.ischeckAll) {
+						for(var i = 0; i < $scope.records.length; i++) {
+							$scope.records[i].ck = true;
+						}
+					} else {
+						for(var i = 0; i < $scope.records.length; i++) {
+							$scope.records[i].ck = false;
+						}
+					}
+				};			  
 			});
 
 //			layui.config({

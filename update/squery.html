@@ -63,7 +63,7 @@
 					<table class="site-table table-hover">
 						<thead>
 							<tr>
-								<th style="width: 15%;"><input type="checkbox" id="selected-all"> 全选</th>
+								<th style="width: 15%;"><input type="checkbox" id="selected-all" ng-model="ischeckAll" ng-click="selectAll(datas)"> 全选</th>
 								<th style="width: 20%;">学号</th>
 								<th style="width: 15%;">姓名</th>
 								<th style="width: 20%;">班级</th>
@@ -73,13 +73,13 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="x in stus | orderBy:col:desc">
-								<td><input type="checkbox"></td>
+								<td><input type="checkbox" ng-model="x.ck"></td>
 								<td>{{x.username}}</td>
 								<td>{{x.stuname}}</td>
 								<td>{{x.classname}}</td>
 								<td>{{x.longtell}}</td>
 								<td>
-									<a href="#" class="layui-btn layui-btn-small layui-btn-radius" data-toggle="modal" data-target="#sdblock">	<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+									<i class="fa fa-angle-double-right" aria-hidden="true" data-toggle="modal" data-target="#sdblock" style="cursor: pointer;font-size: 1.2em;"></i>
 								</td>
 							</tr>					
 							
@@ -125,6 +125,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
 		
 		
@@ -136,15 +137,27 @@
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
 			  $scope.stus = [
-				{username:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
-				{username:"201424143242",stuname:"李白",classname:"通信工程",longtell:"18898883718"},
-				{username:"201614161156",stuname:"季建伟",classname:"生物科学",longtell:"13684732947"},
-				{username:"201525154362",stuname:"陈海生",classname:"食品与安全",longtell:"15837261930"},
-				{username:"201342133104",stuname:"梁宝健",classname:"音乐表演",longtell:"13872639471"},
-				{username:"201513152217",stuname:"李旭花",classname:"室内设计",longtell:"18327163823"},
-				{username:"201622162333",stuname:"张佳佳",classname:"人力资源与管理",longtell:"18869937264"},
-				{username:"201431143328",stuname:"邵凤星",classname:"会计",longtell:"13547736289"},
-			  ]
+				{ck: false,username:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
+				{ck: false,username:"201424143242",stuname:"李白",classname:"通信工程",longtell:"18898883718"},
+				{ck: false,username:"201614161156",stuname:"季建伟",classname:"生物科学",longtell:"13684732947"},
+				{ck: false,username:"201525154362",stuname:"陈海生",classname:"食品与安全",longtell:"15837261930"},
+				{ck: false,username:"201342133104",stuname:"梁宝健",classname:"音乐表演",longtell:"13872639471"},
+				{ck: false,username:"201513152217",stuname:"李旭花",classname:"室内设计",longtell:"18327163823"},
+				{ck: false,username:"201622162333",stuname:"张佳佳",classname:"人力资源与管理",longtell:"18869937264"},
+				{ck: false,username:"201431143328",stuname:"邵凤星",classname:"会计",longtell:"13547736289"},
+			  ];
+			  $scope.ischeckAll = false;
+				$scope.selectAll = function(stus) {
+					if($scope.ischeckAll) {
+						for(var i = 0; i < $scope.stus.length; i++) {
+							$scope.stus[i].ck = true;
+						}
+					} else {
+						for(var i = 0; i < $scope.stus.length; i++) {
+							$scope.stus[i].ck = false;
+						}
+					}
+				};
 			});
 			
 			layui.use(['form', 'laydate'], function() {
