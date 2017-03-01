@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-02-13 05:52:23
+<?php /* Smarty version 2.6.30, created on 2017-03-01 01:53:01
          compiled from login.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +35,7 @@
 			//获取登陆框的宽和高
 			var oLogin = document.createElement("div");
 			oLogin.id = "login"
-			oLogin.innerHTML ="<div class= 'loginCon'><div id='close'><i class='glyphicon glyphicon-remove'></i></div><div id='login_center' ><div id='login-top' class='twoline'><div class='line-1'></div><div class='line-2'></div></div><span><h1>SIGN IN</h1></span><form action='Logincontroller.php' method='post'  class='from-group-sm'><i class='glyphicon glyphicon-user icon' id='user-icon'></i><input type='text'  name='username' id='username' class='form-control' placeholder='用户名'/><br /><br /><i class='glyphicon glyphicon-lock icon' id='lock'></i><input type='password' name='password' id='pass-word' class='form-control' placeholder='密码'/><div class='radio'><ul><li><label><input type='radio' name='status' id='student' value='0' />学生</label></li><li><label><input type='radio' name='status' id='admin' value='1' />管理员</label></li></ul></div><input type='submit' class='bottom' value='LOGIN' /></form><div class='twoline'><div class='line-1'></div><div class='line-2'></div></div></div></div>";
+			oLogin.innerHTML ="<div class= 'loginCon'><div id='close'><i class='glyphicon glyphicon-remove'></i></div><div id='login_center' ><div id='login-top' class='twoline'><div class='line-1'></div><div class='line-2'></div></div><span><h1>SIGN IN</h1></span><form action='Logincontroller.php' method='post'  class='from-group-sm'><i class='glyphicon glyphicon-user icon' id='user-icon'></i><input type='text'  name='username' id='username' class='form-control' placeholder='用户名'/><br /><br /><i class='glyphicon glyphicon-lock icon' id='lock'></i><input type='password' name='password' id='pass-word' class='form-control' placeholder='密码'/><div class='radio'><ul><li><label><input type='radio' name='status' id='student' value='0' />学生</label></li><li><label><input type='radio' name='status' id='admin' value='1' />管理员</label></li></ul></div><input name='login' type='submit' class='bottom' value='LOGIN' /></form><div class='twoline'><div class='line-1'></div><div class='line-2'></div></div></div></div>";
 			document.body.appendChild(oLogin);
 			var dHeight = oLogin.offsetHeight;
 			var dWidth = oLogin.offsetWidth;

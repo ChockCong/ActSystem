@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.30, created on 2017-03-01 01:59:58
+         compiled from notice.html */ ?>
 <!DOCTYPE html>
 <html>
 

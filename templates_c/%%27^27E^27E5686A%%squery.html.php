@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.30, created on 2017-03-01 01:54:42
+         compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,18 +7,18 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">   
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>学生查询</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
-		<link rel="stylesheet" href="css/global.css" media="all">
-		<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/table.css" />
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../css/global.css" media="all">
+		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../css/table.css" />
 	</head>
 	<body ng-app="myApp" ng-controller="myCtrl">
 		<div class="admin-main" >
 			<!--条件搜索栏-->
 			<fieldset class="layui-elem-field-title">
 				<legend>查询条件</legend>
-				<form class="layui-form" action="">
+				<form class="layui-form" action="" method="post">
 					<div class="layui-form-item">
 						<div class="layui-inline">						
 							<label class="layui-form-label">年级</label>
@@ -129,14 +131,17 @@
 
 		
 		
-		<script src="tjs/angular.js" type="text/javascript" charset="utf-8"></script>
-		<script src="tjs/jquery-1.12.3.min.js"  type="text/javascript"></script>
-		<script src="tjs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="plugins/layui/layui.js"></script>
+		<script src="../tjs/angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.12.3.min.js"  type="text/javascript"></script>
+		<script src="../tjs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../plugins/layui/layui.js"></script>
 		<script type="text/javascript">
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
-			<{literal}>$scope.stus = <{/literal}><{$stuMsg}><{literal}>;<{/literal}>
+			<?php echo '$scope.stus = '; ?>
+<?php echo $this->_tpl_vars['stuMsg']; ?>
+<?php echo ';'; ?>
+
 			  $scope.ischeckAll = false;
 				$scope.selectAll = function(stus) {
 					if($scope.ischeckAll) {
@@ -155,27 +160,30 @@
 				var form = layui.form(),
 					laydate = layui.laydate;
 			});
-			function getmsg(sid){
-				$.ajax({
-					type:'GET',
-					url:'Detailcontroller.php'
-					data:'sid='+sid;
-					success: function(data){  
-	                    $("#modal-body").html(data);
-	              },
-	           error: function(){
-	        	        $("#modal-body").html("查询异常!");
-	        	  },
-	           beforeSend:function(){
-	        	        $("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
-	        	  },
-	           complete:function(){
-	        	        
-	        	        $("#modal-body").html(data);
-	              }
-	           });
-					})
-				}
+
+		</script>
+		<script type="text/javascript">
+		function getmsg(sid){
+			$.ajax({
+				type:'GET',
+				url:'Detailcontroller.php'
+				data:'sid='+sid;
+				success: function(data){  
+                    $("#modal-body").html(data);
+              },
+           error: function(){
+        	        $("#modal-body").html("查询异常!");
+        	  },
+           beforeSend:function(){
+        	        $("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
+        	  },
+           complete:function(){
+        	        
+        	        $("#modal-body").html(data);
+              }
+           });
+				})
+			}
 		</script>
 	</body>
 

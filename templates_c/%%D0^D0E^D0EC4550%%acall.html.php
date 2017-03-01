@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.30, created on 2017-03-01 02:02:06
+         compiled from acall.html */ ?>
 <!DOCTYPE html>
 <html>
 	<head>
