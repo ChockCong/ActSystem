@@ -15,14 +15,14 @@ class Permsg{
 		foreach($_POST as $val)
 			foreach($val as $key => $val2)
 				$arr[$key]=$cf->str_confirm($val2);
-		$arr[4]=md5($arr[4]);
 		if($cf->spamcheck($arr[1])){
 		if(!empty($arr[4])){
-			$altsql="update student set sdh='$arr[0]',smail='$arr[1]',sname='$arr[2]',szjmm='$arr[3]',spassword='$arr[4]',sdh2='$arr[5]'"
-					." where sid=$sid";
-		}else 
+			$altsql="update student set sdh='$arr[0]',smail='$arr[1]',sname='$arr[2]',szjmm='$arr[3]',spassword='".md5($arr[4])."',sdh2='$arr[5]'"
+					." where sid='$sid'";
+		}else {
 			$altsql="update student set sdh='$arr[0]',smail='$arr[1]',sname='$arr[2]',szjmm='$arr[3]',sdh2='$arr[5]'"
-			." where sid=$sid";
+			." where sid='$sid'";
+		}
 		
 		$sq=new SqlHelper();
 		$smsg=$sq->execute_dml ($altsql);
@@ -36,17 +36,18 @@ class Permsg{
 }  //个人信息model
 
 
-if($_GET['info']=="look"){
-	$sm=new Permsg();
-	if(isset($_POST['submit'])&&isset($_COOKIE['sid'])){
-		$cf=new comfunc;
-		if($sm->altmsg($_COOKIE['sid']))
-		$cf->protect();
-	}else{
-		$code = mt_rand(0,1000000);            //避免重复提交的标记
-		$_SESSION['code'] = $code;
+
+	
+	if($_GET['info']=="look"){
+		$sm=new Permsg();
+// 		$code = mt_rand(0,1000000);            //避免重复提交的标记
+// 		$_SESSION['code'] = $code;
 		$smarty->assign("stumsg",$sm->showmsg($_COOKIE['sid']));
 		$smarty->display("infor.html");
-	}
-}
+	}else if(isset($_POST['submit'])&&isset($_COOKIE['sid'])){
+		$cf=new comfunc;
+		$sm=new Permsg();
+		$cf->protect("Personinfocontroller.php?info=look",$sm->altmsg($_COOKIE['sid']));
+	} 
+
 ?>

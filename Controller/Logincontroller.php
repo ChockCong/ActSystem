@@ -14,7 +14,7 @@
    $tag=$_POST['status'];
    $ac=new action();
    
-   if(!empty($user) &&!empty($pwd) && isset($tag) ){             //登录填写非空
+   if(!empty($user) &&!empty($pwd) && isset($tag)){             //登录填写非空
    	if($tag==0){                                              
    		$adminsql="select * from student where snum='$user'";
    		$rs=$sh->execute_dql ($adminsql);                        //获取数据库信息进行比对
@@ -24,8 +24,8 @@
    			setcookie("sid", $rs['sid'], time()+600);               //客户cookies
    			setcookie("tag", $tag, time()+600);
    			setcookie("student", $rs['sname'], time()+600);
-   			$smarty->assign("student",$rs['sname']);
-   			$ac->get_show_msg("UIcontroller.php");
+   			//$smarty->assign("student",$rs['sname']);
+   			$ac->get_show_msg("Indexcontroller.php");
    			//header("Location:UIcontroller.php");
    			//$smarty->display("index.html");
    		}else{
@@ -42,7 +42,7 @@
    		if($rownum && $pwd==$rs['apassword']){                //判断身份
    			$_SESSION['aid']=$rs['aid'];                      //获取管理员session
    			$_SESSION['aname']=$rs['aname'];
-   			echo $_SESSION['aid']."  ".$_SESSION['aname'];
+   			$ac->get_show_msg("Indexcontroller.php");
    		}else{
    			echo "<script type='text/javascript'>";
    			echo "alert('账号或密码错误！');";
@@ -50,6 +50,10 @@
    			echo "</script>";
    		}
    	}
+   }else if(!isset($_POST['login'])){
+   	$cf=new comfunc();
+   	$cf->clearlog();
+   	$smarty->display("login.html");
    }else{
    	echo "<script type='text/javascript'>";
    	echo "alert('请保证账号密码身份填写无误！');";

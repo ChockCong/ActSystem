@@ -1,6 +1,6 @@
 <?php 
 require_once '../common/global.php';
-require_once 'client_cookie.php';
+
 
 class Peract{
 	public function Showperact($i,$tag){
@@ -22,7 +22,10 @@ class Peract{
 		$acts=$sh->execute_dql2 ($hdsql);
 		return $acts;
 	}
-
+	public function permsg($id){
+		$sh=new SqlHelper();
+		$msgsql="select * from student where sid=$id";
+	}
 } //活动信息model
 
 //查看历史活动程序
@@ -45,6 +48,13 @@ if(!empty($_GET['chid'])){
 	$peract=new Peract();
 	$Acts=$peract->Showperact($i,0);     //选择历史活动
 	echo json_encode(array('jsonObj'=>$Acts));
+}
+
+if(!empty($_GET['sid'])){
+	$id=$_GET['sid'];
+	$peract=new Peract();
+	$pMsg=$peract->permsg();
+	echo json_encode(array('jsonObj'=>$pMsg));
 }
 
 ?>

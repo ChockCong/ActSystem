@@ -18,15 +18,15 @@ class Act{
 		$sq=new SqlHelper();
 		$addhdsql="INSERT INTO `rsql`.`studenthd` (`shid`, `shname`, `shnum`, `sid`, `cyz`, `kssj`, `jssj`, `time1`, `time2`, `fwdw`, `fwlx`, `nr`, `xf`) VALUES"
 				."(NULL, '$name', '', '$sid', '', '$date1', '$date1', '$time1', '$time2', '$addr', '$type', '$detail', '')";
-		//$sq->execute_dml ($addhdsql);
+		// return $sq->execute_dml ($addhdsql);
 	}
 	
 	function seeact($s,$text){
 		$sh=new SqlHelper();
 		if($text=="")
-			$hdsql="select * from studenthd where sid=$s and xf=0";
+			$hdsql="select shid,shname from studenthd where sid=$s and xf=0";
 		else
-			$hdsql="select * from studenthd where sid=$s and xf=0 and shname like '%$text%'";
+			$hdsql="select shid,shname from studenthd where sid=$s and xf=0 and shname like '%$text%'";
 		$acts=$sh->execute_dql2 ($hdsql);
 		return $acts;
 	}
@@ -44,14 +44,14 @@ class Act{
 		$sq=new SqlHelper();
 		$altact="update studenthd set shname='$name',fwdw='$addr',kssj='$date1',jssj='$date2',time1='$time1',".
 		"time2='$time2',fwlx='$type',nr='$detail' where shid='$shid'";
-		$sq->execute_dml ($altact);
+		return $sq->execute_dml ($altact);
 	}
 	
 	function delact(){
 		$shid=$_POST['actid'];
 		$sq=new SqlHelper();
 		$delact="delete from studenthd where shid=$shid";
-		$sq->execute_dml ($delact);
+		return $sq->execute_dml ($delact);
 	}
 	
 }  //活动信息申报model
@@ -61,12 +61,11 @@ if($_GET['declare_title']=="declare"){
 	$smarty->display('declare.html');            //首次连接显示	
 }else if($_GET['declare_title']==1){             //操作提交页面
 	if(isset($_POST['submit'])&&isset($_COOKIE['sid'])){		
-		$act=new Act();
-		$act->subact();                         //类方法subact提交活动
-		$cf->protect();
+		$act=new Act();                         
+		$cf->protect("Declarecontroller.php?declare_title=2",$act->subact());//类方法subact提交活动
 	}else{
-		$code = mt_rand(0,1000000);            //避免重复提交的标记
-		$_SESSION['code'] = $code;
+// 		$code = mt_rand(0,1000000);            //避免重复提交的标记
+// 		$_SESSION['code'] = $code;
 		$smarty->display("register.html");      //显示申报页面
 	}
 }else if($_GET['declare_title']==2){            //操作修改删除页面
