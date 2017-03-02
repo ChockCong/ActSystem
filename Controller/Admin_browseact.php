@@ -1,15 +1,33 @@
 <?php 
 require_once '../common/global.php';
-echo number_format(1234567890);
-$sq=new SqlHelper();
-$sql="DESCRIBE admin";
-// print_r($sq->execute_dql2 ($sql));
-var_dump($_ENV);
-// print_r(pathinfo("/www/htdocs/index.html.php?id=2"));
-// print_r(parse_url("/www/htdocs/index.html.php?id=2"));
 
-// echo stripos($_SERVER['PHP_SELF'],__DIR__);
-echo stripos("am php too!","PHP");
+class Actmsg{
+	function gaMsg($tag){
+		$sq=new SqlHelper();
+		if($tag!=0)
+			$getsql="select hid,hname,cyrs,kssj,tag from adminhd where tag=$tag";
+		else
+			$getsql="select hid,hname,cyrs,kssj,tag from adminhd";
+		$GetMsg=$sq->execute_dql2 ($getsql);
+		for($i=0;$i<count($GetMsg);$i++){
+			if($GetMsg[$i][tag]==1)
+				$GetMsg[$i][tag] ="已完成";
+			else
+				$GetMsg[$i][tag] ="未完成";
+		}
+		return json_encode($GetMsg);
+	}
+}
 
-$smarty->display("acall.html");
+if($_SERVER['REQUEST_METHOD']=="POST"){
+	$actMsg=new Actmsg();
+	$ActMsg=$actMsg->gaMsg($_POST['grade']);
+	$smarty->assign("ActMsg",$ActMsg);
+	$smarty->display("acall.html");
+	
+}else{
+	$actMsg=json_encode(null);
+	$smarty->assign("ActMsg",$actMsg);
+	$smarty->display("acall.html");
+}
 ?>

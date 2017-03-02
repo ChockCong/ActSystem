@@ -52,9 +52,10 @@ if(!empty($_GET['chid'])){
 
 if(!empty($_GET['sid'])){
 	$id=$_GET['sid'];
-	$peract=new Peract();
-	$pMsg=$peract->permsg();
-	echo json_encode(array('jsonObj'=>$pMsg));
+	echo $i;
+// 	$peract=new Peract();
+// 	$pMsg=$peract->permsg();
+// 	echo json_encode(array('jsonObj'=>$pMsg));
 }
 
 ?>

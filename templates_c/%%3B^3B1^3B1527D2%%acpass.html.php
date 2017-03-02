@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-01 02:05:20
+<?php /* Smarty version 2.6.30, created on 2017-03-01 07:55:44
          compiled from acpass.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -18,7 +18,7 @@
 		<div class="admin-main" >
 			<fieldset class="layui-elem-field">
 				<legend>未审搜索</legend>
-				<form class="layui-form" action="">
+				<form class="layui-form" action="" method="post">
 					<div class="layui-form-item">
 						<label class="layui-form-label">学号</label>
 						<div class="layui-input-inline">

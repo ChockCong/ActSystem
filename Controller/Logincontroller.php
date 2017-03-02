@@ -42,6 +42,7 @@
    		if($rownum && $pwd==$rs['apassword']){                //判断身份
    			$_SESSION['aid']=$rs['aid'];                      //获取管理员session
    			$_SESSION['aname']=$rs['aname'];
+   			$_SESSION['xym']=$rs['xym'];
    			$ac->get_show_msg("Indexcontroller.php");
    		}else{
    			echo "<script type='text/javascript'>";

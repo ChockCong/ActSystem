@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-01 02:02:06
+<?php /* Smarty version 2.6.30, created on 2017-03-01 12:23:42
          compiled from acall.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -19,19 +19,19 @@
 			<!--条件选择栏-->
 			<fieldset class="layui-elem-field-title">
 				<legend>请选择活动状态</legend>
-				<form class="layui-form" action="">
+				<form class="layui-form" action="" method="post">
 					<div class="layui-form-item">
 						<div class="layui-inline">						
 							<label class="layui-form-label">状态</label>
 							<div class="layui-input-block" style="float: left;margin-left: 0;">
 								<select name="grade">
-									<option value="1"selected="">全部</option>
-									<option value="2">已完成</option>
-									<option value="3">未完成</option>
-									<option value="4">已发布</option>
+									<option value="0"selected="">全部</option>
+									<option value="1">已完成</option>
+									<option value="2">未完成</option>
+									<option value="3">已发布</option>
 								</select>
 							</div>
-							<input type="button" id="sure" class="layui-btn" style="margin-left: 20px;" value="查询" />
+							<input type="submit" id="sure" class="layui-btn" style="margin-left: 20px;" value="查询" />
 								<!--<button class="layui-btn" lay-submit="" >删除</button>-->
 						</div>
 
@@ -60,10 +60,10 @@
 						<tbody>
 							<tr ng-repeat="x in stus | orderBy:col:desc">
 								<td><input type="checkbox" ng-model="x.ck"></td>
-								<td><a href="#"  data-toggle="modal" data-target="#sdblock">{{x.acname}}</a></td>
-								<td>{{x.count}}</td>
-								<td>{{x.time}}</td>
-								<td>{{x.state}}</td>
+								<td><a href="#"  data-toggle="modal" data-target="#sdblock">{{x.hname}}</a></td>
+								<td>{{x.cyrs}}</td>
+								<td>{{x.kssj}}</td>
+								<td>{{x.tag}}</td>
 								<td>
 									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i class="fa fa-angle-double-right"  style="font-size: 1.2em;"></i></a>
 								</td>
@@ -147,15 +147,10 @@
 			});
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
-			  $scope.stus = [
-				{ck: false,acname:"三下乡社会实践活动",count:"20",time:"2012/7/16 15:45",state:"已完成"},
-				{ck: false,acname:"南国中英文小学义教",count:"50",time:"2014/10/3 16:00",state:"已完成"},
-				{ck: false,acname:"社区环保活动",count:"30",time:"2015/5/3 14:30",state:"未完成"},
-				{ck: false,acname:"朝阳行动",count:"80",time:"2014/5/3 16:30",state:"未完成"},
-				{ck: false,acname:"雷锋月爱心义卖",count:"20",time:"2014/4/10 9:00",state:"已完成"},
-				{ck: false,acname:"电脑义务维修",count:"30",time:"2015/11/20 14:00",state:"已发布"},
-				{ck: false,acname:"迎接新生",count:"150",time:"2015/9/1 10:00",state:"已发布"},
-			  ]
+				<?php echo '$scope.stus = '; ?>
+<?php echo $this->_tpl_vars['ActMsg']; ?>
+<?php echo ';'; ?>
+
 			$scope.slist = [
 				{username:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
 				{username:"201424143242",stuname:"李白",classname:"通信工程",longtell:"18898883718"},

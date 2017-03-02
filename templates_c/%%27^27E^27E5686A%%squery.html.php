@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-01 01:54:42
+<?php /* Smarty version 2.6.30, created on 2017-03-01 03:10:46
          compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../css/table.css" />
 	</head>
+	<?php echo $this->_tpl_vars['stuMsg']; ?>
+
 	<body ng-app="myApp" ng-controller="myCtrl">
 		<div class="admin-main" >
 			<!--条件搜索栏-->
@@ -81,7 +83,7 @@
 								<td>{{x.sbh}}</td>
 								<td>{{x.sdh}}</td>
 								<td>
-									<i class="fa fa-angle-double-right" aria-hidden="true" data-toggle="modal" data-target="#sdblock" style="cursor: pointer;font-size: 1.2em;"></i>
+									<i onclick="getmsg(1)" class="fa fa-angle-double-right" aria-hidden="true" data-toggle="modal" data-target="#sdblock"  ></i>
 								</td>
 							</tr>					
 							
@@ -103,7 +105,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">详细信息</h4>
 				</div>
-				<div class="modal-body blockleft">
+				<div class="modal-body blockleft" id="modal-body blockleft">
 					<div class="line">
 						<label for="username">学号：<p id="username">201324133234</p></label>
 						<label for="nation">民族：<p id="nation">汉族</p></label>
@@ -164,26 +166,8 @@
 		</script>
 		<script type="text/javascript">
 		function getmsg(sid){
-			$.ajax({
-				type:'GET',
-				url:'Detailcontroller.php'
-				data:'sid='+sid;
-				success: function(data){  
-                    $("#modal-body").html(data);
-              },
-           error: function(){
-        	        $("#modal-body").html("查询异常!");
-        	  },
-           beforeSend:function(){
-        	        $("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
-        	  },
-           complete:function(){
-        	        
-        	        $("#modal-body").html(data);
-              }
-           });
-				})
-			}
+			alert(sid);
+		}
 		</script>
 	</body>
 
