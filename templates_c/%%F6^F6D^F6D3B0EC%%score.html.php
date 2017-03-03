@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-01 02:00:22
+<?php /* Smarty version 2.6.30, created on 2017-03-03 16:33:09
          compiled from score.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -13,19 +13,20 @@
 		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../css/table.css" />
 	</head>
+
 	<body ng-app="myApp" ng-controller="myCtrl">
 
 		<div class="admin-main" >
 			<fieldset class="layui-elem-field">
 				<legend>活动搜索</legend>
-				<form class="layui-form" action="">
+				<form class="layui-form" action="" method="post">
 					<div class="layui-form-item">
 						<label class="layui-form-label">活动名称</label>
 						<div class="layui-input-inline">
 							<input type="text" name="acname" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline">
-							<button class="layui-btn" lay-submit="" lay-filter="demo1"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<input type="submit" class="layui-btn" lay-submit="" lay-filter="demo1"><i ng-click="sslist(x)"  class="fa fa-search" aria-hidden="true"></i>
 						</div>
 					</div>
 				</form>
@@ -51,14 +52,15 @@
 							<tr ng-repeat="x in records | orderBy:col:desc">
 								<!--<td><input type="checkbox" ng-model="x.ck"></td>-->
 								<td>
-									<a href="#" data-toggle="modal" data-target="#acblock">{{x.acname}}</a>
+									<a href="#" data-toggle="modal" data-target="#acblock">{{x.hname}}</a>
 								</td>
-								<td>{{x.time}}</td>
-								<td>{{x.c1}}</td>
-								<td>{{x.c2}}</td>
-								<td>{{x.num}}</td>
+								<td>{{x.kssj}}</td>
+								<td>{{x.bmman}}</td>
+								<td>{{x.passman}}</td>
+								<td>{{x.cyrs}}</td>
+								
 								<td>
-									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i class="fa fa-angle-double-right"  style="font-size: 1.2em;"></i></a>
+									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i  class="fa fa-angle-double-right aa" style="font-size: 1.2em;"><p id="mark" hidden>{{x.hid}}</p></i></a>
 									<!--<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini">通过</a>
 									<a href="#" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">不通过</a>-->
 								</td>
@@ -90,8 +92,8 @@
 			</form>
 		
 	<!--报名名单弹窗-->
-		<div id="list">
-			<label><p name="acname">三下乡社会实践活动</p>报名未审名单</label>
+		<div id="list" ng-click="ssslist()" >
+			<label><p name="acname">社会实践活动</p>报名未审名单</label>
 			<button id="close"><i class="fa fa-remove" lay-submit=""></i></button>
 			<table class="site-table table-hover">
 				<thead>
@@ -105,10 +107,10 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="y in slist | orderBy:col:desc">
-						<td>{{y.username}}</td>
-						<td>{{y.stuname}}</td>
-						<td>{{y.classname}}</td>
-						<td>{{y.longtell}}</td>
+						<td>{{y.snum}}</td>
+						<td>{{y.sname}}</td>
+						<td>{{y.szy}}</td>
+						<td>{{y.sdh}}</td>
 						<td>
 							<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini" style="background: #555151; text-decoration: none;">通过</a>
 							<a href="#" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini" style="background: #c33b3b; text-decoration: none;">不通过</a>
@@ -146,6 +148,16 @@
 		<script src="../tjs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<!--<script type="text/javascript" src="plugins/layui/layui.js"></script>-->
 		<script type="text/javascript">
+		var share=[
+					{snum:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
+					{snum:"201424143242",stuname:"李白",classname:"通信工程",longtell:"18898883718"},
+					{snum:"201614161156",stuname:"季建伟",classname:"生物科学",longtell:"13684732947"},
+					{snum:"201525154362",stuname:"陈海生",classname:"食品与安全",longtell:"15837261930"},
+					{snum:"201342133104",stuname:"梁宝健",classname:"音乐表演",longtell:"13872639471"},
+					{snum:"201513152217",stuname:"李旭花",classname:"室内设计",longtell:"18327163823"},
+					{snum:"201622162333",stuname:"张佳佳",classname:"人力资源与管理",longtell:"18869937264"},
+					{snum:"201431143328",stuname:"邵凤星",classname:"会计",longtell:"13547736289"},
+				];
 			$(function(){
 				$sa =$("#selected-all");
 				$ck =$("checkbox");
@@ -158,28 +170,41 @@
 				($cl).click(function(){
 					($li).hide();
 				});
+
+				
 			});
+			
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
-			  $scope.records = [
-				{ck: false,acname:"三下乡社会实践活动",time:"2012/7/16 15:45",c1:"20",c2:"10",num:"30"},
-				{ck: false,acname:"南国中英文小学义教",time:"2012/7/16 15:45",c1:"50",c2:"20",num:"35"},
-				{ck: false,acname:"社区环保活动",time:"2012/7/16 15:45",c1:"30",c2:"6",num:"20"},
-				{ck: false,acname:"朝阳行动",time:"2012/7/16 15:45",c1:"80",c2:"7",num:"50"},
-				{ck: false,acname:"雷锋月爱心义卖",time:"2012/7/16 15:45",c1:"20",c2:"13",num:"30"},
-				{ck: false,acname:"电脑义务维修",time:"2012/7/16 15:45",c1:"30",c2:"3",num:"15"},
-				{ck: false,acname:"迎接新生",time:"2012/7/16 15:45",c1:"150",c2:"9",num:"25"},
-			  ]
-			  $scope.slist = [
-				{username:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
-				{username:"201424143242",stuname:"李白",classname:"通信工程",longtell:"18898883718"},
-				{username:"201614161156",stuname:"季建伟",classname:"生物科学",longtell:"13684732947"},
-				{username:"201525154362",stuname:"陈海生",classname:"食品与安全",longtell:"15837261930"},
-				{username:"201342133104",stuname:"梁宝健",classname:"音乐表演",longtell:"13872639471"},
-				{username:"201513152217",stuname:"李旭花",classname:"室内设计",longtell:"18327163823"},
-				{username:"201622162333",stuname:"张佳佳",classname:"人力资源与管理",longtell:"18869937264"},
-				{username:"201431143328",stuname:"邵凤星",classname:"会计",longtell:"13547736289"},
-			];
+				<?php echo '$scope.records = '; ?>
+<?php echo $this->_tpl_vars['Passnum']; ?>
+<?php echo ';'; ?>
+
+				$scope.sslist = function(x){
+					//alert(records.hid);
+		            $.ajax({
+		                type: "GET",
+		                url: "Detailcontroller.php",
+		                data: "hid="+x.hid,
+		                dataType: 'json',
+		                success: function(data){
+		                	$scope.list=data;
+		                  },
+		                error: function(){
+		                	alert("查询错误！");
+		             	  },
+		                beforeSend:function(){
+		                	//$("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
+		             	  },
+		                complete:function(){
+		                  }
+		             });
+				};
+				$scope.ssslist = function(){
+					$scope.slist=$scope.list;
+					alert($scope.slist);
+				}
+				
 			$scope.ischeckAll = false;
 				$scope.selectAll = function(records) {
 					if($scope.ischeckAll) {
@@ -193,6 +218,10 @@
 					}
 				};
 			});
+			$(function(){
+
+			})
+
 
 //			layui.config({
 //				base: 'plugins/layui/modules/'

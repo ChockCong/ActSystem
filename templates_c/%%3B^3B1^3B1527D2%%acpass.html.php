@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-01 07:55:44
+<?php /* Smarty version 2.6.30, created on 2017-03-03 12:23:37
          compiled from acpass.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -14,7 +14,6 @@
 		<link rel="stylesheet" type="text/css" href="../css/table.css">
 	</head>
 	<body ng-app="myApp" ng-controller="myCtrl">
-
 		<div class="admin-main" >
 			<fieldset class="layui-elem-field">
 				<legend>未审搜索</legend>
@@ -29,7 +28,7 @@
 							<input type="text" name="acname" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline">
-							<button class="layui-btn" lay-submit="" lay-filter="demo1"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<input type="submit" class="layui-btn" lay-submit="" lay-filter="demo1"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</div>
 					</div>
 				</form>
@@ -37,14 +36,16 @@
 			
 			<fieldset class="layui-elem-field">
 				<legend>待审核活动</legend>
+				<form action="" method="get">
 				<button class="dele">通过</button>
 				<button class="dele" style="margin-left: 15px;">不通过</button>
+				</form>
 				<button ng-click="col='time';desc=!desc" type="button" class="btntime">时间</button>
 				<div class="layui-field-box">
 					<table class="site-table table-hover">
 						<thead>
 							<tr>
-								<th style="width: 15%;"><input type="checkbox" id="selected-all" ng-model="ischeckAll" ng-click="selectAll(datas)"> 全选</th>
+								<th style="width: 15%;"><input type="checkbox" id="selected-all" ng-model="ischeckAll" ng-click="selectAll()"> 全选</th>
 								<th style="width: 25%;">活动名称</th>
 								<th style="width: 15%;">参与着</th>
 								<th style="width: 25%;">活动时间</th>
@@ -55,12 +56,13 @@
 							<tr ng-repeat="x in records | orderBy:col:desc">
 								<td><input type="checkbox" ng-model="x.ck"></td>
 								<td>
-									<a href="#" data-toggle="modal" data-target="#acblock">{{x.a}}</a>
+									<a href="#" data-toggle="modal" data-target="#acblock">{{x.shname}}</a>
 								</td>
-								<td>{{x.b}}</td>
-								<td>{{x.time}}</td>
+								<td>{{x.cyz}}</td>
+								<td>{{x.kssj}}</td>
+								<td id=""  hidden>{{x.shid}}</td>
 								<td>
-									<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini">通过</a>
+									<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini">通过<p name="sid[]" hidden>{{x.shid}}</p></a>
 									<a href="#" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">不通过</a>
 								</td>
 							</tr>
@@ -79,14 +81,15 @@
 		
 				<!--评分框-->
 		<div  id="scoring">
-			<form action="acpass.html">
+			<form action="" method="get">
 				<label class="stitle">评分</label>
 				<select class="ss" name="score">
-					<option value="1">0.2</option>
-					<option value="2" selected="">0.3</option>
-					<option value="3">0.5</option>
-					<option value="4">0.8</option>
+					<option value="0.2" selected="">0.2</option>
+					<option value="0.3">0.3</option>
+					<option value="0.5">0.5</option>
+					<option value="0.8">0.8</option>
 				</select>
+				<input id="sid" name="sid" type="text" value="123456" hidden>
 				<input type="submit" id="surescore" value="确定" />
 			</form>
 		</div>
@@ -122,15 +125,10 @@
 		<script type="text/javascript">
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
-			  $scope.records = [
-				{ck: false,a:"三下乡社会实践活动",b:"张黑黑",time:"2012/7/16 15:45"},
-				{ck: false,a:"南国中英文小学义教",b:"李媚媚",time:"2014/10/3 16:00"},
-			    {ck: false,a:"社区环保活动",b:"林采欣",time:"2015/5/3 14:30"},
-			    {ck: false,a:"朝阳行动",b:"李倩",time:"2014/5/3 16:30"},
-			    {ck: false,a:"雷锋月爱心义卖",b:"徐宏城",time:"2014/4/10 9:00"},
-			    {ck: false,a:"电脑义务维修",b:"齐静怡",time:"2015/11/20 14:00"},
-			    {ck: false,a:"迎接新生",b:"宋立强",time:"2015/9/1 10:00"},
-			  ];
+				<?php echo '$scope.records = '; ?>
+<?php echo $this->_tpl_vars['passStu']; ?>
+<?php echo ';'; ?>
+
 			$scope.ischeckAll = false;
 				$scope.selectAll = function(records) {
 					if($scope.ischeckAll) {
@@ -143,6 +141,13 @@
 						}
 					}
 				};			  
+			});
+			
+			$(document).ready(function(){
+				$("[href='#scoring']").click(function(){
+					var $sid=$(this).find("p").text();
+				    $("#sid").attr("value",$sid);
+				})
 			});
 
 //			layui.config({

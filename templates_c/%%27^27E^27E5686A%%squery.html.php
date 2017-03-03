@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-01 03:10:46
+<?php /* Smarty version 2.6.30, created on 2017-03-03 17:03:54
          compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -13,8 +13,6 @@
 		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../css/table.css" />
 	</head>
-	<?php echo $this->_tpl_vars['stuMsg']; ?>
-
 	<body ng-app="myApp" ng-controller="myCtrl">
 		<div class="admin-main" >
 			<!--条件搜索栏-->
@@ -83,7 +81,7 @@
 								<td>{{x.sbh}}</td>
 								<td>{{x.sdh}}</td>
 								<td>
-									<i onclick="getmsg(1)" class="fa fa-angle-double-right" aria-hidden="true" data-toggle="modal" data-target="#sdblock"  ></i>
+									<i class="fa fa-angle-double-right getid" aria-hidden="true" data-toggle="modal" data-target="#sdblock"  ><p hidden>{{x.sid}}</p></i>
 								</td>
 							</tr>					
 							
@@ -165,9 +163,31 @@
 
 		</script>
 		<script type="text/javascript">
-		function getmsg(sid){
-			alert(sid);
-		}
+
+		$(function(){
+			$(".getid").click(function(){
+				var ssid=$(this).find("p").html();
+				
+	            $.ajax({
+	                type: "GET",
+	                url: "Detailcontroller.php",
+	                data: "sid="+ssid,
+	                dataType: 'json',
+	                success: function(response){
+	                	$(".modal-body").html(response);
+	                  },
+	                error: function(){
+	                	alert("查询错误！");
+	             	  },
+	                beforeSend:function(){
+	                	//$("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
+	             	  },
+	                complete:function(){
+	                  }
+	             });
+
+			})
+		})
 		</script>
 	</body>
 

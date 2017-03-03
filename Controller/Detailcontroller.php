@@ -25,9 +25,21 @@ class Peract{
 	public function permsg($id){
 		$sh=new SqlHelper();
 		$msgsql="select * from student where sid=$id";
+		
+		$Man=$sh->execute_dql ($msgsql);
+		return json_encode($Man);
 	}
 } //活动信息model
 
+class Nopass{
+	function nopass($hid){
+		$sq=new SqlHelper();
+		$Nosql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where hid='$hid' and g.sid=s.sid";
+	
+		$passMan=$sq->execute_dql2 ($Nosql);
+		return json_encode($passMan);
+	}
+}
 //查看历史活动程序
 if(!empty($_GET['shid'])){
 	$i=$_GET['shid'];
@@ -50,12 +62,23 @@ if(!empty($_GET['chid'])){
 	echo json_encode(array('jsonObj'=>$Acts));
 }
 
-if(!empty($_GET['sid'])){
-	$id=$_GET['sid'];
-	echo $i;
-// 	$peract=new Peract();
-// 	$pMsg=$peract->permsg();
-// 	echo json_encode(array('jsonObj'=>$pMsg));
+if(!empty($_GET['hid'])){
+	$id=$_GET['hid'];
+	$np=new Nopass();
+	$npMsg=$np->nopass($id);
+	echo json_encode($npMsg);
 }
 
+if(!empty($_GET['sid'])){
+	$id=$_GET['sid'];
+ 	$per=new Peract();
+ 	$perMsg=$per->permsg($id);
+ 	$str="<div class='line'>".
+ 			"<label for='username'>学号：<p id='username'>201324133234</p></label>".
+			"<label for='nation'>民族：<p id='nation'>汉族</p></label>".
+
+		  "</div>";
+ 	echo $str;
+//  	echo json_encode($perMsg);
+}
 ?>
