@@ -34,6 +34,12 @@
     border-radius: 8px;
     float: left;
 }
+.dele a{
+	color: #FFFFFF;
+}
+.dele:hover a{
+	color: #516886;
+}
 /*--学生查询--*/
 .line{
 	display: inline-block;
@@ -113,7 +119,8 @@ p{
 #list{
 	display: none;
 	width: 60%;
-    min-height: 300px;
+    height: 350px;
+    overflow: auto;
     background: rgb(255, 254, 254);
     position: fixed;
     left: 50%;
