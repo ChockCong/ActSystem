@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-01 07:58:33
+<?php /* Smarty version 2.6.30, created on 2017-03-04 06:15:13
          compiled from notice.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +44,7 @@
 			</div>
 			<div class="layui-form-item">
 				<div class="layui-input-block">
-					<input type="submit" class="layui-btn" lay-submit="" lay-filter="">
+					<button type="submit" class="layui-btn" lay-submit="" lay-filter="">立即发布</button>
 				</div>
 			</div>
 		</form>

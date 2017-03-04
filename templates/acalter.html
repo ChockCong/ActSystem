@@ -21,7 +21,7 @@
 			<div id="query">
 				<div id="scroll">
 				<ul>
-				 <{foreach from=$Acts item=acts key=k}>
+				 <{foreach from=$Acts item=acts}>
 					<li onclick="showact(<{$acts.shid}>)"><{$acts.shname}></li>
 				 <{/foreach}>
 				</ul>
@@ -79,16 +79,16 @@
 			//点击显示
 			$(function(){
 				//var $sea = $("#sbtn");
-				//var $que = $("#query");
-				//var $ch = $("#acal");
-				//var $li = $("li");
+				var $que = $("#query");
+				var $ch = $("#acal");
+				var $li = $("li");
 				//($sea).click(function(){
-					//$que.show();
+					$que.show();
 				//});
-				//($li).click(function(){
-					//$ch.show();
+				($li).click(function(){
+					$ch.show();
 					
-				//});
+				});
 				
 			})
 

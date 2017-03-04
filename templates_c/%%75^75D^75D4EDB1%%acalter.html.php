@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-02 13:07:36
+<?php /* Smarty version 2.6.30, created on 2017-03-04 06:37:02
          compiled from acalter.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@
 				<div id="scroll">
 				<ul>
 				 <?php $_from = $this->_tpl_vars['Acts']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['acts']):
+    foreach ($_from as $this->_tpl_vars['acts']):
 ?>
 					<li onclick="showact(<?php echo $this->_tpl_vars['acts']['shid']; ?>
 )"><?php echo $this->_tpl_vars['acts']['shname']; ?>
@@ -85,16 +85,16 @@
 			//点击显示
 			$(function(){
 				//var $sea = $("#sbtn");
-				//var $que = $("#query");
-				//var $ch = $("#acal");
-				//var $li = $("li");
+				var $que = $("#query");
+				var $ch = $("#acal");
+				var $li = $("li");
 				//($sea).click(function(){
-					//$que.show();
+					$que.show();
 				//});
-				//($li).click(function(){
-					//$ch.show();
+				($li).click(function(){
+					$ch.show();
 					
-				//});
+				});
 				
 			})
 
