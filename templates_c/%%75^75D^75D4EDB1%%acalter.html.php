@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-04 06:37:02
+<?php /* Smarty version 2.6.30, created on 2017-03-04 06:39:49
          compiled from acalter.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -89,7 +89,7 @@
 				var $ch = $("#acal");
 				var $li = $("li");
 				//($sea).click(function(){
-					$que.show();
+				$que.show();
 				//});
 				($li).click(function(){
 					$ch.show();
