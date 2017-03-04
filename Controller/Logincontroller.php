@@ -4,7 +4,7 @@
    header("Content-type:text/html;charset=utf-8");
    require_once '../common/global.php';
    require_once '../common/comfunc.class.php';
-   require_once '../common/action.class.php';
+   //require_once '../common/action.class.php';
    error_reporting(0);
    
    $sh=new SqlHelper();
@@ -12,7 +12,7 @@
    $user=$cf->str_confirm($_POST['username']);
    $pwd=$cf->str_confirm($_POST['password']);
    $tag=$_POST['status'];
-   $ac=new action();
+   //$ac=new action();
    
    if(!empty($user) &&!empty($pwd) && isset($tag)){             //登录填写非空
    	if($tag==0){                                              
@@ -25,8 +25,8 @@
    			setcookie("tag", $tag, time()+600);
    			setcookie("student", $rs['sname'], time()+600);
    			//$smarty->assign("student",$rs['sname']);
-   			$ac->get_show_msg("Indexcontroller.php");
-   			//header("Location:UIcontroller.php");
+   			//$ac->get_show_msg("Indexcontroller.php");
+   			header("location:Indexcontroller.php");
    			//$smarty->display("index.html");
    		}else{
    			echo "<script type='text/javascript'>";
@@ -43,7 +43,7 @@
    			$_SESSION['aid']=$rs['aid'];                      //获取管理员session
    			$_SESSION['aname']=$rs['aname'];
    			$_SESSION['xym']=$rs['xym'];
-   			$ac->get_show_msg("Indexcontroller.php");
+   			header("location:Indexcontroller.php");
    		}else{
    			echo "<script type='text/javascript'>";
    			echo "alert('账号或密码错误！');";

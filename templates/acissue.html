@@ -21,7 +21,7 @@
 				<legend>活动内容发布</legend>
 			</fieldset>
 
-			<form class="layui-form" action="">
+			<form class="layui-form" action="" method="post">
 				<div class="layui-form-item">
 					<label class="layui-form-label">活动名称</label>
 					<div class="layui-input-block">
@@ -30,7 +30,7 @@
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">发布单位</label>
-					<label class="layui-form-label" style="width: 200px;text-align: left;color: #999999;">管理员信息里的校园名称</label>
+					<label class="layui-form-label" style="width: 200px;text-align: left;color: #999999;"><{$smarty.session.xym}></label>
 				</div>
 				<!--<div class="layui-form-item">
 					<label class="layui-form-label">验证必填项</label>
@@ -111,11 +111,11 @@
 					<div class="layui-inline">
 						<label class="layui-form-label">实践时间</label>
 						<div class="layui-inline">
-							<input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this})">
+							<input type="text" name="date1" id="date" lay-verify="date" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this})">
 						</div>
 						<div class="layui-form-mid" style="display: inline;float: none;">-</div>
 						<div class="layui-inline">
-							<input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this})">
+							<input type="text" name="date2" id="date" lay-verify="date" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this})">
 						</div>
 					</div>
 					<div class="layui-inline">
@@ -173,13 +173,13 @@
 				<div class="layui-form-item layui-form-text">
 					<label class="layui-form-label">实践内容</label>
 					<div class="layui-input-block">
-						<textarea placeholder="请输入内容" lay-verify="required" class="layui-textarea"></textarea>
+						<textarea name="cont" placeholder="请输入内容" lay-verify="required" class="layui-textarea"></textarea>
 					</div>
 				</div>
 
 				<div class="layui-form-item">
 					<div class="layui-input-block">
-						<input type="submit" class="layui-btn" lay-submit="" lay-filter="demo1" value="立即发布">
+						<button type="submit" class="layui-btn" lay-submit="" lay-filter="">立即发布</button>
 						<input type="reset" class="layui-btn layui-btn-primary" value="重填">
 					</div>
 				</div>

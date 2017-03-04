@@ -27,7 +27,7 @@ class Peract{
 		$msgsql="select * from student where sid=$id";
 		
 		$Man=$sh->execute_dql ($msgsql);
-		return json_encode($Man);
+		return $Man;
 	}
 } //活动信息model
 
@@ -73,12 +73,27 @@ if(!empty($_GET['sid'])){
 	$id=$_GET['sid'];
  	$per=new Peract();
  	$perMsg=$per->permsg($id);
- 	$str="<div class='line'>".
- 			"<label for='username'>学号：<p id='username'>201324133234</p></label>".
-			"<label for='nation'>民族：<p id='nation'>汉族</p></label>".
-
-		  "</div>";
+ 	$str="<div class='line'>
+						<label for='username'>学号：<p id='username'>".$perMsg[snum]."</p></label>
+						<label for='nation'>民族：<p id='nation'>".$perMsg[smz]."</p></label>
+						<label for='idnum'>身份证：<p id='idnum'>".$perMsg[ssfj]."</p></label>
+						<label for='source'>生源地：<p id='source'>".$perMsg[ssyd]."</p></label>
+						<label for='mail'>邮箱：<p id='mail'>".$perMsg[smail]."</p><p class='vital'></p></label>
+						<label for='grade'>年级：<p id='grade'>".$perMsg[snj]."</p></label>
+						<label for='subject'>专业：<p id='subject'>".$perMsg[szy]."</p></label>
+						<label for='scsys'>学制：<p id='scsys'>".$perMsg[sxz]."</p></label>
+					</div>
+					<div class='line'>
+						<label for='stuname'>姓名：<p  id='stuname'>".$perMsg[sname]."</p><p class='vital'></p></label>
+						<label for='sex'>性别：<p id='sex'>".$perMsg[sxb]."</p></label>
+						<label for='polistatus'>政治面貌：<p  id='polistatus'>".$perMsg[zjmm]."</p></label>
+						<label for='longtell'>长号：<p  id='longtell'>".$perMsg[sdh]."</p><p class='vital'></p></label>
+						<label for='shorttell'>短号：<p  id='shorttell'>".$perMsg[sdh2]."</p></label>
+						<label for='institute'>学院：<p id='institute'>".$perMsg[sxy]."</p></label>
+						<label for='class'>班号：<p id='class'>".$perMsg[sbh]."</p></label>
+						<label for='level'>层次：<p id='level'>".$perMsg[scc]."</p></label>
+					</div>";
  	echo $str;
-//  	echo json_encode($perMsg);
+  	//echo json_encode($perMsg);
 }
 ?>

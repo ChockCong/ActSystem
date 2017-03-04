@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-03 18:35:29
+<?php /* Smarty version 2.6.30, created on 2017-03-04 06:10:04
          compiled from score.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -26,7 +26,7 @@
 							<input type="text" name="acname" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline">
-							<input type="submit" class="layui-btn" lay-submit="" lay-filter="demo1"><i ng-click="sslist(x)"  class="fa fa-search" aria-hidden="true"></i>
+							<button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1"></button>
 						</div>
 					</div>
 				</form>

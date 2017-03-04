@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-03 17:03:54
+<?php /* Smarty version 2.6.30, created on 2017-03-03 17:34:39
          compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -172,15 +172,15 @@
 	                type: "GET",
 	                url: "Detailcontroller.php",
 	                data: "sid="+ssid,
-	                dataType: 'json',
-	                success: function(response){
-	                	$(".modal-body").html(response);
+	                success: function(data){
+	                	//alert(data);
+	                	$(".modal-body").html(data);
 	                  },
 	                error: function(){
 	                	alert("查询错误！");
 	             	  },
 	                beforeSend:function(){
-	                	//$("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
+	                	$("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
 	             	  },
 	                complete:function(){
 	                  }

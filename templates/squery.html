@@ -167,15 +167,15 @@
 	                type: "GET",
 	                url: "Detailcontroller.php",
 	                data: "sid="+ssid,
-	                dataType: 'json',
-	                success: function(response){
-	                	$(".modal-body").html(response);
+	                success: function(data){
+	                	//alert(data);
+	                	$(".modal-body").html(data);
 	                  },
 	                error: function(){
 	                	alert("查询错误！");
 	             	  },
 	                beforeSend:function(){
-	                	//$("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
+	                	$("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
 	             	  },
 	                complete:function(){
 	                  }

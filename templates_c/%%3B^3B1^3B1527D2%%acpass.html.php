@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-03 12:23:37
+<?php /* Smarty version 2.6.30, created on 2017-03-03 18:48:15
          compiled from acpass.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -28,7 +28,7 @@
 							<input type="text" name="acname" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline">
-							<input type="submit" class="layui-btn" lay-submit="" lay-filter="demo1"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<input type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">
 						</div>
 					</div>
 				</form>
@@ -37,7 +37,7 @@
 			<fieldset class="layui-elem-field">
 				<legend>待审核活动</legend>
 				<form action="" method="get">
-				<button class="dele">通过</button>
+				<a href="#scoring"><button class="dele">通过</button></a>
 				<button class="dele" style="margin-left: 15px;">不通过</button>
 				</form>
 				<button ng-click="col='time';desc=!desc" type="button" class="btntime">时间</button>
