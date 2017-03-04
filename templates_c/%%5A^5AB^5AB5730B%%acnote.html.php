@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-04 06:06:21
+<?php /* Smarty version 2.6.30, created on 2017-03-04 16:44:05
          compiled from acnote.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acnote.html', 18, false),)), $this); ?>
@@ -95,7 +95,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acn
 			var i = 0; //轮播框里第一张选项卡的索引值
 			var at_i; //中间放大的选项卡索引值
 			var n = $list.length; //选项卡个数
-		
+			
+			$list.eq(1).addClass("active");
 			// 左按钮
 			$btn.eq(0).click(function() {
 				i++;
@@ -105,7 +106,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acn
 				at_i = i + 1;
 				$list.eq(i).removeClass("active");
 				$pic.animate({
-					left: -i * 280 + "px"
+					left: -i * 230 + "px"
 				}, 500);
 				$list.eq(at_i).addClass("active");
 			})
@@ -119,7 +120,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acn
 				};
 				at_i = i + 1;
 				$pic.animate({
-					left: -i * 280 + "px"
+					left: -i * 230 + "px"
 				}, 500)
 				$list.eq(at_i).addClass("active");
 			})

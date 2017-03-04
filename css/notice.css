@@ -446,7 +446,9 @@ body,html{
 #show ul li,#back ul li{
 	float: left;
 }
-
+#show3 li p{
+	width: 50%;
+}
 .perac{
 	clear: both;
 }

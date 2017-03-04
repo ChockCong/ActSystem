@@ -78,7 +78,8 @@
 			var i = 0; //轮播框里第一张选项卡的索引值
 			var at_i; //中间放大的选项卡索引值
 			var n = $list.length; //选项卡个数
-		
+			
+			$list.eq(1).addClass("active");
 			// 左按钮
 			$btn.eq(0).click(function() {
 				i++;
