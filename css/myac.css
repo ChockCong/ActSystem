@@ -154,7 +154,7 @@ body,html{
 	width: 70%;
 	height: 75%;
 	background-color: #FFFFFE;
-	position: relative;
+	/*position: relative;*/
 	margin: 20px auto 0;
 	/*padding-left: 10%;
 	padding-right: 10%;*/
@@ -165,14 +165,15 @@ body,html{
 	line-height: 3em;
 	text-align: center;
 	font-size: 1.3em;
-	position:absolute;
+	/*position:absolute;
 	width: 100%;
   	top:50%;
   	left:50%;
  	-webkit-transform:translate(-50%,-50%);
     -moz-transform:translate(-50%,-50%);
-    transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);*/
 	display: none;
+	margin: 0 auto;
 }
 
 #show .showed.active {
@@ -277,7 +278,7 @@ button{
 	color: #47525d;
 	border-radius: 50%;
 	padding: 3px;
-	margin-top: 100px;
+	/*margin-top: 100px;*/
 	font-family: "微软雅黑";
 	font-size: 0.8em;
 	line-height: 1.2em;
@@ -356,13 +357,21 @@ button:hover{
 	letter-spacing: 1px;
 }
 #pagination-demo1{
-	position: fixed; 
-	/*top: 0;*/ 
+	margin: 30px auto 0;
+    display: inline-block;
+}
+.re{
+	/*position: fixed; 
+	top: 0; 
 	left: 0; 
 	right: 0; 
 	bottom: 60px; 
 	display: -webkit-box; 
-	 /*-webkit-box-align: center;*/
-	 -webkit-box-pack: center;
+	 -webkit-box-align: center;
+	 -webkit-box-pack: center;*/
+	position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+  	-moz-transform:translate(-50%,0);
+  	transform:translate(-50%,0);
 }
-

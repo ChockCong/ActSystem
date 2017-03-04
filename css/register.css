@@ -1,7 +1,7 @@
 body,html{
 	height: 100%;
 	width: 100%;
-	font-family: "微软雅黑";
+	font-family: "寰蒋闆呴粦";
 }
 #main{
 	width: 100%;
@@ -148,7 +148,7 @@ input[type="text"]:hover,.form-group-sm textarea:hover,select:hover{
 .form-group-sm textarea{
 	width: 90%;
 	resize: none;
-	min-height: 180px;
+	min-height: 160px;
 }
 .radius {
 	width: 130px;
@@ -157,7 +157,7 @@ input[type="text"]:hover,.form-group-sm textarea:hover,select:hover{
   -moz-appearance:none;
   -webkit-appearance:none;*/
 	text-align: center;
-	font-family: "微软雅黑";
+	font-family: "寰蒋闆呴粦";
 }
 /*form{
 	position: relative;
@@ -174,7 +174,7 @@ input[type="submit"]{
 	border: 1px solid #516886;
 	border-radius: 5px;
 	padding: 7px 8px 8px 23px;
-	font-family: "微软雅黑";
+	font-family: "寰蒋闆呴粦";
 	cursor: pointer;
 	font-size: 0.9em;
 }
@@ -193,8 +193,8 @@ input[type="submit"]:hover + i{
 	font-size: 0.8em;
 }
 
-/*--------修改页面--------*/
-/*-----搜索栏------*/
+/*--------淇敼椤甸潰--------*/
+/*-----鎼滅储鏍�------*/
 #search{
 	width: 36%;
 	height: 80px;
@@ -249,7 +249,7 @@ input[type="submit"]:hover + i{
     background: #516886;
     color: #fff;
     letter-spacing: 5px;
-    font-family: "黑体";
+    font-family: "榛戜綋";
     text-align: center;
     box-shadow: 1px 1px 3px rgba(0,0,0,.3);
     border-radius: 0 8px 8px 0;
@@ -258,7 +258,7 @@ input[type="submit"]:hover + i{
     padding: 2px 2px 2px 8px;
     font-size: 1.1em;
 }
-/*------活动显示------*/
+/*------娲诲姩鏄剧ず------*/
 #query{
 	width: 30%;
 	height: 65%;
@@ -310,7 +310,7 @@ input[type="submit"]:hover + i{
 	animation: start 1.5s infinite ease-in-out;
 	background-size: cover;
 }
-/* 箭头 */
+/* 绠ご */
 @-webkit-keyframes start {
 	 0%, 30% {
 	opacity: 0.2;
@@ -339,7 +339,7 @@ input[type="submit"]:hover + i{
 	transform: translate(0, 5px);
 	}
 }
-/*具体修改*/
+/*鍏蜂綋淇敼*/
 #acal{
 	width: 35%;
 	height: 65%;
@@ -354,7 +354,7 @@ input[type="submit"]:hover + i{
 	margin-top: -5px;
 }
 #acal .form-group-sm{
-	margin-top: 20px;
+	margin-top: 12px;
 
 }
 #acal input[type="text"],#acal textarea,#acal select{
@@ -391,14 +391,14 @@ input[type="submit"]:hover + i{
 	border: 1px solid #516886;
 	border-radius: 5px;
 	padding: 6px 0 6px 12px;
-	font-family: "微软雅黑";
+	font-family: "寰蒋闆呴粦";
 	cursor: pointer;
 	height: 30px;
 }
 #btn-sub2 input[type="button"]{
 	width: 70px;
 	height: 30px;
-	font-family: "微软雅黑";
+	font-family: "寰蒋闆呴粦";
 	padding: 6px 0 6px 12px;
 	border-radius: 5px;
 	border: 1px solid #516886;

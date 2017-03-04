@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-02 13:15:40
+<?php /* Smarty version 2.6.30, created on 2017-03-04 08:26:46
          compiled from result.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
 		
 		<section>
 			<div class="data-container"></div>
-			<div id="pagination-demo1"></div>
+			<div id="pagination-demo1" class="re"></div>
 		</section>				
 							
 		<script src="../js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>

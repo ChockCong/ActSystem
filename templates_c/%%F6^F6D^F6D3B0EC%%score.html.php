@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-04 06:13:13
+<?php /* Smarty version 2.6.30, created on 2017-03-04 08:39:58
          compiled from score.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -13,20 +13,19 @@
 		<link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../css/table.css" />
 	</head>
-
 	<body ng-app="myApp" ng-controller="myCtrl">
 
 		<div class="admin-main" >
 			<fieldset class="layui-elem-field">
 				<legend>活动搜索</legend>
-				<form class="layui-form" action="" method="post">
+				<form class="layui-form" action="">
 					<div class="layui-form-item">
 						<label class="layui-form-label">活动名称</label>
 						<div class="layui-input-inline">
 							<input type="text" name="acname" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline">
-							<input type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">
+							<button class="layui-btn" lay-submit="" lay-filter="demo1"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</div>
 					</div>
 				</form>
@@ -52,15 +51,14 @@
 							<tr ng-repeat="x in records | orderBy:col:desc">
 								<!--<td><input type="checkbox" ng-model="x.ck"></td>-->
 								<td>
-									<a href="#" data-toggle="modal" data-target="#acblock">{{x.hname}}</a>
+									<a href="#" data-toggle="modal" data-target="#acblock">{{x.acname}}</a>
 								</td>
-								<td>{{x.kssj}}</td>
-								<td>{{x.bmman}}</td>
-								<td>{{x.passman}}</td>
-								<td>{{x.cyrs}}</td>
-								
+								<td>{{x.time}}</td>
+								<td>{{x.c1}}</td>
+								<td>{{x.c2}}</td>
+								<td>{{x.num}}</td>
 								<td>
-									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i  class="fa fa-angle-double-right aa" style="font-size: 1.2em;"><p id="mark" hidden>{{x.hid}}</p></i></a>
+									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i class="fa fa-angle-double-right"  style="font-size: 1.2em;"></i></a>
 									<!--<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini">通过</a>
 									<a href="#" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">不通过</a>-->
 								</td>
@@ -92,8 +90,8 @@
 			</form>
 		
 	<!--报名名单弹窗-->
-		<div id="list" ng-click="ssslist()" >
-			<label><p name="acname">社会实践活动</p>报名未审名单</label>
+		<div id="list">
+			<label><p name="acname">三下乡社会实践活动</p>报名未审名单</label>
 			<button id="close"><i class="fa fa-remove" lay-submit=""></i></button>
 			<table class="site-table table-hover">
 				<thead>
@@ -106,11 +104,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="y in slist | orderBy:col:desc">
-						<td>{{y.snum}}</td>
-						<td>{{y.sname}}</td>
-						<td>{{y.szy}}</td>
-						<td>{{y.sdh}}</td>
+					<tr>
+						<!-- ng-repeat="y in slist | orderBy:col:desc"-->
+						<td>201323131156</td>
+						<td>张黑黑</td>
+						<td>计算机科学与技术1班</td>
+						<td>18898834720</td>
 						<td>
 							<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini" style="background: #555151; text-decoration: none;">通过</a>
 							<a href="#" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini" style="background: #c33b3b; text-decoration: none;">不通过</a>
@@ -127,15 +126,12 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">活动详情</h4>
 				</div>
-				<div class="modal-body passb2">
-					<label>登记人：<p name="stuname">张黑黑</p></label>
-					<label>学号：<p name="username">201323131156</p></label>
-					<label>班级：<p>2013级计算机科学与技术1班</p></label>
-					<label>邮箱：<p name="mail">392719382@qq.com</p></label>					
+				<div class="modal-body blockleft">
 					<label>活动名称：<p name="acname">三下乡社会实践活动</p></label>
 					<label>活动地点：<p name="acaddr">肇庆端州区养老福利院</p></label>
 					<label>活动时间：<p>2014/7/20-2014/7/30</p></label>
 					<label>活动时长：<p>9:00-17:00</p></label>
+					<label>参与人数：<p>20</p>人</label>					
 					<label>活动类型：<p name="actype">社会实践</p></label>
 					<label>活动内容：<p>把老人当作朋友一样聊天，听老人们过去的事迹是如此得着迷，主动跑到外面小卖部买东西给老人。来的时候准备了水果，点心和一些日用品，用自己平时的零花钱给老人们买吃的。从早上到中午12点，走了部分老人的房间并且慰问了老人们。到了老人吃饭的时间，就跟着那里负责分饭的管理员一起帮助老人们进行就餐。有的老人就餐很不方便，需要一边喂才行。</p></label>
 				</div>
@@ -145,19 +141,9 @@
 		
 		<script src="../tjs/angular.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery-1.12.3.min.js"  type="text/javascript"></script>
-		<script src="../tjs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<!--<script type="text/javascript" src="plugins/layui/layui.js"></script>-->
 		<script type="text/javascript">
-		var share=[
-					{snum:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
-					{snum:"201424143242",stuname:"李白",classname:"通信工程",longtell:"18898883718"},
-					{snum:"201614161156",stuname:"季建伟",classname:"生物科学",longtell:"13684732947"},
-					{snum:"201525154362",stuname:"陈海生",classname:"食品与安全",longtell:"15837261930"},
-					{snum:"201342133104",stuname:"梁宝健",classname:"音乐表演",longtell:"13872639471"},
-					{snum:"201513152217",stuname:"李旭花",classname:"室内设计",longtell:"18327163823"},
-					{snum:"201622162333",stuname:"张佳佳",classname:"人力资源与管理",longtell:"18869937264"},
-					{snum:"201431143328",stuname:"邵凤星",classname:"会计",longtell:"13547736289"},
-				];
 			$(function(){
 				$sa =$("#selected-all");
 				$ck =$("checkbox");
@@ -170,41 +156,28 @@
 				($cl).click(function(){
 					($li).hide();
 				});
-
-				
 			});
-			
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
-				<?php echo '$scope.records = '; ?>
-<?php echo $this->_tpl_vars['Passnum']; ?>
-<?php echo ';'; ?>
-
-				$scope.sslist = function(x){
-					//alert(records.hid);
-		            $.ajax({
-		                type: "GET",
-		                url: "Detailcontroller.php",
-		                data: "hid="+x.hid,
-		                dataType: 'json',
-		                success: function(data){
-		                	$scope.list=data;
-		                  },
-		                error: function(){
-		                	alert("查询错误！");
-		             	  },
-		                beforeSend:function(){
-		                	//$("#modal-body").html("<h2 style='text-align:center;'>请稍后...<h2>");
-		             	  },
-		                complete:function(){
-		                  }
-		             });
-				};
-				$scope.ssslist = function(){
-					$scope.slist=$scope.list;
-					alert($scope.slist);
-				}
-				
+			  $scope.records = [
+				{ck: false,acname:"三下乡社会实践活动",time:"2012/7/16 15:45",c1:"20",c2:"10",num:"30"},
+				{ck: false,acname:"南国中英文小学义教",time:"2012/7/16 15:45",c1:"50",c2:"20",num:"35"},
+				{ck: false,acname:"社区环保活动",time:"2012/7/16 15:45",c1:"30",c2:"6",num:"20"},
+				{ck: false,acname:"朝阳行动",time:"2012/7/16 15:45",c1:"80",c2:"7",num:"50"},
+				{ck: false,acname:"雷锋月爱心义卖",time:"2012/7/16 15:45",c1:"20",c2:"13",num:"30"},
+				{ck: false,acname:"电脑义务维修",time:"2012/7/16 15:45",c1:"30",c2:"3",num:"15"},
+				{ck: false,acname:"迎接新生",time:"2012/7/16 15:45",c1:"150",c2:"9",num:"25"},
+			  ]
+//			  $scope.slist = [
+//				{username:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
+//				{username:"201424143242",stuname:"李白",classname:"通信工程",longtell:"18898883718"},
+//				{username:"201614161156",stuname:"季建伟",classname:"生物科学",longtell:"13684732947"},
+//				{username:"201525154362",stuname:"陈海生",classname:"食品与安全",longtell:"15837261930"},
+//				{username:"201342133104",stuname:"梁宝健",classname:"音乐表演",longtell:"13872639471"},
+//				{username:"201513152217",stuname:"李旭花",classname:"室内设计",longtell:"18327163823"},
+//				{username:"201622162333",stuname:"张佳佳",classname:"人力资源与管理",longtell:"18869937264"},
+//				{username:"201431143328",stuname:"邵凤星",classname:"会计",longtell:"13547736289"},
+//			];
 			$scope.ischeckAll = false;
 				$scope.selectAll = function(records) {
 					if($scope.ischeckAll) {
@@ -218,100 +191,7 @@
 					}
 				};
 			});
-			$(function(){
 
-			})
-
-
-//			layui.config({
-//				base: 'plugins/layui/modules/'
-//			});
-//
-//			layui.use(['icheck', 'laypage','layer'], function() {
-//				var $ = layui.jquery,
-//					laypage = layui.laypage,
-//					layer = parent.layer === undefined ? layui.layer : parent.layer;
-//				$('input').iCheck({
-//					checkboxClass: 'icheckbox_flat-green'
-//				});
-//
-//				//page
-//				laypage({
-//					cont: 'page',
-//					pages: 25 //总页数
-//						,
-//					groups: 5 //连续显示分页数
-//						,
-//					jump: function(obj, first) {
-//						//得到了当前页，用于向服务端请求对应数据
-//						var curr = obj.curr;
-//						if(!first) {
-//							//layer.msg('第 '+ obj.curr +' 页');
-//						}
-//					}
-//				});
-//
-//				$('#search').on('click', function() {
-//					parent.layer.alert('你点击了搜索按钮')
-//				});
-//
-//				$('#add').on('click', function() {
-//					$.get('temp/edit-form.html', null, function(form) {
-//						layer.open({
-//							type: 1,
-//							title: '添加表单',
-//							content: form,
-//							btn: ['保存', '取消'],
-//							area: ['600px', '400px'],
-//							maxmin: true,
-//							yes: function(index) {
-//								console.log(index);
-//							},
-//							full: function(elem) {
-//								var win = window.top === window.self ? window : parent.window;
-//								$(win).on('resize', function() {
-//									var $this = $(this);
-//									elem.width($this.width()).height($this.height()).css({
-//										top: 0,
-//										left: 0
-//									});
-//									elem.children('div.layui-layer-content').height($this.height() - 95);
-//								});
-//							}
-//						});
-//					});
-//				});
-//
-//				$('#import').on('click', function() {
-//					var that = this;
-//					var index = layer.tips('只想提示地精准些', that,{tips: [1, 'white']});
-//					$('#layui-layer'+index).children('div.layui-layer-content').css('color','#000000');
-//				});
-//
-//				$('.site-table tbody tr').on('click', function(event) {
-//					var $this = $(this);
-//					var $input = $this.children('td').eq(0).find('input');
-//					$input.on('ifChecked', function(e) {
-//						$this.css('background-color', '#EEEEEE');
-//					});
-//					$input.on('ifUnchecked', function(e) {
-//						$this.removeAttr('style');
-//					});
-//					$input.iCheck('toggle');
-//				}).find('input').each(function() {
-//					var $this = $(this);
-//					$this.on('ifChecked', function(e) {
-//						$this.parents('tr').css('background-color', '#EEEEEE');
-//					});
-//					$this.on('ifUnchecked', function(e) {
-//						$this.parents('tr').removeAttr('style');
-//					});
-//				});
-//				$('#selected-all').on('ifChanged', function(event) {
-//					var $input = $('.site-table tbody tr td').find('input');
-//					$input.iCheck(event.currentTarget.checked ? 'check' : 'uncheck');
-//				});
-//			});
 		</script>
 	</body>
 </html>
