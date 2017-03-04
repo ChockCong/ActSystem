@@ -1,6 +1,8 @@
 body{
 	color: #666666;
 	background: #dce7f8;
+	font: normal 12px/1.6em Microsoft YaHei,Tahoma,simsun;
+	color: #666666;
 }
 @font-face {
 	font-family:"rui";
@@ -74,6 +76,7 @@ body,html{
 }
 #nav a{
 	color: #555151;
+	font-size: 1.2em;
 }
 #nav a:hover{
 	color: #000000;
@@ -89,11 +92,10 @@ body,html{
     letter-spacing: 5px;
     clear: both;
     position: relative;
-    padding-top: 20px;
 }
 #univers:before{
 	content: "";
-	width: 110px;
+	width: 80%;
 	height: 1px;
 	border: 1px solid #b4c5d2;
 	border-radius: 100%;
@@ -103,44 +105,45 @@ body,html{
 	left: 0;
 }#univers:after{
 	content: "";
-	width: 110px;
+	width: 80%;
 	height: 1px;
 	border: 1px solid #b4c5d2;
 	border-radius: 100%;
 	display: inline-block;
 	position: absolute;
-	top: 15px;
+	top: -5px;
 	left: 0;
 }
 /*轮播*/
 #banner {
-    width: 85%;
-    height: 400px;
+    width: 80%;
+    height: 335px;
     position: relative;
     margin: 20px auto;
     overflow: hidden;
   }
   
   .btn {
-  	display: block;
-  	font-size: 30px;
-  	font-weight: 600;
-  	text-decoration: none;
-  	width: 40px;
-  	height: 80px;
-  	line-height: 75px;
-  	text-align: center;
-  	background: #555;
-  	color: #fff;
-  	position: absolute;
-  	top: 50%;
-  	z-index: 33;
-  	opacity: .5;
-  	-moz-transition: opacity 200ms;
-  	-webkit-transition: opacity 200ms;
-  	-o-transition: opacity 200ms;
-  	transition: opacity 200ms;
-  	margin-top: -40px;
+	display: block;
+	font-size: 28px;
+	font-weight: 600;
+	text-decoration: none;
+	width: 40px;
+	height: 60px;
+	line-height: 50px;
+	text-align: center;
+	background: #555;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	z-index: 33;
+	opacity: .5;
+	-moz-transition: opacity 200ms;
+	-webkit-transition: opacity 200ms;
+	-o-transition: opacity 200ms;
+	transition: opacity 200ms;
+	margin-top: -40px;
+	padding: 0;
   }
   .btn:hover {
     opacity: 1;
@@ -155,18 +158,16 @@ body,html{
   }
   
   .pic {
-    height: 400px;
-    margin: 0 6%;
+	height: 335px;
     list-style: none;
     position: absolute;
     top: 30px;
-    left: 0;
-    width: 94%;
+    padding-left: 58px;
   }
   
   .pic li {
-    width: 250px;
-    height: 350px;
+	width: 200px;
+	height: 270px;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     /*border-top: 2px solid orange;
@@ -196,15 +197,15 @@ body,html{
 }
 .pic>.survice:before {
 	content: "志愿服务";
-	width: 250px;
-	height: 150px;
+	width: 200px;
+	height: 120px;
 	background: url(../img/type1.png) 0px no-repeat;
 	background-size: contain;
 	z-index: 1;
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	line-height: 150px;
+	line-height: 120px;
   	color: #ffffff;
   	font-size: 2em;
   	letter-spacing: 5px;
@@ -212,15 +213,15 @@ body,html{
 }
   .pic>.ssac:before {
   	content: "社会实践";
-  	width: 250px;
+  	width: 200px;
   	background: url(../img/type2.png) 0px no-repeat;
   	background-size: contain;
   	z-index: 1;
   	position: absolute;
   	bottom: 0;
   	left: 0;
-  	height: 150px;
-  	line-height: 150px;
+  	height: 120px;
+  	line-height: 120px;
   	color: #ffffff;
   	font-size: 2em;
   	letter-spacing: 5px;
@@ -228,22 +229,22 @@ body,html{
   }
 .pic>.survey:before {
 	content: "校外调研";
-	width: 250px;
-	height: 150px;
+	width: 200px;
+	height: 120px;
 	background: url(../img/type3.png) 0px no-repeat;
 	background-size: contain;
 	z-index: 1;
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	line-height: 150px;
+	line-height: 120px;
   	color: #ffffff;
   	font-size: 2em;
   	letter-spacing: 5px;
   	text-align: center;
 }
 .pic p {
-	font-size: 1.8em;
+	font-size: 1.5em;
 	margin-top: 40px;
 	/*letter-spacing: 5px;
 	display: inline-block;
@@ -251,19 +252,19 @@ body,html{
 	line-height: 1.8em;*/
 }
 .pic span {
-	font-size: 1.5em;
-	color: #8a9db0;
+	font-size: 1.3em;
+	color: #888;
 }
   /*下部活动+通知*/
 #beside {
  	width: 80%;
- 	height: 200px;
+ 	height: 185px;
  	margin: 0 auto;
- 	padding-left: 3%;
+ 	padding-left: 7%;
  }
 #beside>div {
  	height: 100%;
- 	width: 45%;
+ 	width: 43%;
  	box-sizing: border-box;
  	border: 1px solid #516886;
  	border-radius: 10px;
@@ -287,7 +288,7 @@ body,html{
 }
 .con{
 	width: 70%;
-	margin-left: 30px;
+	margin-left: 20px;
 	float: left;
 	margin-top: 20px;
 }
@@ -331,6 +332,7 @@ body,html{
 }
 /*返回*/
 #back{
+	margin-left: 2.5%;
 	clear: right;
 }
 #back li{
@@ -355,9 +357,10 @@ body,html{
 
 /*切换*/
 #actab{
-	width: 100%;
-	height: 80%;
+	width: 95%;
+	height: 75%;
 	clear: both;
+	margin-left: 2.5%;
 }
 #container{
 	width: 70%;
@@ -479,7 +482,7 @@ span .actype{
 }
 .perac span{
 	font: normal 14px/3.3em Microsoft YaHei,Tahoma,simsun;
-	width: 11%;
+	width: 12%;
 }
 .perac a{
 	width: 50%;
@@ -494,7 +497,7 @@ span .actype{
 	width: 30%;
 	height: 100%;
 	float: left;
-	background: #EEEEEE;
+	/*background: #EEEEEE;*/
 	box-sizing: border-box;
 }
 
