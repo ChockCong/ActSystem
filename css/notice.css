@@ -6,7 +6,7 @@ body{
 }
 @font-face {
 	font-family:"rui";
-	src: url("../fonts/锐字逼格青春体简2.0.TTF");
+	src: url("../fonts/閿愬瓧閫兼牸闈掓槬浣撶畝2.0.TTF");
 }
 @-webkit-keyframes play {
 	0% {
@@ -56,7 +56,7 @@ body,html{
 	height: 100%;
 	/*background: lightcoral;*/
 }
-/*导航*/
+/*瀵艰埅*/
 #nav{
 	float: right;
 	width: 360px;
@@ -84,7 +84,7 @@ body,html{
 	text-decoration: none;
 	padding-bottom: 3px;
 }
-/*标题*/
+/*鏍囬*/
 #univers{
 	margin: 0 auto;
     width: 110px;
@@ -114,7 +114,7 @@ body,html{
 	top: -5px;
 	left: 0;
 }
-/*轮播*/
+/*杞挱*/
 #banner {
     width: 80%;
     height: 335px;
@@ -196,7 +196,7 @@ body,html{
 	cursor: pointer;
 }
 .pic>.survice:before {
-	content: "志愿服务";
+	content: "蹇楁効鏈嶅姟";
 	width: 200px;
 	height: 120px;
 	background: url(../img/type1.png) 0px no-repeat;
@@ -212,7 +212,7 @@ body,html{
   	text-align: center;
 }
   .pic>.ssac:before {
-  	content: "社会实践";
+  	content: "绀句細瀹炶返";
   	width: 200px;
   	background: url(../img/type2.png) 0px no-repeat;
   	background-size: contain;
@@ -228,7 +228,7 @@ body,html{
   	text-align: center;
   }
 .pic>.survey:before {
-	content: "校外调研";
+	content: "鏍″璋冪爺";
 	width: 200px;
 	height: 120px;
 	background: url(../img/type3.png) 0px no-repeat;
@@ -255,7 +255,7 @@ body,html{
 	font-size: 1.3em;
 	color: #888;
 }
-  /*下部活动+通知*/
+  /*涓嬮儴娲诲姩+閫氱煡*/
 #beside {
  	width: 80%;
  	height: 185px;
@@ -323,14 +323,14 @@ body,html{
 }
 
 
-/*活动查看更多*/
+/*娲诲姩鏌ョ湅鏇村*/
 .container-fluid,.row,.col-xs-12,.col-sm-8,.col-md-8{
 	height: 100%;
 }
 .col-sm-8,.col-md-8{
 	/*background: linear-gradient(to top right,#daeafe,#fff);*/
 }
-/*返回*/
+/*杩斿洖*/
 #back{
 	margin-left: 2.5%;
 	clear: right;
@@ -355,7 +355,7 @@ body,html{
 	border-bottom: 1px dotted #333;
 }
 
-/*切换*/
+/*鍒囨崲*/
 #actab{
 	width: 95%;
 	height: 75%;
@@ -394,7 +394,7 @@ body,html{
 	position: relative;
 	color: #47525d;
 	z-index: 1;
-	font-family: "微软雅黑";
+	font-family: "寰蒋闆呴粦";
     border-top: 4px solid #D7D7D7;
 }
 #tabs .non{
@@ -464,10 +464,13 @@ span .actype{
 	width: 90%;
 	padding-left: 5%;
 }
-.perac li,.perac a{
+.perac li{
 	border-bottom: 1px dotted #BFBFBF;
 	position: relative;
-	color: #000000;
+}
+.perac a{
+	color: #666;
+	
 }
 .perac li:hover,.perac a:hover{
 	color: #204D74;
@@ -494,7 +497,7 @@ span .actype{
 	width: 35%;
 	text-align: right;
 }
-/*图片*/
+/*鍥剧墖*/
 #pic{
 	width: 30%;
 	height: 100%;
@@ -507,7 +510,7 @@ span .actype{
 	width: 100%;
 	height: 33%;
 	margin-bottom: 1%;
-	/* 设置默认样式，开启3d硬件加速 */
+	/* 璁剧疆榛樿鏍峰紡锛屽紑鍚�3d纭欢鍔犻�� */
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
@@ -519,7 +522,7 @@ span .actype{
 #pic1{
 	background: url(../img/2yqlp9ccfw.jpg);
 	background-size:cover ;
-	/*动画*/
+	/*鍔ㄧ敾*/
 	-webkit-animation: play 10s linear infinite;
 	-moz-animation: play 10s linear infinite;
 	animation: play 10s linear infinite;
@@ -527,7 +530,7 @@ span .actype{
 #pic2{
 	background: url(../img/timg2.jpg);
 	background-size:cover ;
-	/*动画*/
+	/*鍔ㄧ敾*/
 	-webkit-animation: play 10s 3s linear infinite;
 	-moz-animation: play 10s 3s linear infinite;
 	animation: play 10s 3s linear infinite;
@@ -535,7 +538,7 @@ span .actype{
 #pic3{
 	background: url(../img/IMG_20131127_152610.jpg);
 	background-size:cover ;
-	/*动画*/
+	/*鍔ㄧ敾*/
 	-webkit-animation: play 10s  6s linear infinite;
 	-moz-animation: play 10s 6s linear infinite;
 	animation: play 10s 6s linear infinite;
