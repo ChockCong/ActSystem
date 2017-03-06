@@ -26,8 +26,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	$smarty->display("acall.html");
 	
 }else{
-	$actMsg=json_encode(null);
-	$smarty->assign("ActMsg",$actMsg);
+	$actMsg=new Actmsg();
+	$ActMsg=$actMsg->gaMsg(0);
+	$smarty->assign("ActMsg",$ActMsg);
 	$smarty->display("acall.html");
 }
 ?>

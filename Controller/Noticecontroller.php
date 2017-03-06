@@ -49,13 +49,21 @@ class Allac{
 		}
 		return $show;
 	}
+	function showalln(){
+		$sh=new SqlHelper();
+		$si="select nid,bt from news";
+		$show=$sh->execute_dql2 ($si);
+		return $show;
+	}
 }
 if(isset($_GET[note_title])){
 	$All=new Allac();
 	$Showallx=$All->showallx();
 	$Showally=$All->showally();
+	$Showalln=$All->showalln();
 	$smarty->assign("Showallx",$Showallx);
 	$smarty->assign("Showally",$Showally);
+	$smarty->assign("Showalln",$Showalln);
 	$smarty->display("reaccess.html");
 }else {
 	$Act=new NotAct();

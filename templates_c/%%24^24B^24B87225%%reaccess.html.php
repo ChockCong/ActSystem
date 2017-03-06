@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-06 09:31:04
+<?php /* Smarty version 2.6.30, created on 2017-03-06 14:09:07
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -89,7 +89,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 											</li>
 										<?php endforeach; endif; unset($_from); ?>
 											<li>
-												<span>[<p class="actype">社会实践aaaaa</p>]</span>
+												<span>[<p class="actype">社会实践</p>]</span>
 												<a href="#">三下乡社会实践活动</a>
 												<p>2017/7/10 8:00</p>
 											</li>
@@ -105,6 +105,16 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 								<div class="showed" id="show3">
 									<div class="perac">
 										<ul>
+									<?php $_from = $this->_tpl_vars['Showalln']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['val']):
+?>
+											<li>
+												<a href="#"><?php echo $this->_tpl_vars['val']['bt']; ?>
+</a>
+												<p><?php echo $this->_tpl_vars['val']['nid']; ?>
+</p>
+											</li>
+										<?php endforeach; endif; unset($_from); ?>		
 											<li>
 												<a href="#">大三实践分未修满名单</a>
 												<p>2016/7/10 18:00</p>

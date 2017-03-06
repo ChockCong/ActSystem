@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-04 08:39:58
+<?php /* Smarty version 2.6.30, created on 2017-03-06 11:43:05
          compiled from score.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -18,14 +18,14 @@
 		<div class="admin-main" >
 			<fieldset class="layui-elem-field">
 				<legend>活动搜索</legend>
-				<form class="layui-form" action="">
+				<form class="layui-form" action="" method="post">
 					<div class="layui-form-item">
 						<label class="layui-form-label">活动名称</label>
 						<div class="layui-input-inline">
 							<input type="text" name="acname" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline">
-							<button class="layui-btn" lay-submit="" lay-filter="demo1"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</div>
 					</div>
 				</form>
@@ -51,14 +51,14 @@
 							<tr ng-repeat="x in records | orderBy:col:desc">
 								<!--<td><input type="checkbox" ng-model="x.ck"></td>-->
 								<td>
-									<a href="#" data-toggle="modal" data-target="#acblock">{{x.acname}}</a>
+									<a href="#" data-toggle="modal" data-target="#acblock">{{x.hname}}</a>
 								</td>
-								<td>{{x.time}}</td>
-								<td>{{x.c1}}</td>
-								<td>{{x.c2}}</td>
-								<td>{{x.num}}</td>
+								<td>{{x.kssj}}</td>
+								<td>{{x.bmman}}</td>
+								<td>{{x.passman}}</td>
+								<td>{{x.cyrs}}</td>
 								<td>
-									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i class="fa fa-angle-double-right"  style="font-size: 1.2em;"></i></a>
+									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i class="fa fa-angle-double-right"  style="font-size: 1.2em;"><p hidden>{{x.hid}}</p></i></a>
 									<!--<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini">通过</a>
 									<a href="#" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">不通过</a>-->
 								</td>
@@ -91,7 +91,7 @@
 		
 	<!--报名名单弹窗-->
 		<div id="list">
-			<label><p name="acname">三下乡社会实践活动</p>报名未审名单</label>
+			<label><p name="acname">社会实践活动</p>报名未审名单</label>
 			<button id="close"><i class="fa fa-remove" lay-submit=""></i></button>
 			<table class="site-table table-hover">
 				<thead>
@@ -103,9 +103,9 @@
 						<th style="width: 20%;">审核</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<!-- ng-repeat="y in slist | orderBy:col:desc"-->
+				<tbody id="npman">
+					<!--<tr>
+						 ng-repeat="y in slist | orderBy:col:desc"
 						<td>201323131156</td>
 						<td>张黑黑</td>
 						<td>计算机科学与技术1班</td>
@@ -114,7 +114,7 @@
 							<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini" style="background: #555151; text-decoration: none;">通过</a>
 							<a href="#" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini" style="background: #c33b3b; text-decoration: none;">不通过</a>
 						</td>
-					</tr>
+					</tr>-->
 		
 				</tbody>
 			</table>
@@ -156,18 +156,43 @@
 				($cl).click(function(){
 					($li).hide();
 				});
+				$(".fa-angle-double-right").click(function(){
+					var hid=$(this).find("p").html();
+					$.ajax({
+			               type:"get",
+			               url: "Detailcontroller.php",
+			               dataType:'json',
+			               data: "yhid="+hid,
+			               success:function(data){
+			            	   $.each(data,function(i,result){ 
+			            		   $.each(result,function(j,val){
+				            		   item = "<tr><td>"+val.snum+"</td><td>"+val.sname+"</td><td>"+val.szy+"</td><td>"+val.sdh+"</td><td>"+
+				            		   "<a href='?ysid="+val.sid+"&hhid="+hid+"' class='layui-btn layui-btn-normal layui-btn-mini' style='background: #555151; text-decoration: none;'>通过</a>&nbsp;&nbsp;"+
+									   "<a href='?nsid="+val.sid+"&hhid="+hid+"' data-id='1' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini' style='background: #c33b3b; text-decoration: none;'>不通过</a>"+
+									"</td></tr>"; 
+				            		   $("#npman").append(item); 
+			            		   }) 
+			            		}); 
+			            	   $("#close").click(function(){ $("#npman").html("");}) 
+			               },
+					})
+				});
 			});
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
-			  $scope.records = [
-				{ck: false,acname:"三下乡社会实践活动",time:"2012/7/16 15:45",c1:"20",c2:"10",num:"30"},
-				{ck: false,acname:"南国中英文小学义教",time:"2012/7/16 15:45",c1:"50",c2:"20",num:"35"},
-				{ck: false,acname:"社区环保活动",time:"2012/7/16 15:45",c1:"30",c2:"6",num:"20"},
-				{ck: false,acname:"朝阳行动",time:"2012/7/16 15:45",c1:"80",c2:"7",num:"50"},
-				{ck: false,acname:"雷锋月爱心义卖",time:"2012/7/16 15:45",c1:"20",c2:"13",num:"30"},
-				{ck: false,acname:"电脑义务维修",time:"2012/7/16 15:45",c1:"30",c2:"3",num:"15"},
-				{ck: false,acname:"迎接新生",time:"2012/7/16 15:45",c1:"150",c2:"9",num:"25"},
-			  ]
+			  <?php echo '$scope.records = '; ?>
+<?php echo $this->_tpl_vars['Passnum']; ?>
+<?php echo ';'; ?>
+
+//			  [
+//				{ck: false,acname:"三下乡社会实践活动",time:"2012/7/16 15:45",c1:"20",c2:"10",num:"30"},
+//				{ck: false,acname:"南国中英文小学义教",time:"2012/7/16 15:45",c1:"50",c2:"20",num:"35"},
+//				{ck: false,acname:"社区环保活动",time:"2012/7/16 15:45",c1:"30",c2:"6",num:"20"},
+//				{ck: false,acname:"朝阳行动",time:"2012/7/16 15:45",c1:"80",c2:"7",num:"50"},
+//				{ck: false,acname:"雷锋月爱心义卖",time:"2012/7/16 15:45",c1:"20",c2:"13",num:"30"},
+//				{ck: false,acname:"电脑义务维修",time:"2012/7/16 15:45",c1:"30",c2:"3",num:"15"},
+//				{ck: false,acname:"迎接新生",time:"2012/7/16 15:45",c1:"150",c2:"9",num:"25"},
+//			  ] 
 //			  $scope.slist = [
 //				{username:"201323131156",stuname:"张黑黑",classname:"计算机科学与技术1班",longtell:"18898834720"},
 //				{username:"201424143242",stuname:"李白",classname:"通信工程",longtell:"18898883718"},

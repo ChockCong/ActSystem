@@ -74,7 +74,7 @@
 											</li>
 										<{/foreach}>
 											<li>
-												<span>[<p class="actype">社会实践aaaaa</p>]</span>
+												<span>[<p class="actype">社会实践</p>]</span>
 												<a href="#">三下乡社会实践活动</a>
 												<p>2017/7/10 8:00</p>
 											</li>
@@ -90,6 +90,12 @@
 								<div class="showed" id="show3">
 									<div class="perac">
 										<ul>
+									<{foreach from=$Showalln item=val}>
+											<li>
+												<a href="#"><{$val.bt}></a>
+												<p><{$val.nid}></p>
+											</li>
+										<{/foreach}>		
 											<li>
 												<a href="#">大三实践分未修满名单</a>
 												<p>2016/7/10 18:00</p>

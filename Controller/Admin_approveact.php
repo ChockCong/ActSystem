@@ -10,7 +10,7 @@ class Pass{
 		else if(!empty($str1) && empty($str2))
 			$passsql="select h.shid,h.shname,h.cyz,h.kssj from studenthd h,student s where s.snum='$str1' and h.sid=s.sid and h.xf=0";
 		else if(!empty($str2) && empty($str1))
-			$passsql="select shid,shname,cyz,kssj from studenthd where shname like '%$str2%'";
+			$passsql="select shid,shname,cyz,kssj from studenthd where shname like '%$str2%' and xf=0";
 		else if(!empty($str2) && !empty($str1))
 			$passsql="select h.shid,h.shname,h.cyz,h.kssj from studenthd h,student s where s.snum='$str1' and h.sid=s.sid and h.shname like '%$str2%' and h.xf=0";
 		

@@ -25,22 +25,30 @@ class Peract{
 	public function permsg($id){
 		$sh=new SqlHelper();
 		$msgsql="select * from student where sid=$id";
-		
 		$Man=$sh->execute_dql ($msgsql);
 		return $Man;
 	}
-} //活动信息model
+} //个人&活动信息
 
 class Nopass{
 	function nopass($hid){
 		$sq=new SqlHelper();
-		$Nosql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where hid='$hid' and g.sid=s.sid";
-	
+		$Nosql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid";
 		$passMan=$sq->execute_dql2 ($Nosql);
-		return json_encode($passMan);
+		return $passMan;
 	}
-}
-//查看历史活动程序
+} //没有通过审核个人信息
+
+class Pass{
+	function seeact($hid){
+		$sh=new SqlHelper();
+		$hdsql="select snum,sname,szy,sdh from student where sid in (select sid from studenthd where hid=$hid)";
+		$acts=$sh->execute_dql2 ($hdsql);
+		return $acts;
+	}
+} //通过审核个人信息
+
+//--------------------------------查看历史活动程序
 if(!empty($_GET['shid'])){
 	$i=$_GET['shid'];
 	$peract=new Peract();
@@ -54,7 +62,7 @@ if(!empty($_GET['shid'])){
 	//echo json_encode(array('jsonObj'=>$Acts));
 }
 
-//修改申报活动程序
+//--------------------------------修改申报活动程序
 if(!empty($_GET['chid'])){
 	$i=$_GET['chid'];
 	$peract=new Peract();
@@ -62,13 +70,15 @@ if(!empty($_GET['chid'])){
 	echo json_encode(array('jsonObj'=>$Acts));
 }
 
-if(!empty($_GET['hid'])){
-	$id=$_GET['hid'];
-	$np=new Nopass();
-	$npMsg=$np->nopass($id);
-	echo json_encode($npMsg);
-}
+// //--------------------------------查看未通过审核人信息
+// if(!empty($_GET['hid'])){
+// 	$id=$_GET['hid'];
+// 	$np=new Nopass();
+// 	$npMsg=$np->nopass($id);
+// 	echo json_encode($npMsg);
+// }
 
+//--------------------------------查看学生个人信息
 if(!empty($_GET['sid'])){
 	$id=$_GET['sid'];
  	$per=new Peract();
@@ -95,5 +105,22 @@ if(!empty($_GET['sid'])){
 					</div>";
  	echo $str;
   	//echo json_encode($perMsg);
+}
+
+//--------------------------------查看通过审核已评分个人信息
+if(!empty($_GET['nhid'])){
+	$hid=$_GET['nhid'];
+	$actMsg=new Pass();
+	$AM=$actMsg->seeact($hid);
+	echo json_encode(array('jsonObj'=>$AM));	
+}
+
+//--------------------------------查看未通过审核人信息
+if(!empty($_GET['yhid'])){
+	$hid=$_GET['yhid'];
+	$actMsg=new Nopass();
+	$NM=$actMsg->nopass($hid);
+	echo json_encode(array('jsonObj'=>$NM));
+	//print_r($NM);
 }
 ?>

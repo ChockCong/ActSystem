@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-03 18:48:15
+<?php /* Smarty version 2.6.30, created on 2017-03-06 14:00:38
          compiled from acpass.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -28,7 +28,7 @@
 							<input type="text" name="acname" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-input-inline">
-							<input type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">
+							<button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</div>
 					</div>
 				</form>

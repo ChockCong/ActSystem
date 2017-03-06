@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-04 08:10:35
+<?php /* Smarty version 2.6.30, created on 2017-03-06 09:48:42
          compiled from declare.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'declare.html', 15, false),)), $this); ?>
