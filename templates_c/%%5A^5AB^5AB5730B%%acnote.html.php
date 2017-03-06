@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-04 16:44:05
+<?php /* Smarty version 2.6.30, created on 2017-03-06 09:30:33
          compiled from acnote.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acnote.html', 18, false),)), $this); ?>
@@ -38,7 +38,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acn
 <br /><?php echo $this->_tpl_vars['val']['fwdw']; ?>
 </span></li>  
 						      <?php endforeach; endif; unset($_from); ?>
-						   <!--<li class="survice"><p>义务维修</p><span>2017年3月1日<br />端州黄岗</span></li>
+						   <!--<li class="survice"><p>aaa义务维修</p><span>2017年3月1日<br />端州黄岗</span></li>
 						      <li class="survice"><p>雷锋月摆摊活动</p><span>2017年3月4日<br />紫荆校道学生活动中心前</span></li>
 						      <li class="survey"><p>走访高新区企业</p><span>2017年3月18日<br />大旺高新区</span></li>
 						      <li class="survey"><p>南国中英文小学朝阳行动</p><span>2014年5月15日<br />南国中英文小学</span></li>

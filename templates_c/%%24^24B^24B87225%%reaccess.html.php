@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-06 09:29:22
+<?php /* Smarty version 2.6.30, created on 2017-03-06 09:31:04
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -89,7 +89,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 											</li>
 										<?php endforeach; endif; unset($_from); ?>
 											<li>
-												<span>[<p class="actype">社会实践aaaa</p>]</span>
+												<span>[<p class="actype">社会实践aaaaa</p>]</span>
 												<a href="#">三下乡社会实践活动</a>
 												<p>2017/7/10 8:00</p>
 											</li>
