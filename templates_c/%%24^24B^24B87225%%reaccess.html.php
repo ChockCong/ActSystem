@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-04 06:05:00
+<?php /* Smarty version 2.6.30, created on 2017-03-06 07:52:14
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -39,6 +39,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 									<!--<li class="non">/</li>-->
 									<li class="tab active" id="tab-1">校级活动</li>
 									<li class="tab" id="tab-2">学院特色</li>
+									<li class="tab" id="tab-3">通知公告</li>
 								</ul>
 							</div>
 							<div id="show">
@@ -100,6 +101,25 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 										</ul>
 									</div>
 								</div>
+								<!--通知公告-->
+								<div class="showed" id="show3">
+									<div class="perac">
+										<ul>
+											<li>
+												<a href="#">大三实践分未修满名单</a>
+												<p>2016/7/10 18:00</p>
+											</li>
+											<li>
+												<a href="#">3月2日收社会实践登记表</a>
+												<p>2017/3/1 8:00</p>
+											</li>											
+											<li>
+												<a href="#">关于环保活动车费报销</a>
+												<p>2017/4/3 10:00</p>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
 							</div>						
 							<!--图片-->
@@ -120,21 +140,34 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 		<script type="text/javascript">
 			
 			//切换功能
-		$(function(){
+				$(function(){
 			var $tab = $(".tab");
 			var $show1 = $("#show1");
 			var $show2 = $("#show2");
+			var $show3 = $("#show3");
 			$tab.eq(0).click(function(){
 				$tab.eq(1).removeClass("active");
-				$show2.removeClass("active");
+				$show2.removeClass("active");				
+				$tab.eq(2).removeClass("active");
+				$show3.removeClass("active");
 				$(this).addClass("active");
 				$show1.addClass("active");
 			});
 			$tab.eq(1).click(function(){
 				$tab.eq(0).removeClass("active");
-				$show1.removeClass("active");
+				$show1.removeClass("active");				
+				$tab.eq(2).removeClass("active");
+				$show3.removeClass("active");
 				$(this).addClass("active");
 				$show2.addClass("active");
+			});
+			$tab.eq(2).click(function(){
+				$tab.eq(0).removeClass("active");
+				$show1.removeClass("active");				
+				$tab.eq(1).removeClass("active");
+				$show2.removeClass("active");
+				$(this).addClass("active");
+				$show3.addClass("active");
 			});
 			});
 		</script>
