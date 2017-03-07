@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-03 17:34:39
+<?php /* Smarty version 2.6.30, created on 2017-03-07 01:47:52
          compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -104,7 +104,7 @@
 					<h4 class="modal-title" id="myModalLabel">详细信息</h4>
 				</div>
 				<div class="modal-body blockleft" id="modal-body blockleft">
-					<div class="line">
+<!--  					<div class="line">
 						<label for="username">学号：<p id="username">201324133234</p></label>
 						<label for="nation">民族：<p id="nation">汉族</p></label>
 						<label for="idnum">身份证：<p id="idnum">445366198305234452</p></label>
@@ -123,7 +123,7 @@
 						<label for="institute">学院：<p id="institute">电子信息与通信工程学院</p></label>
 						<label for="class">班号：<p id="class">2013241332</p></label>
 						<label for="level">层次：<p id="level">本科</p></label>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>
@@ -167,7 +167,6 @@
 		$(function(){
 			$(".getid").click(function(){
 				var ssid=$(this).find("p").html();
-				
 	            $.ajax({
 	                type: "GET",
 	                url: "Detailcontroller.php",
@@ -185,8 +184,10 @@
 	                complete:function(){
 	                  }
 	             });
-
-			})
+			});
+            $(".close").click(function(){
+            	$(".modal-body").html("");
+            });
 		})
 		</script>
 	</body>

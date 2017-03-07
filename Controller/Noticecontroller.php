@@ -29,7 +29,7 @@ class NotAct{
 class Allac{
 	function showallx(){
 		$sh=new SqlHelper();
-		$sa="select hid,hname,kssj,fwlx,lb from adminhd where lb!=0 order by kssj";
+		$sa="select hid,hname,kssj,fwlx from adminhd where lb!=0 order by kssj";
 		$show=$sh->execute_dql2 ($sa);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][lb]="志愿服务";
@@ -40,7 +40,7 @@ class Allac{
 	}
 	function showally(){
 		$sh=new SqlHelper();
-		$si="select hid,hname,fwlx from adminhd where lb=0";
+		$si="select hid,hname,fwlx,kssj from adminhd where lb=0 order by kssj";
 		$show=$sh->execute_dql2 ($si);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][fwlx]="志愿服务";
@@ -51,7 +51,7 @@ class Allac{
 	}
 	function showalln(){
 		$sh=new SqlHelper();
-		$si="select nid,bt from news";
+		$si="select nid,bt,time from news";
 		$show=$sh->execute_dql2 ($si);
 		return $show;
 	}

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-06 14:00:38
+<?php /* Smarty version 2.6.30, created on 2017-03-07 09:44:24
          compiled from acpass.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -36,10 +36,8 @@
 			
 			<fieldset class="layui-elem-field">
 				<legend>待审核活动</legend>
-				<form action="" method="get">
 				<a href="#scoring"><button class="dele">通过</button></a>
-				<button class="dele" style="margin-left: 15px;">不通过</button>
-				</form>
+				<button class="dele" style="margin-left: 15px;" onclick="nps()">不通过</button>
 				<button ng-click="col='time';desc=!desc" type="button" class="btntime">时间</button>
 				<div class="layui-field-box">
 					<table class="site-table table-hover">
@@ -54,7 +52,7 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="x in records | orderBy:col:desc">
-								<td><input type="checkbox" ng-model="x.ck"></td>
+								<td><input type="checkbox" ng-model="x.ck" name="chk[]"  value="{{x.shid}}"></td>
 								<td>
 									<a href="#" data-toggle="modal" data-target="#acblock">{{x.shname}}</a>
 								</td>
@@ -63,7 +61,7 @@
 								<td id=""  hidden>{{x.shid}}</td>
 								<td>
 									<a href="#scoring" class="layui-btn layui-btn-normal layui-btn-mini">通过<p name="sid[]" hidden>{{x.shid}}</p></a>
-									<a href="#" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">不通过</a>
+									<a href="?nshid={{x.shid}}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">不通过</a>
 								</td>
 							</tr>
 					
@@ -89,7 +87,7 @@
 					<option value="0.5">0.5</option>
 					<option value="0.8">0.8</option>
 				</select>
-				<input id="sid" name="sid" type="text" value="123456" hidden>
+				<input id="sid" name="sid" type="text" value="abc" hidden>
 				<input type="submit" id="surescore" value="确定" />
 			</form>
 		</div>
@@ -145,11 +143,28 @@
 			
 			$(document).ready(function(){
 				$("[href='#scoring']").click(function(){
+					var $getchk=[];
 					var $sid=$(this).find("p").text();
-				    $("#sid").attr("value",$sid);
+					$("input[name='chk[]']:checked").each(function(i){
+						$getchk[i]=$(this).val();
+					});
+					if($getchk=="" && $sid==""){
+						alert("请选择评分项目,逐条评分或多选评分!");
+					}else if($sid!=""){
+						$("#sid").attr("value",$sid);
+					}else{
+						$("#sid").attr("value",$getchk);
+					}
+				    
 				})
 			});
-
+			function nps(){
+				var $ngetchk=[];
+				$("input[name='chk[]']:checked").each(function(i){
+					$ngetchk[i]=$(this).val();
+				});
+				location.href="Admin_approveact.php?nshid[]="+$ngetchk;
+			}
 //			layui.config({
 //				base: 'plugins/layui/modules/'
 //			});

@@ -42,7 +42,7 @@ class Nopass{
 class Pass{
 	function seeact($hid){
 		$sh=new SqlHelper();
-		$hdsql="select snum,sname,szy,sdh from student where sid in (select sid from studenthd where hid=$hid)";
+		$hdsql="select snum,sname,szy,sdh from student where sid in (select sid from studenthd where hid=$hid and xf!=0)";
 		$acts=$sh->execute_dql2 ($hdsql);
 		return $acts;
 	}
@@ -107,7 +107,7 @@ if(!empty($_GET['sid'])){
   	//echo json_encode($perMsg);
 }
 
-//--------------------------------查看通过审核已评分个人信息
+//--------------------------------查看通过审核已评分个人信息acall.html
 if(!empty($_GET['nhid'])){
 	$hid=$_GET['nhid'];
 	$actMsg=new Pass();
@@ -115,7 +115,7 @@ if(!empty($_GET['nhid'])){
 	echo json_encode(array('jsonObj'=>$AM));	
 }
 
-//--------------------------------查看未通过审核人信息
+//--------------------------------查看未通过审核人信息score.html
 if(!empty($_GET['yhid'])){
 	$hid=$_GET['yhid'];
 	$actMsg=new Nopass();
