@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-06 16:26:47
+<?php /* Smarty version 2.6.30, created on 2017-03-07 03:08:58
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -45,6 +45,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 							<div id="show">
 								<!--校级活动-->
 								<div class="showed active" id="show1">
+									<div class="scroll">
 									<div class="perac">
 										<ul>
 										<?php $_from = $this->_tpl_vars['Showallx']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -69,11 +70,34 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 												<a href="#" class="todetele">电脑义务维修</a>
 												<p>2017/3/4 9:00</p>
 											</li>
+																						<li>
+												<span>[<p class="actype">志愿服务</p>]</span>
+												<a href="#" class="todetele">电脑义务维修</a>
+												<p>2017/3/4 9:00</p>
+											</li>											<li>
+												<span>[<p class="actype">志愿服务</p>]</span>
+												<a href="#" class="todetele">电脑义务维修</a>
+												<p>2017/3/4 9:00</p>
+											</li>											<li>
+												<span>[<p class="actype">志愿服务</p>]</span>
+												<a href="#" class="todetele">电脑义务维修</a>
+												<p>2017/3/4 9:00</p>
+											</li>											<li>
+												<span>[<p class="actype">志愿服务</p>]</span>
+												<a href="#" class="todetele">电脑义务维修</a>
+												<p>2017/3/4 9:00</p>
+											</li>											<li>
+												<span>[<p class="actype">志愿服务</p>]</span>
+												<a href="#" class="todetele">电脑义务维修</a>
+												<p>2017/3/4 9:00</p>
+											</li>
 										</ul>
+									</div>
 									</div>
 								</div>
 								<!--学院特色-->
 								<div class="showed" id="show2">
+									<div class="scroll">
 									<div class="perac">
 										<ul>
 										<?php $_from = $this->_tpl_vars['Showally']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -100,6 +124,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 											</li>
 										</ul>
 									</div>
+									</div>
 								</div>
 								<!--活动详情-->
 								<div class="showed" id="deshow">
@@ -117,6 +142,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 								</div>
 								<!--通知公告-->
 								<div class="showed" id="show3">
+									<div class="scroll">
 									<div class="perac">
 										<ul>
 									<?php $_from = $this->_tpl_vars['Showalln']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -142,6 +168,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 												<p>2017/4/3 10:00</p>
 											</li>
 										</ul>
+									</div>
 									</div>
 								</div>
 							</div>

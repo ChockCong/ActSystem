@@ -53,18 +53,28 @@ header{
 #nav{
 	float: right;
 	width: 360px;
-	height: 50px;
-	padding-top: 60px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 #nav li{
 	float: left;
 	margin-right: 15px;
-	font-size: 1.2em;
+	font-size: 1em;
 	border-right: 1px solid #BCB7B7;
 	padding-right: 15px;
 }
 #nav li:last-child{
 	border-right: none;
+}
+#nav a{
+	color: #555151;
+	font-size: 1.2em;
+}
+#nav a:hover{
+	color: #000000;
+	border-bottom: 1px solid #555151;
+	text-decoration: none;
+	padding-bottom: 3px;
 }
 #main{
 	

@@ -6,7 +6,7 @@ body{
 }
 @font-face {
 	font-family:"rui";
-	src: url("../fonts/閿愬瓧閫兼牸闈掓槬浣撶畝2.0.TTF");
+	src: url("../fonts/锐字逼格青春体简2.0.TTF");
 }
 @-webkit-keyframes play {
 	0% {
@@ -56,7 +56,7 @@ body,html{
 	height: 100%;
 	/*background: lightcoral;*/
 }
-/*瀵艰埅*/
+/*导航*/
 #nav{
 	float: right;
 	width: 360px;
@@ -84,7 +84,7 @@ body,html{
 	text-decoration: none;
 	padding-bottom: 3px;
 }
-/*鏍囬*/
+/*标题*/
 #univers{
 	margin: 0 auto;
     width: 110px;
@@ -114,7 +114,7 @@ body,html{
 	top: -5px;
 	left: 0;
 }
-/*杞挱*/
+/*轮播*/
 #banner {
     width: 80%;
     height: 335px;
@@ -196,7 +196,7 @@ body,html{
 	cursor: pointer;
 }
 .pic>.survice:before {
-	content: "蹇楁効鏈嶅姟";
+	content: "志愿服务";
 	width: 200px;
 	height: 120px;
 	background: url(../img/type1.png) 0px no-repeat;
@@ -212,7 +212,7 @@ body,html{
   	text-align: center;
 }
   .pic>.ssac:before {
-  	content: "绀句細瀹炶返";
+  	content: "社会实践";
   	width: 200px;
   	background: url(../img/type2.png) 0px no-repeat;
   	background-size: contain;
@@ -228,7 +228,7 @@ body,html{
   	text-align: center;
   }
 .pic>.survey:before {
-	content: "鏍″璋冪爺";
+	content: "校外调研";
 	width: 200px;
 	height: 120px;
 	background: url(../img/type3.png) 0px no-repeat;
@@ -255,7 +255,7 @@ body,html{
 	font-size: 1.3em;
 	color: #888;
 }
-  /*涓嬮儴娲诲姩+閫氱煡*/
+  /*下部活动+通知*/
 #beside {
  	width: 80%;
  	height: 185px;
@@ -323,14 +323,14 @@ body,html{
 }
 
 
-/*娲诲姩鏌ョ湅鏇村*/
+/*活动查看更多*/
 .container-fluid,.row,.col-xs-12,.col-sm-8,.col-md-8{
 	height: 100%;
 }
 .col-sm-8,.col-md-8{
 	/*background: linear-gradient(to top right,#daeafe,#fff);*/
 }
-/*杩斿洖*/
+/*返回*/
 #back{
 	margin-left: 2.5%;
 	clear: right;
@@ -355,7 +355,7 @@ body,html{
 	border-bottom: 1px dotted #333;
 }
 
-/*鍒囨崲*/
+/*切换*/
 #actab{
 	width: 95%;
 	height: 75%;
@@ -373,7 +373,7 @@ body,html{
 }
 #tabs {
 	width: 100%;
-	height: 50px;
+	height: 40px;
 	line-height: 40px;
 	text-align: center;
 	color: #555151;
@@ -394,7 +394,7 @@ body,html{
 	position: relative;
 	color: #47525d;
 	z-index: 1;
-	font-family: "寰蒋闆呴粦";
+	font-family: "微软雅黑";
     border-top: 4px solid #D7D7D7;
 }
 #tabs .non{
@@ -425,21 +425,20 @@ body,html{
 }
 
 #show .showed {
-	background: #FFFFFF;
-	line-height: 3em;
-	font-size: 1.3em;
-	position:absolute;
-	width: 100%;
-	height: 100%;
-  	top:50%;
-  	left:50%;
- 	-webkit-transform:translate(-50%,-50%);
-    -moz-transform:translate(-50%,-50%);
-    transform:translate(-50%,-50%);
+    background: #FFFFFF;
+    line-height: 3em;
+    font-size: 1.3em;
+    width: 100%;
+    height: 100%;
 	display: none;
-	padding-top: 15px;
+	overflow: hidden;
 }
-
+.scroll{
+	width: 104%;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 #show .showed.active {
 	display: block;
 }
@@ -539,24 +538,25 @@ span .actype{
 	width: 35%;
 	text-align: right;
 }
-/*鍥剧墖*/
+/*图片*/
 #pic{
 	width: 30%;
 	height: 100%;
 	float: left;
 	/*background: #EEEEEE;*/
 	box-sizing: border-box;
+
 }
 
 #pic div {
 	width: 100%;
 	height: 33%;
 	margin-bottom: 1%;
-	/* 璁剧疆榛樿鏍峰紡锛屽紑鍚�3d纭欢鍔犻�� */
+	/* 设置默认样式，开启3d硬件加速 */
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
-
+	/*backface-visibility:hidden;*/
 }
 #pic div:last-of-type{
 	margin-bottom: 0;
@@ -564,7 +564,7 @@ span .actype{
 #pic1{
 	background: url(../img/2yqlp9ccfw.jpg);
 	background-size:cover ;
-	/*鍔ㄧ敾*/
+	/*动画*/
 	-webkit-animation: play 10s linear infinite;
 	-moz-animation: play 10s linear infinite;
 	animation: play 10s linear infinite;
@@ -572,7 +572,7 @@ span .actype{
 #pic2{
 	background: url(../img/timg2.jpg);
 	background-size:cover ;
-	/*鍔ㄧ敾*/
+	/*动画*/
 	-webkit-animation: play 10s 3s linear infinite;
 	-moz-animation: play 10s 3s linear infinite;
 	animation: play 10s 3s linear infinite;
@@ -580,7 +580,7 @@ span .actype{
 #pic3{
 	background: url(../img/IMG_20131127_152610.jpg);
 	background-size:cover ;
-	/*鍔ㄧ敾*/
+	/*动画*/
 	-webkit-animation: play 10s  6s linear infinite;
 	-moz-animation: play 10s 6s linear infinite;
 	animation: play 10s 6s linear infinite;
