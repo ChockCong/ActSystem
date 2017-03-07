@@ -465,17 +465,47 @@ body,html{
     line-height: 1em;
     transition: all .5s ease .1s;
 }
-#show input[type="submit"]:hover{
+#show input[type="button"]{
+    border: 1px solid #204D74;
+    background: transparent;
+    color: #204D74;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.9em;
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    bottom: 20px;
+}
+#show input[type="submit"]:hover,#show input[type="button"]:hover{
     border: 1px solid #fff;
 	background: #204F74;
 	color: #fff;
 	border-radius: 8px;
 }
-#deshow label{
+#deshow label,#denote label{
 	font-weight: 500;
 	width: 85%;
     margin: 5px 7.5%;
     font-size: 0.9em;
+}
+#denote p{
+	width: 85%;
+	font-size: 0.9em;
+	line-height: 1.8em;
+	margin: 0 7.5%;
+}
+#denote .cont{
+	margin-top: 10px;
+    height: 280px;
+    overflow: auto;
+    line-height: 1.8em;
+    letter-spacing: 1px;
+}
+
+#denote .right{
+	text-align: right;
 }
 #deshow p{
 	display: inline-block;
@@ -485,6 +515,12 @@ body,html{
     margin-top: 10px;
     height: 150px;
     overflow: auto;
+}
+#denote .notetitle{
+	text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #333;
 }
 #show ul li,#back ul li{
 	float: left;

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-07 06:04:23
+<?php /* Smarty version 2.6.30, created on 2017-03-07 15:36:03
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -149,27 +149,37 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
     foreach ($_from as $this->_tpl_vars['val']):
 ?>
 											<li>
-												<a href="#"><?php echo $this->_tpl_vars['val']['bt']; ?>
+												<a href="#" class="tonote"><?php echo $this->_tpl_vars['val']['bt']; ?>
 </a>
 												<p><?php echo $this->_tpl_vars['val']['nid']; ?>
 </p>
 											</li>
 										<?php endforeach; endif; unset($_from); ?>		
 											<li>
-												<a href="#">大三实践分未修满名单</a>
+												<a href="#" class="tonote">大三实践分未修满名单</a>
 												<p>2016/7/10 18:00</p>
 											</li>
 											<li>
-												<a href="#">3月2日收社会实践登记表</a>
+												<a href="#" class="tonote">3月2日收社会实践登记表</a>
 												<p>2017/3/1 8:00</p>
 											</li>											
 											<li>
-												<a href="#">关于环保活动车费报销</a>
+												<a href="#" class="tonote">关于环保活动车费报销</a>
 												<p>2017/4/3 10:00</p>
 											</li>
 										</ul>
 									</div>
 									</div>
+								</div>
+								<div class="showed" id="denote">
+									<form action="#" method="post">
+										<label class="notetitle">公告标题</label>
+										<label class="cont">把老人当作朋友一样聊天，听老人们过去的事迹是如此得着迷，主动跑到外面小卖部买东西给老人。来的时候准备了水果，点心和一些日用品，用自己平时的零花钱给老人们买吃的。从早上到中午12点，走了部分老人的房间并且慰问了老人们。到了老人吃饭的时间，就跟着那里负责分饭的管理员一起帮助老人们进行就餐。有的老人就餐很不方便，需要一边喂才行。
+										</label>										
+										<p class="right">外国语学院青年志愿服务部</p>
+										<p class="right">2017年4月12日</p>
+										<input type="button" id="return" value="返回"/>										
+									</form>
 								</div>
 							</div>
 							</div>						
@@ -192,46 +202,61 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 			
 			//切换功能
 			$(function(){
-			var $tab = $(".tab");
-			var $show1 = $("#show1");
-			var $show2 = $("#show2");
-			var $show3 = $("#show3");
-			var $td = $(".todetele");
-			var $de = $("#deshow");
-			var $turn = $("#return");
-			($td).click(function(){
-					($de).show();
-					$show1.removeClass("active");				
-					$show2.removeClass("active");				
-					$show3.removeClass("active");					
+				var $tab = $(".tab");
+				var $show1 = $("#show1");
+				var $show2 = $("#show2");
+				var $show3 = $("#show3");
+				var $td = $(".todetele");
+				var $de = $("#deshow");
+				var $tn = $(".tonote");
+				var $dn = $("#denote");
+				var $turn = $("#return");
+				($td).click(function(){
+						($de).show();
+						$show1.removeClass("active");				
+						$show2.removeClass("active");				
+						$show3.removeClass("active");					
+					});
+				($tn).click(function(){
+					($dn).show();
+						$show1.removeClass("active");				
+						$show2.removeClass("active");				
+						$show3.removeClass("active");		
 				});
-			$tab.eq(0).click(function(){
-				$tab.eq(1).removeClass("active");
-				$show2.removeClass("active");				
-				$tab.eq(2).removeClass("active");
-				$show3.removeClass("active");
-				$(this).addClass("active");
-				$show1.addClass("active");
-				$de.hide();
-			});
-			$tab.eq(1).click(function(){
-				$tab.eq(0).removeClass("active");
-				$show1.removeClass("active");				
-				$tab.eq(2).removeClass("active");
-				$show3.removeClass("active");
-				$(this).addClass("active");
-				$show2.addClass("active");
-				$de.hide();
-			});
-			$tab.eq(2).click(function(){
-				$tab.eq(0).removeClass("active");
-				$show1.removeClass("active");				
-				$tab.eq(1).removeClass("active");
-				$show2.removeClass("active");
-				$(this).addClass("active");
-				$show3.addClass("active");
-				$de.hide();
-			});
+				($turn).click(function(){
+					$dn.hide();
+					$show3.addClass("active");
+				});
+				$tab.eq(0).click(function(){
+					$tab.eq(1).removeClass("active");
+					$show2.removeClass("active");				
+					$tab.eq(2).removeClass("active");
+					$show3.removeClass("active");
+					$(this).addClass("active");
+					$show1.addClass("active");
+					$de.hide();
+					$dn.hide();
+				});
+				$tab.eq(1).click(function(){
+					$tab.eq(0).removeClass("active");
+					$show1.removeClass("active");				
+					$tab.eq(2).removeClass("active");
+					$show3.removeClass("active");
+					$(this).addClass("active");
+					$show2.addClass("active");
+					$de.hide();
+					$dn.hide();
+				});
+				$tab.eq(2).click(function(){
+					$tab.eq(0).removeClass("active");
+					$show1.removeClass("active");				
+					$tab.eq(1).removeClass("active");
+					$show2.removeClass("active");
+					$(this).addClass("active");
+					$show3.addClass("active");
+					$dn.hide();
+					$de.hide();
+				});
 			});
 		</script>
 	</body>
