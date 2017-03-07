@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-06 14:09:07
+<?php /* Smarty version 2.6.30, created on 2017-03-06 16:26:47
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -53,7 +53,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 											<li>
 												<span>[<p class="actype"><?php echo $this->_tpl_vars['val']['lb']; ?>
 </p>]</span>
-												<a href="#"><?php echo $this->_tpl_vars['val']['hname']; ?>
+												<a href="#" class="todetele"><?php echo $this->_tpl_vars['val']['hname']; ?>
 </a>
 												<p><?php echo $this->_tpl_vars['val']['kssj']; ?>
 </p>
@@ -61,12 +61,12 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 										<?php endforeach; endif; unset($_from); ?>
 											<li>
 												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#">电脑义务维修</a>
+												<a href="#" class="todetele">电脑义务维修</a>
 												<p>2017/3/4 9:00</p>
 											</li>
 											<li>
 												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#">电脑义务维修</a>
+												<a href="#" class="todetele">电脑义务维修</a>
 												<p>2017/3/4 9:00</p>
 											</li>
 										</ul>
@@ -82,7 +82,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 											<li>
 												<span>[<p class="actype"><?php echo $this->_tpl_vars['val']['fwlx']; ?>
 </p>]</span>
-												<a href="#"><?php echo $this->_tpl_vars['val']['hname']; ?>
+												<a href="#" class="todetele"><?php echo $this->_tpl_vars['val']['hname']; ?>
 </a>
 												<p><?php echo $this->_tpl_vars['val']['kssj']; ?>
 </p>
@@ -90,16 +90,30 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 										<?php endforeach; endif; unset($_from); ?>
 											<li>
 												<span>[<p class="actype">社会实践</p>]</span>
-												<a href="#">三下乡社会实践活动</a>
+												<a href="#" class="todetele">三下乡社会实践活动</a>
 												<p>2017/7/10 8:00</p>
 											</li>
 											<li>
 												<span>[<p class="actype">社会实践</p>]</span>
-												<a href="#">三下乡社会实践活动</a>
+												<a href="#" class="todetele">三下乡社会实践活动</a>
 												<p>2017/7/10 8:00</p>
 											</li>
 										</ul>
 									</div>
+								</div>
+								<!--活动详情-->
+								<div class="showed" id="deshow">
+									<form action="#" method="post">
+										<label>活动名称：<p name="acname">三下乡社会实践活动</p></label>
+										<label>活动地点：<p name="acaddr">肇庆端州区养老福利院</p></label>
+										<label>活动时间：<p>2014/7/20-2014/7/30</p></label>
+										<label>活动时长：<p>9:00-17:00</p></label>
+										<label>参与人数：<p>20</p>人</label>					
+										<label>活动类型：<p name="actype">社会实践</p></label>
+										<label>活动内容：<p class="cont">把老人当作朋友一样聊天，听老人们过去的事迹是如此得着迷，主动跑到外面小卖部买东西给老人。来的时候准备了水果，点心和一些日用品，用自己平时的零花钱给老人们买吃的。从早上到中午12点，走了部分老人的房间并且慰问了老人们。到了老人吃饭的时间，就跟着那里负责分饭的管理员一起帮助老人们进行就餐。有的老人就餐很不方便，需要一边喂才行。</p></label>										
+										<input type="submit" value="立即报名"/>
+										<!--<input type="button" id="return" value="返回"/>-->										
+									</form>										
 								</div>
 								<!--通知公告-->
 								<div class="showed" id="show3">
@@ -150,11 +164,20 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 		<script type="text/javascript">
 			
 			//切换功能
-				$(function(){
+			$(function(){
 			var $tab = $(".tab");
 			var $show1 = $("#show1");
 			var $show2 = $("#show2");
 			var $show3 = $("#show3");
+			var $td = $(".todetele");
+			var $de = $("#deshow");
+			var $turn = $("#return");
+			($td).click(function(){
+					($de).show();
+					$show1.removeClass("active");				
+					$show2.removeClass("active");				
+					$show3.removeClass("active");					
+				});
 			$tab.eq(0).click(function(){
 				$tab.eq(1).removeClass("active");
 				$show2.removeClass("active");				
@@ -162,6 +185,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 				$show3.removeClass("active");
 				$(this).addClass("active");
 				$show1.addClass("active");
+				$de.hide();
 			});
 			$tab.eq(1).click(function(){
 				$tab.eq(0).removeClass("active");
@@ -170,6 +194,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 				$show3.removeClass("active");
 				$(this).addClass("active");
 				$show2.addClass("active");
+				$de.hide();
 			});
 			$tab.eq(2).click(function(){
 				$tab.eq(0).removeClass("active");
@@ -178,6 +203,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 				$show2.removeClass("active");
 				$(this).addClass("active");
 				$show3.addClass("active");
+				$de.hide();
 			});
 			});
 		</script>

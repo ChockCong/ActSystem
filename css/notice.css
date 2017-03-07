@@ -443,6 +443,48 @@ body,html{
 #show .showed.active {
 	display: block;
 }
+#show #deshow{
+	line-height: 1em;
+	height: 100%;
+	width: 100%;
+}
+#show form{
+	position: relative;
+}
+#show input[type="submit"]{
+    border: 1px solid #204D74;
+    background: transparent;
+    color: #204D74;
+    padding: 8px;
+    width: 75px;
+    position: absolute;
+    left: 50%;
+    margin-left: -33px;
+    font-size: 0.8em;
+    line-height: 1em;
+    transition: all .5s ease .1s;
+}
+#show input[type="submit"]:hover{
+    border: 1px solid #fff;
+	background: #204F74;
+	color: #fff;
+	border-radius: 8px;
+}
+#deshow label{
+	font-weight: 500;
+	width: 85%;
+    margin: 5px 7.5%;
+    font-size: 0.9em;
+}
+#deshow p{
+	display: inline-block;
+}
+#deshow .cont{
+	    line-height: 1.5em;
+    margin-top: 10px;
+    height: 150px;
+    overflow: auto;
+}
 #show ul li,#back ul li{
 	float: left;
 }
