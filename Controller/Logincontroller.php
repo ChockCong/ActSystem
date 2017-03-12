@@ -24,9 +24,9 @@
    			setcookie("sid", $rs['sid'], time()+600);               //客户cookies
    			setcookie("tag", $tag, time()+600);
    			setcookie("student", $rs['sname'], time()+600);
+   			header("location:Indexcontroller.php");
    			//$smarty->assign("student",$rs['sname']);
    			//$ac->get_show_msg("Indexcontroller.php");
-   			header("location:Indexcontroller.php");
    			//$smarty->display("index.html");
    		}else{
    			echo "<script type='text/javascript'>";

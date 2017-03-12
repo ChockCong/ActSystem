@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-07 15:36:03
+<?php /* Smarty version 2.6.30, created on 2017-03-12 02:35:31
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -151,7 +151,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 											<li>
 												<a href="#" class="tonote"><?php echo $this->_tpl_vars['val']['bt']; ?>
 </a>
-												<p><?php echo $this->_tpl_vars['val']['nid']; ?>
+												<p><?php echo $this->_tpl_vars['val']['time']; ?>
 </p>
 											</li>
 										<?php endforeach; endif; unset($_from); ?>		

@@ -51,7 +51,7 @@ class Allac{
 	}
 	function showalln(){
 		$sh=new SqlHelper();
-		$si="select nid,bt,time from news";
+		$si="select nid,bt,time from news order by nid";
 		$show=$sh->execute_dql2 ($si);
 		return $show;
 	}

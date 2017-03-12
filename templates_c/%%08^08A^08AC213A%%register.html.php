@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-02 13:07:24
+<?php /* Smarty version 2.6.30, created on 2017-03-07 11:23:42
          compiled from register.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -75,8 +75,8 @@
 						<input type="submit" value="登记" name="submit"/>
 						<i class="glyphicon glyphicon-check"></i>
 					</div>
-					 <input type="hidden" name="originator" value="<?php echo $_SESSION['code']; ?>
-">
+					 <!--  <input type="hidden" name="originator" value="<?php echo $_SESSION['code']; ?>
+">-->
 				</form>
 			</div>
 		</div>

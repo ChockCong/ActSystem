@@ -57,7 +57,7 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="x in stus | orderBy:col:desc">
-								<td><input type="checkbox" ng-model="x.ck"></td>
+								<td><input type="checkbox" ng-model="x.ck" name="chk"></td>
 								<td><a href="#"  data-toggle="modal" data-target="#sdblock">{{x.hname}}</a></td>
 								<td>{{x.cyrs}}</td>
 								<td>{{x.kssj}}</td>
@@ -78,7 +78,7 @@
 		</div>
 		<!--活动名单弹窗-->
 		<div id="list">
-			<label><p name="acname">三下乡社会实践活动</p>人员名单</label>
+			<label><p name="acname">社会实践活动</p>人员名单</label>
 			<button id="close"><i class="fa fa-remove" lay-submit=""></i></button>
 			<table class="site-table table-hover">
 				<thead>
@@ -153,7 +153,7 @@
 			               success:function(data){
 			            	   $.each(data,function(i,result){ 
 			            		   $.each(result,function(j,val){
-				            		   item = "<tr><td>"+val.snum+"</td><td>"+val.sname+"</td><td>"+val.szy+"</td><td>"+val.sdh+"</td><td><i class='fa fa-trash' aria-hidden='true' lay-submit=''></i></td></tr>"; 
+				            		   item = "<tr><td>"+val.snum+"</td><td>"+val.sname+"</td><td>"+val.szy+"</td><td>"+val.sdh+"</td><td><i class='fa fa-trash'  aria-hidden='true' lay-submit='' onclick='faget("+val.sid+','+hid+")'></a></i></td></tr>"; 
 				            		   $("#pman").append(item); 
 			            		   }) 
 			            		}); 
@@ -201,6 +201,27 @@
 				var form = layui.form(),
 					laydate = layui.laydate;
 			});
+			function faget(sid,hid){
+					var ssid=sid;
+					$.ajax({
+			               type: "get",
+			               url: "Admin_browseact.php",
+			               dataType: 'json',
+			               data: "ssid="+ssid+"&hhid="+hid,
+			               success:function(data){
+ 			            	   $.each(data,function(i,result){ 
+			            		   $.each(result,function(j,val){
+				            		   item = "<tr><td>"+val.snum+"</td><td>"+val.sname+"</td><td>"+val.szy+"</td><td>"+val.sdh+"</td><td><i class='fa fa-trash'  aria-hidden='true' lay-submit='' onclick='faget("+val.sid+','+hid+")'></a></i></td></tr>"; 
+				            		   $("#pman").append(item); 
+			            		   }) 
+			            		});  
+			            	   $("#close").click(function(){ $("#pman").html("");}) 
+			               },
+			               beforeSend:function(){
+			            	   $("#pman").html("");
+			               },
+					});
+				}
 			
 		</script>
 	</body>

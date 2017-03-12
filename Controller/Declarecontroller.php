@@ -4,7 +4,6 @@ require_once  '../common/comfunc.class.php';
 require_once 'client_cookie.php';
 
 class Act{
-	
 	function subact(){
 		$sid=$_COOKIE['sid'];
 		$name=$_POST['acname'];
@@ -16,8 +15,8 @@ class Act{
 		$type=$_POST['actype'];
 		$detail=$_POST['acdetail'];
 		$sq=new SqlHelper();
-		$addhdsql="INSERT INTO `rsql`.`studenthd` (`shname`, `shnum`, `sid`, `cyz`, `kssj`, `jssj`, `time1`, `time2`, `fwdw`, `fwlx`, `nr`) VALUES"
-				."( '$name', '', '$sid', '', '$date1', '$date1', '$time1', '$time2', '$addr', '$type', '$detail')";
+		$addhdsql="INSERT INTO `rsql`.`studenthd` (`shname`, `sid`, `cyz`, `kssj`, `jssj`, `time1`, `time2`, `fwdw`, `fwlx`, `nr`) VALUES"
+				."( '$name', '$sid', '$_COOKIE[student]', '$date1', '$date1', '$time1', '$time2', '$addr', '$type', '$detail')";
 		 echo $addhdsql;
 		return $sq->execute_dml ($addhdsql);
 	}
@@ -64,7 +63,7 @@ if($_GET['declare_title']=="declare"){
 	if(isset($_POST['submit'])&&isset($_COOKIE['sid'])){		
 		$act=new Act();          
 		               
-		//$cf->protect("Declarecontroller.php?declare_title=2",$act->subact());//类方法subact提交活动
+		$cf->protect("Declarecontroller.php?declare_title=2",$act->subact());//类方法subact提交活动
 	}else{
 // 		$code = mt_rand(0,1000000);            //避免重复提交的标记
 // 		$_SESSION['code'] = $code;

@@ -42,7 +42,7 @@ class Nopass{
 class Pass{
 	function seeact($hid){
 		$sh=new SqlHelper();
-		$hdsql="select snum,sname,szy,sdh from student where sid in (select sid from studenthd where hid=$hid and xf!=0)";
+		$hdsql="select sid,snum,sname,szy,sdh from student where sid in (select sid from studenthd where hid=$hid and xf!=0)";
 		$acts=$sh->execute_dql2 ($hdsql);
 		return $acts;
 	}
@@ -123,4 +123,6 @@ if(!empty($_GET['yhid'])){
 	echo json_encode(array('jsonObj'=>$NM));
 	//print_r($NM);
 }
+
+
 ?>
