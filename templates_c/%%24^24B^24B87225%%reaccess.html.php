@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-12 02:35:31
+<?php /* Smarty version 2.6.30, created on 2017-03-12 14:56:39
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -55,7 +55,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 												<span>[<p class="actype"><?php echo $this->_tpl_vars['val']['lb']; ?>
 </p>]</span>
 												<a href="#" class="todetele"><?php echo $this->_tpl_vars['val']['hname']; ?>
-</a>
+
+												<p id="hid" style="display:none"><?php echo $this->_tpl_vars['val']['hid']; ?>
+</p>
+												</a>
 												<p><?php echo $this->_tpl_vars['val']['kssj']; ?>
 </p>
 											</li>
@@ -107,7 +110,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 												<span>[<p class="actype"><?php echo $this->_tpl_vars['val']['fwlx']; ?>
 </p>]</span>
 												<a href="#" class="todetele"><?php echo $this->_tpl_vars['val']['hname']; ?>
-</a>
+
+												<p id="hid" style="display:none"><?php echo $this->_tpl_vars['val']['hid']; ?>
+</p>
+												</a>
 												<p><?php echo $this->_tpl_vars['val']['kssj']; ?>
 </p>
 											</li>
@@ -150,7 +156,11 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 ?>
 											<li>
 												<a href="#" class="tonote"><?php echo $this->_tpl_vars['val']['bt']; ?>
-</a>
+
+												<p id="nid" style="display:none"><?php echo $this->_tpl_vars['val']['nid']; ?>
+</p>
+												</a>
+												
 												<p><?php echo $this->_tpl_vars['val']['time']; ?>
 </p>
 											</li>
@@ -178,7 +188,8 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 										</label>										
 										<p class="right">外国语学院青年志愿服务部</p>
 										<p class="right">2017年4月12日</p>
-										<input type="button" id="return" value="返回"/>										
+										<!--  <input type="button" id="return" value="返回"/>	-->		
+										<a href="#" id="return">返回x</a>							
 									</form>
 								</div>
 							</div>
@@ -212,12 +223,37 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 				var $dn = $("#denote");
 				var $turn = $("#return");
 				($td).click(function(){
+					var $id=$(this).find("#hid").html();
+					var $lb=$(this).find("#lb").html();
+					$.ajax({
+		                type: "GET",
+		                url: "Detailcontroller.php",
+		                data: "rhid="+$id+"&lb="+$lb,
+		                success: function(data){
+		                	($de).html(data);
+		                },
+		                beforeSend:function(){
+		                	($de).html("请稍后...");
+		                }
+					});
 						($de).show();
 						$show1.removeClass("active");				
 						$show2.removeClass("active");				
 						$show3.removeClass("active");					
 					});
 				($tn).click(function(){
+					var $nid=$(this).find("#nid").html();
+					$.ajax({
+		                type: "GET",
+		                url: "Detailcontroller.php",
+		                data: "news="+$nid,
+		                success: function(data){
+		                	($dn).html(data);
+		                },
+		                beforeSend:function(){
+		                	($dn).html("请稍后...");
+		                }
+					});
 					($dn).show();
 						$show1.removeClass("active");				
 						$show2.removeClass("active");				
@@ -258,6 +294,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 					$de.hide();
 				});
 			});
+
 		</script>
 	</body>
 </html>

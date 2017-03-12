@@ -46,7 +46,9 @@
 										<{foreach from=$Showallx item=val}>
 											<li>
 												<span>[<p class="actype"><{$val.lb}></p>]</span>
-												<a href="#" class="todetele"><{$val.hname}></a>
+												<a href="#" class="todetele"><{$val.hname}>
+												<p id="hid" style="display:none"><{$val.hid}></p>
+												</a>
 												<p><{$val.kssj}></p>
 											</li>
 										<{/foreach}>
@@ -93,7 +95,9 @@
 										<{foreach from=$Showally item=val}>
 											<li>
 												<span>[<p class="actype"><{$val.fwlx}></p>]</span>
-												<a href="#" class="todetele"><{$val.hname}></a>
+												<a href="#" class="todetele"><{$val.hname}>
+												<p id="hid" style="display:none"><{$val.hid}></p>
+												</a>
 												<p><{$val.kssj}></p>
 											</li>
 										<{/foreach}>
@@ -132,7 +136,10 @@
 										<ul>
 									<{foreach from=$Showalln item=val}>
 											<li>
-												<a href="#" class="tonote"><{$val.bt}></a>
+												<a href="#" class="tonote"><{$val.bt}>
+												<p id="nid" style="display:none"><{$val.nid}></p>
+												</a>
+												
 												<p><{$val.time}></p>
 											</li>
 										<{/foreach}>		
@@ -159,7 +166,8 @@
 										</label>										
 										<p class="right">外国语学院青年志愿服务部</p>
 										<p class="right">2017年4月12日</p>
-										<input type="button" id="return" value="返回"/>										
+										<!--  <input type="button" id="return" value="返回"/>	-->		
+										<a href="#" id="return">返回x</a>							
 									</form>
 								</div>
 							</div>
@@ -193,12 +201,37 @@
 				var $dn = $("#denote");
 				var $turn = $("#return");
 				($td).click(function(){
+					var $id=$(this).find("#hid").html();
+					var $lb=$(this).find("#lb").html();
+					$.ajax({
+		                type: "GET",
+		                url: "Detailcontroller.php",
+		                data: "rhid="+$id+"&lb="+$lb,
+		                success: function(data){
+		                	($de).html(data);
+		                },
+		                beforeSend:function(){
+		                	($de).html("请稍后...");
+		                }
+					});
 						($de).show();
 						$show1.removeClass("active");				
 						$show2.removeClass("active");				
 						$show3.removeClass("active");					
 					});
 				($tn).click(function(){
+					var $nid=$(this).find("#nid").html();
+					$.ajax({
+		                type: "GET",
+		                url: "Detailcontroller.php",
+		                data: "news="+$nid,
+		                success: function(data){
+		                	($dn).html(data);
+		                },
+		                beforeSend:function(){
+		                	($dn).html("请稍后...");
+		                }
+					});
 					($dn).show();
 						$show1.removeClass("active");				
 						$show2.removeClass("active");				
@@ -239,6 +272,7 @@
 					$de.hide();
 				});
 			});
+
 		</script>
 	</body>
 </html>

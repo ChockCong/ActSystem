@@ -29,7 +29,7 @@ class NotAct{
 class Allac{
 	function showallx(){
 		$sh=new SqlHelper();
-		$sa="select hid,hname,kssj,fwlx from adminhd where lb!=0 order by kssj";
+		$sa="select hid,hname,kssj,fwlx from adminhd where lb=0 order by kssj";
 		$show=$sh->execute_dql2 ($sa);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][lb]="志愿服务";
@@ -40,7 +40,7 @@ class Allac{
 	}
 	function showally(){
 		$sh=new SqlHelper();
-		$si="select hid,hname,fwlx,kssj from adminhd where lb=0 order by kssj";
+		$si="select hid,hname,fwlx,kssj from adminhd where lb!=0 and fbdw=(select sxy from student where sid=$_COOKIE[sid]) order by kssj";
 		$show=$sh->execute_dql2 ($si);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][fwlx]="志愿服务";
@@ -56,6 +56,20 @@ class Allac{
 		return $show;
 	}
 }
+class BM{
+	function bmact($hid,$sid){
+		$sq=new SqlHelper();
+		$ck="select gid from glb where hid=$hid and sid=$sid";
+		$bm="insert into glb(sid,hid) values ('$sid','$hid')";
+		if(!$sq->execute_dml ($ck)){
+			$sq->execute_dml ($bm);
+			echo "<script>alert('报名成功！');history.go(-1);</script>";
+			
+		}else{
+			echo "<script>alert('已报名此活动！');history.go(-1);</script>";
+		}
+	}
+}
 if(isset($_GET[note_title])){
 	$All=new Allac();
 	$Showallx=$All->showallx();
@@ -65,6 +79,11 @@ if(isset($_GET[note_title])){
 	$smarty->assign("Showally",$Showally);
 	$smarty->assign("Showalln",$Showalln);
 	$smarty->display("reaccess.html");
+}else if(isset($_POST['hid'])){
+	$hid=$_POST['hid'];
+	$sid=$_COOKIE['sid'];
+	$Bmact=new BM();
+	$Bmact->bmact($hid,$sid);
 }else {
 	$Act=new NotAct();
 	$Showact=$Act->showAct();

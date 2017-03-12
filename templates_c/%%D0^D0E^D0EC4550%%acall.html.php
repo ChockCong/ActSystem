@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-12 02:07:24
+<?php /* Smarty version 2.6.30, created on 2017-03-12 03:52:00
          compiled from acall.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="x in stus | orderBy:col:desc">
-								<td><input type="checkbox" ng-model="x.ck"></td>
+								<td><input type="checkbox" ng-model="x.ck" name="chk"></td>
 								<td><a href="#"  data-toggle="modal" data-target="#sdblock">{{x.hname}}</a></td>
 								<td>{{x.cyrs}}</td>
 								<td>{{x.kssj}}</td>
