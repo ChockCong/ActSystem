@@ -37,40 +37,50 @@ class Judge{
 	function nopass($sid,$hid){
 		$sq=new SqlHelper();
 		$Nosql="delete from glb where sid=$sid and hid=$hid";
+		$showsql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid";
 		$passNum=$sq->execute_dml ($Nosql);
-		return $passNum;
+		$shownopass=$sq->execute_dql2 ($showsql);
+		if($passNum)
+		return $shownopass;
 	}
 	function pass($sid,$hid){
 		$sq=new SqlHelper();
 		$Adsql="insert into studenthd(shname,hid,sid,cyz,kssj,jssj,fwdw,fwlx,nr)".
 		" select a.hname,a.hid,c.sid,c.sname,a.kssj,a.jssj,a.fwdw,a.fwlx,a.nr from adminhd a,student c where a.hid=$hid and c.sid=$sid";
 		$Pasql="delete from glb where sid=$sid and hid=$hid";
+		$showsql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid";
 		$passNum1=$sq->execute_dml ($Adsql);
 		$passNum2=$sq->execute_dml ($Pasql);
-		if($passNum1 && $passNum2) return true;
+		$shownopass=$sq->execute_dql2 ($showsql);
+		if($passNum1 && $passNum2) return $shownopass;
 		else return false;
+		
 	}
 }
 $url = $_SERVER['PHP_SELF'];
 $filename = end(explode('/',$url));
-if($_SERVER['REQUEST_METHOD']=="POST"){
+if($_SERVER['REQUEST_METHOD']=="POST"){                  //搜索活动
 	$judge=new Judge();
 	$Passnum=$judge->passnum($_POST['acname']);
 	$smarty->assign("Passnum",$Passnum);
 	$smarty->display("score.html");
-}else if(isset($_GET['ysid'])){
+}else if(isset($_GET['ysid'])){                         //通过审核
 	$sid=$_GET['ysid'];
 	$hid=$_GET['hhid'];
 	$judge=new Judge();
-	if($judge->pass($sid,$hid))
-		header("location:".$filename);
-}else if(isset($_GET['nsid'])){
+	//if($judge->pass($sid,$hid))
+		//header("location:".$filename);
+	$AM=$judge->pass($sid,$hid);
+	echo json_encode(array('jsonObj'=>$AM));
+}else if(isset($_GET['nsid'])){                         //不通过审核
 	$sid=$_GET['nsid'];
 	$hid=$_GET['hhid'];
 	$judge=new Judge();
-	if($judge->nopass($sid,$hid))
-		header("location:".$filename);
-}else{
+	$NM=$judge->nopass($sid,$hid);
+	echo json_encode(array('jsonObj'=>$NM));
+// 	if($judge->nopass($sid,$hid))
+// 		header("location:".$filename);
+}else{                                                  //首次显示
 	$judge=new Judge();
 	$Passnum=$judge->passnum();
 	$smarty->assign("Passnum",$Passnum);

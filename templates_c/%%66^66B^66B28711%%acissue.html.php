@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-04 08:31:13
+<?php /* Smarty version 2.6.30, created on 2017-03-07 01:51:42
          compiled from acissue.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -80,9 +80,9 @@
 						<label class="layui-form-label">服务类型</label>
 						<div class="layui-input-inline">
 							<select name="actype" lay-filter="aihao">
-								<option value="1">志愿服务</option>
-								<option value="2" selected="">社会实践</option>
-								<option value="3">校外调研</option>
+								<option value="vs">志愿服务</option>
+								<option value="sc" selected="">社会实践</option>
+								<option value="os">校外调研</option>
 							</select>
 						</div>
 					</div>

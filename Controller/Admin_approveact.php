@@ -19,10 +19,21 @@ class Pass{
 	}
 	function passmark($str,$shid){
 		$sq=new SqlHelper;
-		$marksql="update studenthd set xf='$str' where shid=$shid";
+		$marksql="update studenthd set xf='$str' where shid in ($shid)";
 		$passM=$sq->execute_dml ($marksql);
 		return $passM;
 		
+	}
+	function nopass($shid){
+		$sq=new SqlHelper;
+		if(is_array($shid)){
+			$marksql="delete from studenthd  where shid in ( ";
+			for($i=0;$i<count($shid);$i++)
+				$marksql.="$shid[$i])";
+		}else 
+			$marksql="delete from studenthd  where shid in ($shid)";
+		$passN=$sq->execute_dml ($marksql);
+		return $passN;
 	}
 }
 
@@ -38,6 +49,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	$cf=new comfunc();
 	$passMark=$pass->passmark($xf,$sid);
 	$cf->protectG("Admin_approveact.php",$passMark);
+	
+}else if(isset($_GET['nshid'])){
+	$shid=$_GET['nshid'];
+	$pass=new Pass();
+	$cf=new comfunc();
+	$passNo=$pass->nopass($shid);
+	$cf->protectG("Admin_approveact.php",$passNo);
 }else {
 	$pass=new Pass();
 	$passStu=$pass->passstu();

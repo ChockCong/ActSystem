@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-06 11:43:05
+<?php /* Smarty version 2.6.30, created on 2017-03-07 05:40:38
          compiled from score.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -167,8 +167,8 @@
 			            	   $.each(data,function(i,result){ 
 			            		   $.each(result,function(j,val){
 				            		   item = "<tr><td>"+val.snum+"</td><td>"+val.sname+"</td><td>"+val.szy+"</td><td>"+val.sdh+"</td><td>"+
-				            		   "<a href='?ysid="+val.sid+"&hhid="+hid+"' class='layui-btn layui-btn-normal layui-btn-mini' style='background: #555151; text-decoration: none;'>通过</a>&nbsp;&nbsp;"+
-									   "<a href='?nsid="+val.sid+"&hhid="+hid+"' data-id='1' data-opt='del' class='layui-btn layui-btn-danger layui-btn-mini' style='background: #c33b3b; text-decoration: none;'>不通过</a>"+
+				            		   "<a onclick='yflash("+hid+','+val.sid+")' class='layui-btn layui-btn-normal layui-btn-mini yy' style='background: #555151; text-decoration: none;'>通过</a>&nbsp;&nbsp;"+
+									   "<a onclick='nflash("+hid+','+val.sid+")' data-id='1' data-opt='del'  class='layui-btn layui-btn-danger layui-btn-mini nn' style='background: #c33b3b; text-decoration: none;'>不通过</a>"+
 									"</td></tr>"; 
 				            		   $("#npman").append(item); 
 			            		   }) 
@@ -178,6 +178,58 @@
 					})
 				});
 			});
+			function nflash(hhid,sid){
+					var hid=hhid;
+					var nsid=sid;
+					$.ajax({
+			               type:"get",
+			               url: "Admin_judge.php",
+			               dataType:'json',
+			               data: "nsid="+nsid+"&hhid="+hid,
+			               success:function(data){
+			            	    
+			            	   $.each(data,function(i,result){ 
+			            		   $.each(result,function(j,val){
+				            		   item = "<tr><td>"+val.snum+"</td><td>"+val.sname+"</td><td>"+val.szy+"</td><td>"+val.sdh+"</td><td>"+
+				            		   "<a onclick='yflash("+hid+','+val.sid+")' class='layui-btn layui-btn-normal layui-btn-mini yy' style='background: #555151; text-decoration: none;'>通过</a>&nbsp;&nbsp;"+
+									   "<a onclick='nflash("+hid+','+val.sid+")' data-id='1' data-opt='del'  class='layui-btn layui-btn-danger layui-btn-mini nn' style='background: #c33b3b; text-decoration: none;'>不通过</a>"+
+									"</td></tr>"; 
+				            		   $("#npman").append(item); 
+			            		   }) 
+			            		}); 
+			            	   $("#close").click(function(){ $("#npman").html("");}) 
+			               },
+			               beforeSend:function(){
+			            	   $("#npman").html("");
+			               },
+					}); 
+			}
+			function yflash(hhid,sid){
+				var hid=hhid;
+				var nsid=sid;
+				$.ajax({
+		               type:"get",
+		               url: "Admin_judge.php",
+		               dataType:'json',
+		               data: "ysid="+nsid+"&hhid="+hid,
+		               success:function(data){
+		            	  
+		            	   $.each(data,function(i,result){ 
+		            		   $.each(result,function(j,val){
+			            		   item = "<tr><td>"+val.snum+"</td><td>"+val.sname+"</td><td>"+val.szy+"</td><td>"+val.sdh+"</td><td>"+
+			            		   "<a onclick='yflash("+hid+','+val.sid+")' class='layui-btn layui-btn-normal layui-btn-mini yy' style='background: #555151; text-decoration: none;'>通过</a>&nbsp;&nbsp;"+
+								   "<a onclick='nflash("+hid+','+val.sid+")' data-id='1' data-opt='del'  class='layui-btn layui-btn-danger layui-btn-mini nn' style='background: #c33b3b; text-decoration: none;'>不通过</a>"+
+								"</td></tr>"; 
+			            		   $("#npman").append(item); 
+		            		   }) 
+		            		}); 
+		            	   $("#close").click(function(){ $("#npman").html("");}) 
+		               },
+		               beforeSend:function(){
+		            	   $("#npman").html("");
+		               },
+				}); 
+		}
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
 			  <?php echo '$scope.records = '; ?>
