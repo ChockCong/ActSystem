@@ -5,14 +5,14 @@ class Judge{
 		$sq=new SqlHelper();
 		if($str==""){
 			$judsql1="SELECT DISTINCT a.hid, a.hname, a.kssj, a.cyrs, COUNT( s.sid ) AS passman, s.tag AS bmman
-					FROM adminhd a LEFT JOIN studenthd s ON s.hid = a.hid GROUP BY a.hid";
+					FROM adminhd a LEFT JOIN studenthd s ON s.hid = a.hid where a.tag!=1 and a.lb=$_SESSION[aid] GROUP BY a.hid ";
 			$judsql2="SELECT hid, COUNT( sid ) FROM glb GROUP BY hid ORDER BY hid";
 			$passNum1=$sq->execute_dql2 ($judsql1);
 			$passNum2=$sq->execute_dql2 ($judsql2);
 		}else{
 			$judsql1="SELECT DISTINCT a.hid, a.hname, a.kssj, a.cyrs, COUNT( s.sid ) AS passman, s.tag AS bmman
 					FROM adminhd a LEFT JOIN studenthd s ON s.hid = a.hid 
-					WHERE a.hname LIKE  '%$str%' GROUP BY a.hid";
+					WHERE a.hname LIKE  '%$str%' and a.tag!=1 and a.lb=$_SESSION[aid] GROUP BY a.hid";
 			$passNum1=$sq->execute_dql2 ($judsql1);
 			$judsql2="SELECT hid, COUNT( sid ) FROM glb where hid in (";
 			for($i=0;$i<count($passNum1);$i++){

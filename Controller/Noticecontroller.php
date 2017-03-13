@@ -4,7 +4,7 @@ require_once 'client_cookie.php';
 class NotAct{
 	function showAct(){
 		$sh=new SqlHelper();
-		$sa="select hid,hname,kssj,fwdw,lb from adminhd where lb!=0 limit 0,6";
+		$sa="select hid,hname,kssj,fwdw,lb from adminhd where lb=0 or lb=(select aid from admin where xym=(select sxy from student where sid='$_COOKIE[sid]')) limit 0,6";
 		$show=$sh->execute_dql2 ($sa);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][lb]="survice";
@@ -15,7 +15,7 @@ class NotAct{
 	}
 	function showinfor1(){
 		$sh=new SqlHelper();
-		$si="select hid,hname from adminhd where lb=0 limit 0,3";
+		$si="select hid,hname from adminhd where lb=(select aid from admin where xym=(select sxy from student where sid='$_COOKIE[sid]'))  limit 0,3";
 		$show=$sh->execute_dql2 ($si);
 		return $show;
 	}
@@ -29,7 +29,7 @@ class NotAct{
 class Allac{
 	function showallx(){
 		$sh=new SqlHelper();
-		$sa="select hid,hname,kssj,fwlx from adminhd where lb=0 order by kssj";
+		$sa="select hid,hname,kssj,fwlx from adminhd where lb=0 ";
 		$show=$sh->execute_dql2 ($sa);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][lb]="志愿服务";
@@ -40,7 +40,7 @@ class Allac{
 	}
 	function showally(){
 		$sh=new SqlHelper();
-		$si="select hid,hname,fwlx,kssj from adminhd where lb!=0 and fbdw=(select sxy from student where sid=$_COOKIE[sid]) order by kssj";
+		$si="select hid,hname,fwlx,kssj from adminhd where lb!=0 and fbdw=(select sxy from student where sid=$_COOKIE[sid]) order by kssj desc";
 		$show=$sh->execute_dql2 ($si);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][fwlx]="志愿服务";

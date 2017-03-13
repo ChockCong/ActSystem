@@ -22,7 +22,6 @@ class Pass{
 		$marksql="update studenthd set xf='$str' where shid in ($shid)";
 		$passM=$sq->execute_dml ($marksql);
 		return $passM;
-		
 	}
 	function nopass($shid){
 		$sq=new SqlHelper;
@@ -34,6 +33,25 @@ class Pass{
 			$marksql="delete from studenthd  where shid in ($shid)";
 		$passN=$sq->execute_dml ($marksql);
 		return $passN;
+	}
+	function finish($shid,$mt){
+			$sq=new SqlHelper;
+			if($mt){
+			$finsql="select count(shid) as num from studenthd where hid in (select hid from studenthd where shid in ($shid)) and xf!=0";
+			$sum="select cyrs from adminhd where hid in (select hid from studenthd where shid in ($shid))";
+			$number1=$sq->execute_dql ($finsql);
+			$number2=$sq->execute_dql ($sum);
+			if($number1[num]==$number2[cyrs]){
+				$finact="update adminhd set tag=1 where hid in (select hid from studenthd where shid in ($shid))";
+				if($sq->execute_dml ($finact))
+					return true;
+			}else if($number1[num]>$number2[cyrs]){
+				$marksql="update studenthd set xf=0 where shid in ($shid)";
+				$passM=$sq->execute_dml ($marksql);
+				return false;
+			}else if($number1[num]<$number2[cyrs]) 
+				return true;
+		}
 	}
 }
 
@@ -48,7 +66,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	$pass=new Pass();
 	$cf=new comfunc();
 	$passMark=$pass->passmark($xf,$sid);
-	$cf->protectG("Admin_approveact.php",$passMark);
+	$passAct=$pass->finish($sid,$passMark);
+	$cf->protectG("Admin_approveact.php",$passAct);
 	
 }else if(isset($_GET['nshid'])){
 	$shid=$_GET['nshid'];

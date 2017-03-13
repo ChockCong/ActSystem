@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-12 03:52:00
+<?php /* Smarty version 2.6.30, created on 2017-03-13 05:03:10
          compiled from acall.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -45,6 +45,10 @@
 			<fieldset class="layui-elem-field">
 				<legend>查询结果</legend>
 				<button ng-click="col='time';desc=!desc" type="button" class="btntime">按时间</button>
+				<form action="" method="post">
+				<button class="layui-btn del" lay-submit="" type="submit" onclick="getchk()">删除</button>
+				<input type="text" value="" id="tran" name="ghid" hidden/>
+				</form>
 				<div class="layui-field-box">
 					<table class="site-table table-hover">
 						<thead>
@@ -59,7 +63,7 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="x in stus | orderBy:col:desc">
-								<td><input type="checkbox" ng-model="x.ck" name="chk"></td>
+								<td><input type="checkbox" ng-model="x.ck" name="chke" value="{{x.hid}}"></td>
 								<td><a href="#"  data-toggle="modal" data-target="#sdblock">{{x.hname}}</a></td>
 								<td>{{x.cyrs}}</td>
 								<td>{{x.kssj}}</td>
@@ -68,7 +72,6 @@
 									<a href="#" class="tolist" class="layui-btn layui-btn-small layui-btn-radius"><i class="fa fa-angle-double-right"  style="font-size: 1.2em;"><p hidden>{{x.hid}}</p></i></a>
 								</td>
 							</tr>					
-							
 						</tbody>
 					</table>
 				</div>
@@ -163,6 +166,14 @@
 			               },
 					})
 				});
+				$(".del").click(function(){
+					$check=[];
+					$("input[name='chke']:checked").each(function(i){
+						$check[i]=$(this).val();
+					});
+					if($check==""){}
+					else $("#tran").attr("value",$check);
+				});
 			});
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
@@ -226,8 +237,9 @@
 			            	   $("#pman").html("");
 			               },
 					});
-				}
-			
+			}
+
+
 		</script>
 	</body>
 
