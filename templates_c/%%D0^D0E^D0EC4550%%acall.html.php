@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-13 05:03:10
+<?php /* Smarty version 2.6.30, created on 2017-03-14 12:08:19
          compiled from acall.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,7 @@
 				<legend>查询结果</legend>
 				<button ng-click="col='time';desc=!desc" type="button" class="btntime">按时间</button>
 				<form action="" method="post">
-				<button class="layui-btn del" lay-submit="" type="submit" onclick="getchk()">删除</button>
+				<button class="dele del" lay-submit="" type="submit" onclick="getchk()">删除</button>
 				<input type="text" value="" id="tran" name="ghid" hidden/>
 				</form>
 				<div class="layui-field-box">

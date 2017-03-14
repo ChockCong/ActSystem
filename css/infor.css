@@ -11,10 +11,10 @@ body,html{
 	height: 100%;
 	/*background: lightcoral;*/
 }
-/*导航*/
+/*瀵艰埅*/
 #nav{
 	float: right;
-	width: 360px;
+	width: 415px;
 	height: 50px;
 	padding-top: 30px;
 }
@@ -37,7 +37,7 @@ body,html{
 	text-decoration: none;
 	padding-bottom: 3px;
 }
-/*图片*/
+/*鍥剧墖*/
 #left{
 	width: 30%;
 	height: 550px;
@@ -46,13 +46,13 @@ body,html{
 	float: left;
 	margin-top: 10%;
 }
-/*信息总板块*/
+/*淇℃伅鎬绘澘鍧�*/
 #right{
 	float: right;
 	width: 70%;
 	margin-top: 5%;
 }
-/*气泡框*/
+/*姘旀场妗�*/
 #bubble{
 	width: 50%;
 	height: 50px;
@@ -81,7 +81,7 @@ body,html{
 	margin-left: 10%;
 	line-height: 50px;
 }
-/*信息*/
+/*淇℃伅*/
 #panel{
 	height: 465px;
 }
@@ -189,7 +189,7 @@ body,html{
 .revive{
 	height: 35px;
 }
-/*禁用状态*/
+/*绂佺敤鐘舵��*/
 .form-control::-moz-placeholder{
 	color: #000;
 }
