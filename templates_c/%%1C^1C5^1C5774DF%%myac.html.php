@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-02 13:09:09
+<?php /* Smarty version 2.6.30, created on 2017-03-14 07:56:10
          compiled from myac.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'myac.html', 21, false),)), $this); ?>
@@ -91,7 +91,9 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'mya
 						</div>
 						<!--<button>查看全部</button>-->
 						<!--↓输出excel表格-->
-						<button>活动导出</button> 
+						<form method="get" action="../Controller/PDFcontroller.php">
+						<button type="submit" value="1" name="sid">活动导出</button> 
+						</form>
 					</div>
 					<!--审批结果-->
 					<div class="showed" id="show2">
