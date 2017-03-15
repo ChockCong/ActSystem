@@ -4,7 +4,7 @@ class Peract {
 	public function Showperact($i, $tag) {
 		$sh = new SqlHelper ();
 		if ($tag == 1)
-			$hdsql = "select * from studenthd where shid=$i and xf!=0";
+			$hdsql = "select * from studenthd where shid=$i";
 		else
 			$hdsql = "select * from studenthd where shid=$i and xf=0";
 		$acts = $sh->execute_dql ( $hdsql );

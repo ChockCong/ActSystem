@@ -5,14 +5,42 @@ require_once '../common/comfunc.class.php';
 class Pass{
 	function passstu($str1="",$str2=""){
 		$sq=new SqlHelper;
-		if(empty($str1) && empty($str2))
-			$passsql="select shid,shname,cyz,kssj from studenthd where xf=0";
-		else if(!empty($str1) && empty($str2))
-			$passsql="select h.shid,h.shname,h.cyz,h.kssj from studenthd h,student s where s.snum='$str1' and h.sid=s.sid and h.xf=0";
-		else if(!empty($str2) && empty($str1))
-			$passsql="select shid,shname,cyz,kssj from studenthd where shname like '%$str2%' and xf=0";
-		else if(!empty($str2) && !empty($str1))
-			$passsql="select h.shid,h.shname,h.cyz,h.kssj from studenthd h,student s where s.snum='$str1' and h.sid=s.sid and h.shname like '%$str2%' and h.xf=0";
+		$hidsql="select hid from adminhd where lb=$_SESSION[aid]";
+		$hid=$sq->execute_dql2 ($hidsql);
+
+		if(empty($str1) && empty($str2)){
+			$passsql="select shid,shname,cyz,kssj from studenthd where xf=0 and (hid=-$_SESSION[aid] or hid in(";
+			for($i=0;$i<count($hid);$i++){
+				if($i!=count($hid)-1)
+				$passsql.=$hid[$i][hid].',';
+				else $passsql.=$hid[$i][hid]."))";
+			}
+		}
+		else if(!empty($str1) && empty($str2)){
+			$passsql="select h.shid,h.shname,h.cyz,h.kssj from studenthd h,student s where s.snum='$str1' and h.sid=s.sid and h.xf=0 and (hid=-$_SESSION[aid] or hid in(";
+			for($i=0;$i<count($hid);$i++){
+				if($i!=count($hid)-1)
+					$passsql.=$hid[$i][hid].',';
+				else $passsql.=$hid[$i][hid]."))";
+			}
+		}
+		else if(!empty($str2) && empty($str1)){
+			$passsql="select shid,shname,cyz,kssj from studenthd where shname like '%$str2%' and xf=0 and (hid=-$_SESSION[aid] or hid in(";
+			for($i=0;$i<count($hid);$i++){
+				if($i!=count($hid)-1)
+					$passsql.=$hid[$i][hid].',';
+				else $passsql.=$hid[$i][hid]."))";
+			}
+		}
+		else if(!empty($str2) && !empty($str1)){
+			$passsql="select h.shid,h.shname,h.cyz,h.kssj from studenthd h,student s where s.snum='$str1' and h.sid=s.sid and h.shname like '%$str2%' and h.xf=0 and (hid=-$_SESSION[aid] or hid in(";
+			$passsql="select shid,shname,cyz,kssj from studenthd where shname like '%$str2%' and xf=0 and (hid=-$_SESSION[aid] or hid in(";
+			for($i=0;$i<count($hid);$i++){
+				if($i!=count($hid)-1)
+					$passsql.=$hid[$i][hid].',';
+				else $passsql.=$hid[$i][hid]."))";
+			}
+		}
 		
 		$passStu=$sq->execute_dql2 ($passsql);
 		return json_encode($passStu);

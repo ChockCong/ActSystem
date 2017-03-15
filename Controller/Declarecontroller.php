@@ -15,8 +15,10 @@ class Act{
 		$type=$_POST['actype'];
 		$detail=$_POST['acdetail'];
 		$sq=new SqlHelper();
-		$addhdsql="INSERT INTO `rsql`.`studenthd` (`shname`, `sid`, `cyz`, `kssj`, `jssj`, `time1`, `time2`, `fwdw`, `fwlx`, `nr`) VALUES"
-				."( '$name', '$sid', '$_COOKIE[student]', '$date1', '$date1', '$time1', '$time2', '$addr', '$type', '$detail')";
+		$hidsql="SELECT a.aid FROM student s, admin a WHERE s.sxy = a.xym AND s.sid =$_COOKIE[sid]";
+		$hid=$sq->execute_dql ($hidsql);
+		$addhdsql="INSERT INTO `rsql`.`studenthd` (`shname`, `sid`, `hid`, `cyz`, `kssj`, `jssj`, `time1`, `time2`, `fwdw`, `fwlx`, `nr`) VALUES"
+				."( '$name', '$sid', '-$hid[aid]', '$_COOKIE[student]', '$date1', '$date1', '$time1', '$time2', '$addr', '$type', '$detail')";
 		 echo $addhdsql;
 		return $sq->execute_dml ($addhdsql);
 	}
@@ -62,7 +64,7 @@ if($_GET['declare_title']=="declare"){
 }else if($_GET['declare_title']==1){             //操作提交页面
 	if(isset($_POST['submit'])&&isset($_COOKIE['sid'])){		
 		$act=new Act();          
-		               
+		//$act->subact();
 		$cf->protect("Declarecontroller.php?declare_title=2",$act->subact());//类方法subact提交活动
 	}else{
 // 		$code = mt_rand(0,1000000);            //避免重复提交的标记
