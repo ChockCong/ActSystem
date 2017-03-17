@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-15 05:49:01
+<?php /* Smarty version 2.6.30, created on 2017-03-17 04:59:14
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -72,28 +72,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 												<span>[<p class="actype">志愿服务</p>]</span>
 												<a href="#" class="todetele">电脑义务维修</a>
 												<p>2017/3/4 9:00</p>
-											</li>
-																						<li>
-												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#" class="todetele">电脑义务维修</a>
-												<p>2017/3/4 9:00</p>
-											</li>											<li>
-												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#" class="todetele">电脑义务维修</a>
-												<p>2017/3/4 9:00</p>
-											</li>											<li>
-												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#" class="todetele">电脑义务维修</a>
-												<p>2017/3/4 9:00</p>
-											</li>											<li>
-												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#" class="todetele">电脑义务维修</a>
-												<p>2017/3/4 9:00</p>
-											</li>											<li>
-												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#" class="todetele">电脑义务维修</a>
-												<p>2017/3/4 9:00</p>
-											</li>
 										</ul>
 									</div>
 									</div>

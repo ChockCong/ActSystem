@@ -15,10 +15,10 @@ class Stumsg{
 			case 3: $type="预备党员";break;
 			case 4: $type="中共党员";
 		}
-		$addsql="insert into student (snum,sname,spassword,sxb,ssfj,szjmm,smz,sdh,sdh2,sfs,snj,sxy,szy,sbh,sxz,scc)".
+		$addsql="insert into student (snum,sname,spassword,sxb,ssfj,szjmm,smz,sdh,sdh2,sfs,snj,sxy,szy,sbh,sxz,scc,smail)".
 				" values('$data[username]','$data[stuname]','$pwd','$data[sex]',".
 		"'$data[idnum]','$type','$data[nation]','$data[longtell]','$data[shorttell]','$data[score]',".
-		"'$data[grade]','$data[institute]','$data[subject]','$data[class]','$data[scsys]','$data[level]')";
+		"'$data[grade]','$data[institute]','$data[subject]','$data[class]','$data[scsys]','$data[level]','$data[qqnum]')";
 		$sq=new SqlHelper();
 		return $sq->execute_dml ($addsql);
 	}

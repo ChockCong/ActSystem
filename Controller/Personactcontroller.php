@@ -9,9 +9,12 @@ require_once 'client_cookie.php';
  		if(empty($con))
  			$hdsql="select shid,shname,kssj,xf from studenthd where sid=$sid";
  		else
- 			$hdsql="select shid,shname,kssj,xf from studenthd where sid=$sid and xf=0 and hid>=0";
+ 			$hdsql="SELECT a.hid, a.hname, a.kssj, a.xf,g.tag FROM glb g, adminhd a, student s WHERE g.sid = s.sid AND g.hid = a.hid AND g.sid =$sid";
  		$acts=$sh->execute_dql2 ($hdsql);
  		//$actrow=$sh->execute_dml ($hdsql);
+ 		for($i=0;$i<count($acts);$i++)
+ 		if($acts[$i][tag]==1) $acts[$i][tag]="未通过";
+ 		else $acts[$i][tag]="未审核";
  		return $acts;
  		//print_r($acts);
  	}

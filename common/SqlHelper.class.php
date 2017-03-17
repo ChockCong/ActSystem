@@ -34,7 +34,7 @@
  	function execute_dql2 ($sql)
 	{
 		$res = mysql_query($sql) or die(
-				"SQL查询语句有误");
+				"SQL查询语句有误".$sql);
 		//$rs_arr = array();
 		while ($rs = mysql_fetch_assoc($res)) {
 			$rs_arr[] = $rs;

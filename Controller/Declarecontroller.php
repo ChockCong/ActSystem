@@ -19,7 +19,6 @@ class Act{
 		$hid=$sq->execute_dql ($hidsql);
 		$addhdsql="INSERT INTO `rsql`.`studenthd` (`shname`, `sid`, `hid`, `cyz`, `kssj`, `jssj`, `time1`, `time2`, `fwdw`, `fwlx`, `nr`) VALUES"
 				."( '$name', '$sid', '-$hid[aid]', '$_COOKIE[student]', '$date1', '$date1', '$time1', '$time2', '$addr', '$type', '$detail')";
-		 echo $addhdsql;
 		return $sq->execute_dml ($addhdsql);
 	}
 	

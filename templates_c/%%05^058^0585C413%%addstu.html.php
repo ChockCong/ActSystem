@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-06 11:19:11
+<?php /* Smarty version 2.6.30, created on 2017-03-16 05:44:59
          compiled from addstu.html */ ?>
 <head>
 		<meta charset="utf-8">
@@ -118,20 +118,20 @@
 						<label class="layui-form-label">学院</label>
 						<div class="layui-input-inline">
 								<select name="institute">
-									<option value="1">经济与管理学院</option>
-									<option value="2">文学院</option>
-									<option value="3">政法学院</option>
-									<option value="4">外国语学院</option>
-									<option value="5">体育与健康学院</option>
-									<option value="6">生命科学学院</option>
-									<option value="7">化学化工学院学院</option>
-									<option value="8">音乐学院</option>
-									<option value="9">美术学院</option>
-									<option value="10">数学与统计学院</option>
-									<option value="11">计算机学院软件学院</option>
-									<option value="12">旅游与历史文化学院</option>
-									<option value="13">教育科学学院</option>
-									<option value="14">电子信息与机电工程学院</option>
+									<option value="经济与管理学院">经济与管理学院</option>
+									<option value="文学院">文学院</option>
+									<option value="政法学院">政法学院</option>
+									<option value="外国语学院">外国语学院</option>
+									<option value="体育与健康学院">体育与健康学院</option>
+									<option value="生命科学学院">生命科学学院</option>
+									<option value="化学化工学院学院">化学化工学院学院</option>
+									<option value="音乐学院">音乐学院</option>
+									<option value="美术学院">美术学院</option>
+									<option value="数学与统计学院">数学与统计学院</option>
+									<option value="计算机学院软件学院">计算机学院软件学院</option>
+									<option value="旅游与历史文化学院">旅游与历史文化学院</option>
+									<option value="教育科学学院">教育科学学院</option>
+									<option value="电子信息与机电工程学院">电子信息与机电工程学院</option>
 								</select>
 							</div>
 					</div>

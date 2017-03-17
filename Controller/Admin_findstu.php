@@ -1,6 +1,6 @@
 <?php 
 require_once '../common/global.php';
-
+require_once '../common/comfunc.class.php';
 class Stumsg{
 	function showmsg($grade,$class,$name,$num){
 		$sq=new SqlHelper();
@@ -26,12 +26,25 @@ class Stumsg{
 		$Msg=$sq->execute_dql2 ($msg);
 		return json_encode($Msg);
 	}
+	function delstu($sid){
+		$sq=new SqlHelper();
+		$delql="delete from student where sid in ($sid)";
+		$delstu=$sq->execute_dml ($delql);
+		return $delstu;
+	}
 }
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	$stumsg=new Stumsg();
 	$stuMsg=$stumsg->showmsg($_POST['grade'],$_POST['class'],$_POST['stuname'],$_POST['username']);
  	$smarty->assign("stuMsg",$stuMsg);
  	$smarty->display("squery.html");
+	
+}else if($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['sid'])){
+	$stumsg=new Stumsg();
+	$cf=new comfunc();
+	$sid=$_GET['sid'];
+	$Delstu=$stumsg->delstu($sid);
+	$cf->protectG("Admin_findstu.php",$Delstu);
 	
 }else{
 	$stuMsg=json_encode(null);

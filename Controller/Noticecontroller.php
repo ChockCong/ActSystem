@@ -4,7 +4,7 @@ require_once 'client_cookie.php';
 class NotAct{
 	function showAct(){
 		$sh=new SqlHelper();
-		$sa="select hid,hname,kssj,fwdw,lb from adminhd where lb=0 or lb=(select aid from admin where xym=(select sxy from student where sid='$_COOKIE[sid]')) order by kssj desc limit 0,6 ";
+		$sa="select hid,hname,kssj,fwdw,lb from adminhd where lb=0 or lb=(select aid from admin where xym=(select sxy from student where sid='$_COOKIE[sid]')) and tag=2 order by kssj desc limit 0,6 ";
 		$show=$sh->execute_dql2 ($sa);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][lb]="survice";
@@ -15,13 +15,13 @@ class NotAct{
 	}
 	function showinfor1(){
 		$sh=new SqlHelper();
-		$si="select hid,hname from adminhd where lb=(select aid from admin where xym=(select sxy from student where sid='$_COOKIE[sid]')) order by kssj desc  limit 0,3 ";
+		$si="select hid,hname from adminhd where lb=(select aid from admin where xym=(select sxy from student where sid='$_COOKIE[sid]')) and tag=2 order by kssj desc  limit 0,3 ";
 		$show=$sh->execute_dql2 ($si);
 		return $show;
 	}
 	function showinfor2(){
 		$sh=new SqlHelper();
-		$si="select nid,bt from news where hid in ((select a.aid from student s,admin a where a.xym=s.sxy and s.sid=$_COOKIE[sid]),0) order by time desc limit 0,3 ";
+		$si="select nid,bt from news where hnid in ((select a.aid from student s,admin a where a.xym=s.sxy and s.sid=$_COOKIE[sid]),0) order by time desc limit 0,3 ";
 		$show=$sh->execute_dql2 ($si);
 		return $show;
 	}
@@ -29,7 +29,7 @@ class NotAct{
 class Allac{
 	function showallx(){
 		$sh=new SqlHelper();
-		$sa="select hid,hname,kssj,fwlx from adminhd where lb=0 order by kssj desc";
+		$sa="select hid,hname,kssj,fwlx from adminhd where lb=0 and tag=2 order by kssj desc";
 		$show=$sh->execute_dql2 ($sa);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][lb]="志愿服务";
@@ -40,7 +40,7 @@ class Allac{
 	}
 	function showally(){
 		$sh=new SqlHelper();
-		$si="select hid,hname,fwlx,kssj from adminhd where lb!=0 and fbdw=(select sxy from student where sid=$_COOKIE[sid]) order by kssj desc";
+		$si="select hid,hname,fwlx,kssj from adminhd where lb!=0 and fbdw=(select sxy from student where sid=$_COOKIE[sid]) and tag=2 order by kssj desc";
 		$show=$sh->execute_dql2 ($si);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][fwlx]="志愿服务";
@@ -51,7 +51,7 @@ class Allac{
 	}
 	function showalln(){
 		$sh=new SqlHelper();
-		$si="select nid,bt,time from news where hid in ((select a.aid from student s,admin a where a.xym=s.sxy and s.sid=$_COOKIE[sid]),0) order by time desc";
+		$si="select nid,bt,time from news where hnid in ((select a.aid from student s,admin a where a.xym=s.sxy and s.sid=$_COOKIE[sid]),0) order by time desc";
 		$show=$sh->execute_dql2 ($si);
 		return $show;
 	}
@@ -59,7 +59,7 @@ class Allac{
 class BM{
 	function bmact($hid,$sid){
 		$sq=new SqlHelper();
-		$ck="select gid from glb where hid=$hid and sid=$sid";
+		$ck="select gid from glb where hid=$hid and sid=$sid and tag=0";
 		$bm="insert into glb(sid,hid) values ('$sid','$hid')";
 		if(!$sq->execute_dml ($ck)){
 			$sq->execute_dml ($bm);

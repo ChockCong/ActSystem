@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-15 05:48:21
+<?php /* Smarty version 2.6.30, created on 2017-03-16 07:25:17
          compiled from result.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -59,11 +59,12 @@ $this->_sections['akey']['first']      = ($this->_sections['akey']['iteration'] 
 $this->_sections['akey']['last']       = ($this->_sections['akey']['iteration'] == $this->_sections['akey']['total']);
 ?>
 					<?php echo 'result.push("<ul class=\'acresult\'><li>'; ?>
-<?php echo $this->_tpl_vars['acts'][$this->_sections['akey']['index']]['shname']; ?>
+<?php echo $this->_tpl_vars['acts'][$this->_sections['akey']['index']]['hname']; ?>
 <?php echo '</li><li>'; ?>
 <?php echo $this->_tpl_vars['acts'][$this->_sections['akey']['index']]['kssj']; ?>
 <?php echo '</li><li>'; ?>
-未审核<?php echo '</li></ul>");'; ?>
+<?php echo $this->_tpl_vars['acts'][$this->_sections['akey']['index']]['tag']; ?>
+<?php echo '</li></ul>");'; ?>
 
 				<?php endfor; endif; ?>	
 					//result.push(/"<ul class='acresult'><li>雷锋月电脑义务维修</li><li>2015.3.5</li><li>未审核</li></ul>");

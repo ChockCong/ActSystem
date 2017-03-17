@@ -4,7 +4,7 @@ require_once '../common/comfunc.class.php';
 class Notice {
 	function setnotice($str1,$str2) {
 		$sq = new SqlHelper();
-		$setsql = "insert into news (bt,nr,time) values ('$str1','$str2',now())";
+		$setsql = "insert into news (bt,nr,time,hnid) values ('$str1','$str2',now(),$_SESSION[aid])";
 		$Set = $sq->execute_dml ($setsql);
 		return $Set;
 	}

@@ -6,13 +6,13 @@ class Judge{
 		if($str==""){
 			$judsql1="SELECT DISTINCT a.hid, a.hname, a.kssj, a.cyrs, COUNT( s.sid ) AS passman, s.tag AS bmman
 					FROM adminhd a LEFT JOIN studenthd s ON s.hid = a.hid where a.tag!=1 and a.lb=$_SESSION[aid] GROUP BY a.hid ";
-			$judsql2="SELECT hid, COUNT( sid ) FROM glb GROUP BY hid ORDER BY hid";
+			$judsql2="SELECT hid, COUNT( sid ) FROM glb where tag=0 GROUP BY hid ORDER BY hid";
 			$passNum1=$sq->execute_dql2 ($judsql1);
 			$passNum2=$sq->execute_dql2 ($judsql2);
 		}else{
 			$judsql1="SELECT DISTINCT a.hid, a.hname, a.kssj, a.cyrs, COUNT( s.sid ) AS passman, s.tag AS bmman
 					FROM adminhd a LEFT JOIN studenthd s ON s.hid = a.hid 
-					WHERE a.hname LIKE  '%$str%' and a.tag!=1 and a.lb=$_SESSION[aid] GROUP BY a.hid";
+					WHERE a.hname LIKE  '%$str%' and a.tag!=1 and a.lb=$_SESSION[aid]  GROUP BY a.hid";
 			$passNum1=$sq->execute_dql2 ($judsql1);
 			$judsql2="SELECT hid, COUNT( sid ) FROM glb where hid in (";
 			for($i=0;$i<count($passNum1);$i++){
@@ -20,7 +20,7 @@ class Judge{
 				if($i!=count($passNum1)-1)
 				$judsql2.=',';
 			}
-			$judsql2.=") GROUP BY hid ORDER BY hid";
+			$judsql2.=") and tag=0 GROUP BY hid ORDER BY hid";
 			$passNum2=$sq->execute_dql2 ($judsql2);
 		}
 		
@@ -36,8 +36,8 @@ class Judge{
 	}
 	function nopass($sid,$hid){
 		$sq=new SqlHelper();
-		$Nosql="delete from glb where sid=$sid and hid=$hid";
-		$showsql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid";
+		$Nosql="update glb set tag=1 where hid=$hid and sid=$sid";
+		$showsql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid and g.tag=0";
 		$passNum=$sq->execute_dml ($Nosql);
 		$shownopass=$sq->execute_dql2 ($showsql);
 		if($passNum)
@@ -48,7 +48,7 @@ class Judge{
 		$Adsql="insert into studenthd(shname,hid,sid,cyz,kssj,jssj,fwdw,fwlx,nr)".
 		" select a.hname,a.hid,c.sid,c.sname,a.kssj,a.jssj,a.fwdw,a.fwlx,a.nr from adminhd a,student c where a.hid=$hid and c.sid=$sid";
 		$Pasql="delete from glb where sid=$sid and hid=$hid";
-		$showsql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid";
+		$showsql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid and g.tag=0";
 		$passNum1=$sq->execute_dml ($Adsql);
 		$passNum2=$sq->execute_dml ($Pasql);
 		$shownopass=$sq->execute_dql2 ($showsql);

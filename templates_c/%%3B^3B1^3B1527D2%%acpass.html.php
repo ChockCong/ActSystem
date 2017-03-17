@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-07 09:44:24
+<?php /* Smarty version 2.6.30, created on 2017-03-17 04:44:42
          compiled from acpass.html */ ?>
 <!DOCTYPE html>
 <html>                 <!--angular-->
@@ -53,10 +53,10 @@
 						<tbody>
 							<tr ng-repeat="x in records | orderBy:col:desc">
 								<td><input type="checkbox" ng-model="x.ck" name="chk[]"  value="{{x.shid}}"></td>
+								<td>{{x.shname}}</td>
 								<td>
-									<a href="#" data-toggle="modal" data-target="#acblock">{{x.shname}}</a>
+								  <a href="#" data-toggle="modal" data-target="#acblock">{{x.cyz}}</a>
 								</td>
-								<td>{{x.cyz}}</td>
 								<td>{{x.kssj}}</td>
 								<td id=""  hidden>{{x.shid}}</td>
 								<td>

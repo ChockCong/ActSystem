@@ -30,11 +30,11 @@ class Peract {
 class Nopass {
 	function nopass($hid) {
 		$sq = new SqlHelper ();
-		$Nosql = "select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid";
+		$Nosql = "select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid and g.tag=0";
 		$passMan = $sq->execute_dql2 ( $Nosql );
 		return $passMan;
 	}
-} // 没有通过审核个人信息
+} // 没有通过审核个人信息名单
 class Pass {
 	function seeact($hid) {
 		$sh = new SqlHelper ();
@@ -52,7 +52,7 @@ class Actmsg {
 	}
 	function getnw($nid){
 		$sh = new SqlHelper ();
-		$amsql = "select bt,nr from news where nid=$nid";
+		$amsql = "select n.bt,n.nr,n.time,a.xym from news n,admin a where nid=$nid and n.hnid=a.aid";
 		$AM = $sh->execute_dql ( $amsql );
 		return $AM;
 	}
@@ -173,8 +173,8 @@ if (! empty ( $_GET ['news'] )) {
 	$str="<form action='#' method='post'>
 			 <label class='notetitle'>".$NM[bt]."</label>
 			 <label class='cont'>".$NM[nr]."</label>										
-			 <p class='right'></p>
-			 <p class='right'></p>									
+			 <p class='right'>".$NM[xym]."</p>
+			 <p class='right'>".$NM[time]."</p>									
 		  </form>";
 	echo $str;
 }

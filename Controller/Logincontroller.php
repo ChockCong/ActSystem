@@ -21,9 +21,9 @@
    		$rownum=$sh->execute_dml ($adminsql);                    //表示是否匹配到数据是1否0
    		
    		if($rownum && md5($pwd)==$rs['spassword']){                //判断身份
-   			setcookie("sid", $rs['sid'], time()+600);               //客户cookies
-   			setcookie("tag", $tag, time()+600);
-   			setcookie("student", $rs['sname'], time()+600);
+   			setcookie("sid", $rs['sid'], time()+36000);               //客户cookies
+   			setcookie("tag", $tag, time()+36000);
+   			setcookie("student", $rs['sname'], time()+36000);
    			header("location:Indexcontroller.php");
    			//$smarty->assign("student",$rs['sname']);
    			//$ac->get_show_msg("Indexcontroller.php");

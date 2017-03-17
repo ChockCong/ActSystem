@@ -51,10 +51,10 @@
 						<tbody>
 							<tr ng-repeat="x in records | orderBy:col:desc">
 								<td><input type="checkbox" ng-model="x.ck" name="chk[]"  value="{{x.shid}}"></td>
+								<td>{{x.shname}}</td>
 								<td>
-									<a href="#" data-toggle="modal" data-target="#acblock">{{x.shname}}</a>
+								  <a href="#" data-toggle="modal" data-target="#acblock">{{x.cyz}}</a>
 								</td>
-								<td>{{x.cyz}}</td>
 								<td>{{x.kssj}}</td>
 								<td id=""  hidden>{{x.shid}}</td>
 								<td>
