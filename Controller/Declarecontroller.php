@@ -25,9 +25,9 @@ class Act{
 	function seeact($s,$text){
 		$sh=new SqlHelper();
 		if($text=="")
-			$hdsql="select shid,shname from studenthd where sid=$s and xf=0";
+			$hdsql="select shid,shname from studenthd where sid=$s and hid<0 and xf=0";
 		else
-			$hdsql="select shid,shname from studenthd where sid=$s and xf=0 and shname like '%$text%'";
+			$hdsql="select shid,shname from studenthd where sid=$s and hid<0 and xf=0 and shname like '%$text%'";
 		$acts=$sh->execute_dql2 ($hdsql);
 		return $acts;
 	}

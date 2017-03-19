@@ -72,7 +72,7 @@ class Pass{
 	}
 	function nopass($shid){
 		$sq=new SqlHelper;
-		$inglb="insert into glb(sid,hid) select sid,hid from studenthd where shid in (";
+		$inglb="insert into glb(sid,hid,tag) select sid,hid,1 from studenthd where shid in (";
 		if(is_array($shid)){
 			$marksql="delete from studenthd  where shid in ( ";
 			for($i=0;$i<count($shid);$i++)
@@ -85,9 +85,10 @@ class Pass{
 			$inglb.="$shid)";
 		}
 		//echo $marksql."<br>".$inglb;
-		if($passN=$sq->execute_dml ($inglb))
+		if($passN=$sq->execute_dml ($inglb) && $shid>=0)
 			return $sq->execute_dml ($marksql);
-		return $passN;
+		else return $sq->execute_dml ($marksql);
+		//return $passN;
 	}
 	function finish($shid,$mt){
 			$sq=new SqlHelper;

@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.30, created on 2017-03-19 14:25:16
+         compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -53,11 +55,16 @@
 						<div class="layui-input-inline" style="width: 190px;margin-left: 90px;">
 						<select name="act">	
 						<option value ="" selected="">请选择</option>				
-						<{foreach item=hn from=$hname}>
-						  <{foreach item=val from=$hn}>  
-						  <option value =""><{$val}></option>
-						  <{/foreach}> 
-						 <{/foreach}> 
+						<?php $_from = $this->_tpl_vars['hname']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['hn']):
+?>
+						  <?php $_from = $this->_tpl_vars['hn']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['val']):
+?>  
+						  <option value =""><?php echo $this->_tpl_vars['val']; ?>
+</option>
+						  <?php endforeach; endif; unset($_from); ?> 
+						 <?php endforeach; endif; unset($_from); ?> 
 						</select>
 						</div>
 						<button class="layui-btn" lay-submit="" >添加名单</button>
@@ -148,7 +155,10 @@
 		<script type="text/javascript">
 			var app = angular.module("myApp", []);
 			app.controller("myCtrl", function($scope) {
-			<{literal}>$scope.stus = <{/literal}><{$stuMsg}><{literal}>;<{/literal}>
+			<?php echo '$scope.stus = '; ?>
+<?php echo $this->_tpl_vars['stuMsg']; ?>
+<?php echo ';'; ?>
+
 			  $scope.ischeckAll = false;
 				$scope.selectAll = function(stus) {
 					if($scope.ischeckAll) {

@@ -47,7 +47,7 @@ class Judge{
 		$sq=new SqlHelper();
 		$Adsql="insert into studenthd(shname,hid,sid,cyz,kssj,jssj,fwdw,fwlx,nr)".
 		" select a.hname,a.hid,c.sid,c.sname,a.kssj,a.jssj,a.fwdw,a.fwlx,a.nr from adminhd a,student c where a.hid=$hid and c.sid=$sid";
-		$Pasql="delete from glb where sid=$sid and hid=$hid";
+		$Pasql="delete from glb where sid=$sid and hid=$hid and tag=0";
 		$showsql="select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid and g.tag=0";
 		$passNum1=$sq->execute_dml ($Adsql);
 		$passNum2=$sq->execute_dml ($Pasql);

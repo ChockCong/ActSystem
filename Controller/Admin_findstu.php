@@ -33,6 +33,16 @@ class Stumsg{
 		return $delstu;
 	}
 }
+
+class Actname{
+	function gethname(){
+		$sq=new SqlHelper();
+		$nameql="select hname from adminhd where lb=$_SESSION[aid]";
+		$namestu=$sq->execute_dql2 ($nameql);
+		return $namestu;
+	}
+}
+
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	$stumsg=new Stumsg();
 	$stuMsg=$stumsg->showmsg($_POST['grade'],$_POST['class'],$_POST['stuname'],$_POST['username']);
@@ -48,7 +58,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	
 }else{
 	$stuMsg=json_encode(null);
+	$actn=new Actname();
 	$smarty->assign("stuMsg",$stuMsg);
+	//print_r($actn->gethname());
+	$smarty->assign("hname",$actn->gethname());
 	$smarty->display("squery.html");
 }
 ?>

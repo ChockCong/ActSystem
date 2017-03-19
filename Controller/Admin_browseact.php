@@ -37,8 +37,10 @@ class Actmsg{
 	function delAct($hid){
 		$sq=new SqlHelper();
 		$delasql="delete from adminhd where hid in ($hid)";
-		$Del=$sq->execute_dml ($delasql);
-		return $Del;
+		$delmsql="delete from studenthd where hid in ($shid)";
+		if($Del=$sq->execute_dml ($delasql))
+			return $sq->execute_dml ($delmsql);
+		//return $Del;
 	}
 }
 
