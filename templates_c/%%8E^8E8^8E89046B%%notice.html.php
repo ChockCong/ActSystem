@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-16 05:50:20
+<?php /* Smarty version 2.6.30, created on 2017-03-20 14:46:23
          compiled from notice.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="format-detection" content="telephone=no">
-
+<link rel="stylesheet" type="text/css" href="../css/acnotice.css"/>
 <link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all" />
 <link rel="stylesheet"
 	href="../plugins/font-awesome/css/font-awesome.min.css">
@@ -48,6 +48,25 @@
 				</div>
 			</div>
 		</form>
+		<div id="list">
+			<legend>公告列表</legend>
+			<table class="site-table table-hover">
+				<tbody>
+					<tr>
+						<td>社会实践登记表上交</td>
+						<td>
+							<i class="fa fa-trash" aria-hidden="true" lay-submit=""></i>
+						</td>
+					</tr>	
+					<tr>
+						<td>社会实践登记表上交</td>
+						<td>
+							<i class="fa fa-trash" aria-hidden="true" lay-submit=""></i>
+						</td>
+					</tr>	
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<script type="text/javascript" src="../plugins/layui/layui.js"></script>
 	<script>
