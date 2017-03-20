@@ -37,16 +37,32 @@ class Stumsg{
 class Actname{
 	function gethname(){
 		$sq=new SqlHelper();
-		$nameql="select hname from adminhd where lb=$_SESSION[aid]";
+		$nameql="select hid,hname from adminhd where lb=$_SESSION[aid]";
 		$namestu=$sq->execute_dql2 ($nameql);
 		return $namestu;
 	}
+	function addact($hid,$sid){
+		$sq=new SqlHelper();
+		$addstu=0;
+		$ssid=explode(',',$sid);
+		for($i=0;$i<count($ssid);$i++){
+			$addql="insert into glb (hid,sid,tag) values ('$hid','$ssid[$i]','0')";
+			if($sq->execute_dml ($addql)) 
+				$addstu++;
+		}
+		if($addstu==count($ssid))
+			return true;
+		else 
+			return false;
+	}
 }
 
+$actn=new Actname();
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	$stumsg=new Stumsg();
 	$stuMsg=$stumsg->showmsg($_POST['grade'],$_POST['class'],$_POST['stuname'],$_POST['username']);
  	$smarty->assign("stuMsg",$stuMsg);
+ 	$smarty->assign("hname",$actn->gethname());
  	$smarty->display("squery.html");
 	
 }else if($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET['sid'])){
@@ -56,6 +72,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	$Delstu=$stumsg->delstu($sid);
 	$cf->protectG("Admin_findstu.php",$Delstu);
 	
+}else if (isset($_GET['act']) && isset($_GET['sid2'])){
+	$cf=new comfunc();
+	$hid=$_GET['act'];
+	$sid=$_GET['sid2'];
+	$Addact=$actn->addact($hid,$sid);
+	$cf->protectG("Admin_findstu.php",$Addact);
 }else{
 	$stuMsg=json_encode(null);
 	$actn=new Actname();

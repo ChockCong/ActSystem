@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-19 14:25:16
+<?php /* Smarty version 2.6.30, created on 2017-03-20 04:49:39
          compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -52,22 +52,22 @@
 							<button class="layui-btn" lay-submit=""><i class="fa fa-search" aria-hidden="true"></i> 查询</button>
 						</div>
 						</form>
+						<form class="layui-form" action="?action=addact" method="get">
 						<div class="layui-input-inline" style="width: 190px;margin-left: 90px;">
 						<select name="act">	
 						<option value ="" selected="">请选择</option>				
 						<?php $_from = $this->_tpl_vars['hname']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['hn']):
-?>
-						  <?php $_from = $this->_tpl_vars['hn']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['val']):
 ?>  
-						  <option value =""><?php echo $this->_tpl_vars['val']; ?>
+						  <option value ="<?php echo $this->_tpl_vars['hn']['hid']; ?>
+"><?php echo $this->_tpl_vars['hn']['hname']; ?>
 </option>
-						  <?php endforeach; endif; unset($_from); ?> 
 						 <?php endforeach; endif; unset($_from); ?> 
 						</select>
 						</div>
-						<button class="layui-btn" lay-submit="" >添加名单</button>
+						<input type="text" id="tran2" name="sid2" hidden>
+						<button class="layui-btn" lay-submit="" id="add">添加名单</button>
+						</form>
 					</div>
 			</fieldset>
 			<!--查询结果区域-->
@@ -211,6 +211,14 @@
 				});
 				if($check==""){}
 				else $("#tran").attr("value",$check);
+			});
+			$("#add").click(function(){
+				$check=[];
+				$("input[name='chk']:checked").each(function(i){
+					$check[i]=$(this).val();
+				});
+				if($check==""){}
+				else $("#tran2").attr("value",$check);
 			});
 		})
 		</script>

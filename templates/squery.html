@@ -50,17 +50,18 @@
 							<button class="layui-btn" lay-submit=""><i class="fa fa-search" aria-hidden="true"></i> 查询</button>
 						</div>
 						</form>
+						<form class="layui-form" action="?action=addact" method="get">
 						<div class="layui-input-inline" style="width: 190px;margin-left: 90px;">
 						<select name="act">	
 						<option value ="" selected="">请选择</option>				
-						<{foreach item=hn from=$hname}>
-						  <{foreach item=val from=$hn}>  
-						  <option value =""><{$val}></option>
-						  <{/foreach}> 
+						<{foreach item=hn from=$hname}>  
+						  <option value ="<{$hn.hid}>"><{$hn.hname}></option>
 						 <{/foreach}> 
 						</select>
 						</div>
-						<button class="layui-btn" lay-submit="" >添加名单</button>
+						<input type="text" id="tran2" name="sid2" hidden>
+						<button class="layui-btn" lay-submit="" id="add">添加名单</button>
+						</form>
 					</div>
 			</fieldset>
 			<!--查询结果区域-->
@@ -201,6 +202,14 @@
 				});
 				if($check==""){}
 				else $("#tran").attr("value",$check);
+			});
+			$("#add").click(function(){
+				$check=[];
+				$("input[name='chk']:checked").each(function(i){
+					$check[i]=$(this).val();
+				});
+				if($check==""){}
+				else $("#tran2").attr("value",$check);
 			});
 		})
 		</script>
