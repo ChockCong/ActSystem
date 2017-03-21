@@ -50,18 +50,14 @@
 			<legend>公告列表</legend>
 			<table class="site-table table-hover">
 				<tbody>
+				<{foreach item=new from=$news}>
 					<tr>
-						<td>社会实践登记表上交</td>
+						<td><{$new.bt}></td>
 						<td>
-							<i class="fa fa-trash" aria-hidden="true" lay-submit=""></i>
+							<a class="delnew" href="?nid=<{$new.nid}>"><i class="fa fa-trash" aria-hidden="true" lay-submit=""></i></a>
 						</td>
-					</tr>	
-					<tr>
-						<td>社会实践登记表上交</td>
-						<td>
-							<i class="fa fa-trash" aria-hidden="true" lay-submit=""></i>
-						</td>
-					</tr>	
+					</tr>
+					<{/foreach}>	
 				</tbody>
 			</table>
 		</div>
@@ -95,8 +91,8 @@
 				//自定义验证规则
 				form.verify({
 					title: function(value) {
-						if(value.length < 5) {
-							return '标题至少得5个字符啊';
+						if(value.length < 4) {
+							return '标题至少得4个字符啊';
 						}
 					},
 					pass: [/(.+){6,12}$/, '密码必须6到12位'],

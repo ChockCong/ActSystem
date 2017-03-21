@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-20 14:46:23
+<?php /* Smarty version 2.6.30, created on 2017-03-21 06:13:36
          compiled from notice.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -52,18 +52,18 @@
 			<legend>公告列表</legend>
 			<table class="site-table table-hover">
 				<tbody>
+				<?php $_from = $this->_tpl_vars['news']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['new']):
+?>
 					<tr>
-						<td>社会实践登记表上交</td>
+						<td><?php echo $this->_tpl_vars['new']['bt']; ?>
+</td>
 						<td>
-							<i class="fa fa-trash" aria-hidden="true" lay-submit=""></i>
+							<a class="delnew" href="?nid=<?php echo $this->_tpl_vars['new']['nid']; ?>
+"><i class="fa fa-trash" aria-hidden="true" lay-submit=""></i></a>
 						</td>
-					</tr>	
-					<tr>
-						<td>社会实践登记表上交</td>
-						<td>
-							<i class="fa fa-trash" aria-hidden="true" lay-submit=""></i>
-						</td>
-					</tr>	
+					</tr>
+					<?php endforeach; endif; unset($_from); ?>	
 				</tbody>
 			</table>
 		</div>
@@ -97,8 +97,8 @@
 				//自定义验证规则
 				form.verify({
 					title: function(value) {
-						if(value.length < 5) {
-							return '标题至少得5个字符啊';
+						if(value.length < 4) {
+							return '标题至少得4个字符啊';
 						}
 					},
 					pass: [/(.+){6,12}$/, '密码必须6到12位'],
