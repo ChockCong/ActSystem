@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-20 04:49:39
+<?php /* Smarty version 2.6.30, created on 2017-03-22 04:52:56
          compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -65,7 +65,7 @@
 						 <?php endforeach; endif; unset($_from); ?> 
 						</select>
 						</div>
-						<input type="text" id="tran2" name="sid2" hidden>
+						<input type="text" id="tran2" name="sid2" value="" hidden>
 						<button class="layui-btn" lay-submit="" id="add">添加名单</button>
 						</form>
 					</div>

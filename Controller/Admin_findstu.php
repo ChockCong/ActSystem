@@ -72,7 +72,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	$Delstu=$stumsg->delstu($sid);
 	$cf->protectG("Admin_findstu.php",$Delstu);
 	
-}else if (isset($_GET['act']) && isset($_GET['sid2'])){
+}else if (!empty($_GET['act']) && !empty($_GET['sid2'])){
 	$cf=new comfunc();
 	$hid=$_GET['act'];
 	$sid=$_GET['sid2'];

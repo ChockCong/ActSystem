@@ -30,7 +30,7 @@ class Peract {
 class Nopass {
 	function nopass($hid) {
 		$sq = new SqlHelper ();
-		$Nosql = "select s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid and g.tag=0";
+		$Nosql = "select g.gid,s.sid,s.snum,s.sname,s.szy,s.sdh from glb g,student s where g.hid='$hid' and g.sid=s.sid and g.tag=0";
 		$passMan = $sq->execute_dql2 ( $Nosql );
 		return $passMan;
 	}
@@ -56,7 +56,7 @@ class Actmsg {
 		$AM = $sh->execute_dql ( $amsql );
 		return $AM;
 	}
-}//acnotice活动详情
+}//acnote活动详情
 
 // --------------------------------查看历史活动程序
 if (! empty ( $_GET ['shid'] )) {
