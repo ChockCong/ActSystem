@@ -4,7 +4,7 @@ require_once '../common/comfunc.class.php';
 class Stumsg{
 	function showmsg($grade,$class,$name,$num){
 		$sq=new SqlHelper();
-		$msg="select sid,snum,sname,sbh,sdh from student where ";
+		$msg="select sid,snum,sname,szy,sdh from student where ";
 		if(!empty($grade)){
 			$msg.=" snj=$grade";
 			if(!empty($class)){
