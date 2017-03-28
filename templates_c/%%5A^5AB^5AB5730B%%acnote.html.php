@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-07 06:30:41
+<?php /* Smarty version 2.6.30, created on 2017-03-28 01:13:04
          compiled from acnote.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acnote.html', 18, false),)), $this); ?>
@@ -38,12 +38,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acn
 <br /><?php echo $this->_tpl_vars['val']['fwdw']; ?>
 </span></li>  
 						      <?php endforeach; endif; unset($_from); ?>
-						   <!--<li class="survice"><p>aaa义务维修</p><span>2017年3月1日<br />端州黄岗</span></li>
-						      <li class="survice"><p>雷锋月摆摊活动</p><span>2017年3月4日<br />紫荆校道学生活动中心前</span></li>
-						      <li class="survey"><p>走访高新区企业</p><span>2017年3月18日<br />大旺高新区</span></li>
-						      <li class="survey"><p>南国中英文小学朝阳行动</p><span>2014年5月15日<br />南国中英文小学</span></li>
-						      <li class="ssac"><p>社区环保行动</p><span>2013年11月23日<br />牌坊广场</span></li>
-						      <li class="survice"><p>“美丽肇庆”城市清洁</p><span>2013年10月15日<br />东门广场</span></li>-->
 						    </ul>
 						    <a href="javascript:void(0);" id="right" class="btn">&gt;</a>
 						</div>
@@ -55,12 +49,9 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acn
 								  <?php $_from = $this->_tpl_vars['Showinfo1']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['val1']):
 ?>
-								    <li><a href="#"><?php echo $this->_tpl_vars['val1']['hname']; ?>
-</a></li>
+								    <li><p><?php echo $this->_tpl_vars['val1']['hname']; ?>
+</p></li>
 								  <?php endforeach; endif; unset($_from); ?>
-								<!--<li><a href="#">外国语小学朝阳行动</a></li>
-									<li><a href="#">川仪小学义教</a></li>
-									<li><a href="#">社区环保活动</a></li>  -->
 								</ul>
 								<a href="Noticecontroller.php?note_title=yes" class="seemore">查看更多..</a>
 							</div>
@@ -71,12 +62,9 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'acn
 								  <?php $_from = $this->_tpl_vars['Showinfo2']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['val2']):
 ?>
-								    <li><a href="#"><?php echo $this->_tpl_vars['val2']['bt']; ?>
-</a></li>
+								    <li><p><?php echo $this->_tpl_vars['val2']['bt']; ?>
+</p></li>
 								  <?php endforeach; endif; unset($_from); ?>
-								<!--<li><a href="#">大三实践分未修满名单</a><!--<input type="button" id="more" value="查看" /></li>-->
-								<!--<li><a href="#">3月2日收社会实践登记表</a><!--<input type="button" id="more" value="查看" /></li>-->
-								<!--<li><a href="#">关于环保活动车费报销</a><!--<input type="button" id="more" value="查看" /></li>-->
 								</ul>
 								<a href="Noticecontroller.php?note_title=yes" class="seemore">查看更多..</a>
 							</div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-22 04:52:56
+<?php /* Smarty version 2.6.30, created on 2017-03-23 07:43:49
          compiled from squery.html */ ?>
 <!DOCTYPE html>
 <html>
@@ -95,7 +95,7 @@
 								<td><input type="checkbox" ng-model="x.ck" name="chk" value="{{x.sid}}"></td>
 								<td>{{x.snum}}</td>
 								<td>{{x.sname}}</td>
-								<td>{{x.sbh}}</td>
+								<td>{{x.szy}}</td>
 								<td>{{x.sdh}}</td>
 								<td>
 									<i class="fa fa-angle-double-right getid" aria-hidden="true" data-toggle="modal" data-target="#sdblock"  ><p hidden>{{x.sid}}</p></i>

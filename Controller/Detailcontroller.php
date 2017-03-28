@@ -158,7 +158,8 @@ if (! empty ( $_GET ['rhid'] )) {
 				<label>活动时长：<p>".$AM[xs]."</p>小时</label>
 				<label>参与人数：<p>".$AM[cyrs]."</p>人</label>					
 				<label>活动类型：<p name='actype'>".$AM[fwlx]."</p></label>
-				<label>活动内容：<p class='cont'>".$AM[nr]."</p></label>
+				<label>活动内容：</label>  
+				<p class='cont'>".$AM[nr]."</p> 	
 				<input type='text' name='hid' value='$AM[hid]' hidden/>								
 				<input type='submit' value='立即报名'/>
 				<!--<input type='button' id='return' value='返回'/>-->										

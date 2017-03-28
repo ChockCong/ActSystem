@@ -193,7 +193,6 @@ body,html{
   	position: relative;
 	text-align: center;
 	letter-spacing: 3px;
-	cursor: pointer;
 }
 .pic>.survice:before {
 	content: "志愿服务";
@@ -309,7 +308,7 @@ body,html{
 	border-radius: 10px;
 	font-size: 0.9em;
 }
-.con a{
+.con p{
 	color: #47525d;
 	margin: 0px auto 10px;
 	display: inline-block;
@@ -460,6 +459,7 @@ body,html{
     width: 75px;
     position: absolute;
     left: 50%;
+    bottom:50px;
     margin-left: -33px;
     font-size: 0.8em;
     line-height: 1em;
@@ -511,10 +511,12 @@ body,html{
 	display: inline-block;
 }
 #deshow .cont{
-	    line-height: 1.5em;
+	line-height: 1.5em;
     margin-top: 10px;
     height: 150px;
     overflow: auto;
+    width:85%;
+    margin-left:7%;
 }
 #denote .notetitle{
 	text-align: center;

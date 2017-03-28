@@ -27,12 +27,6 @@
 						      <{foreach from=$Showact item=val}>
 						       <li class="<{$val.lb}>"><p><{$val.hname}></p><span><{$val.kssj}><br /><{$val.fwdw}></span></li>  
 						      <{/foreach}>
-						   <!--<li class="survice"><p>aaa义务维修</p><span>2017年3月1日<br />端州黄岗</span></li>
-						      <li class="survice"><p>雷锋月摆摊活动</p><span>2017年3月4日<br />紫荆校道学生活动中心前</span></li>
-						      <li class="survey"><p>走访高新区企业</p><span>2017年3月18日<br />大旺高新区</span></li>
-						      <li class="survey"><p>南国中英文小学朝阳行动</p><span>2014年5月15日<br />南国中英文小学</span></li>
-						      <li class="ssac"><p>社区环保行动</p><span>2013年11月23日<br />牌坊广场</span></li>
-						      <li class="survice"><p>“美丽肇庆”城市清洁</p><span>2013年10月15日<br />东门广场</span></li>-->
 						    </ul>
 						    <a href="javascript:void(0);" id="right" class="btn">&gt;</a>
 						</div>
@@ -42,11 +36,8 @@
 								<p class="title">学<br />院<br />特<br />色</p>
 								<ul class="con">
 								  <{foreach from=$Showinfo1 item=val1}>
-								    <li><a href="#"><{$val1.hname}></a></li>
+								    <li><p><{$val1.hname}></p></li>
 								  <{/foreach}>
-								<!--<li><a href="#">外国语小学朝阳行动</a></li>
-									<li><a href="#">川仪小学义教</a></li>
-									<li><a href="#">社区环保活动</a></li>  -->
 								</ul>
 								<a href="Noticecontroller.php?note_title=yes" class="seemore">查看更多..</a>
 							</div>
@@ -55,11 +46,8 @@
 								<p class="title">最<br />新<br />通<br />知</p>
 								<ul class="con">
 								  <{foreach from=$Showinfo2 item=val2}>
-								    <li><a href="#"><{$val2.bt}></a></li>
+								    <li><p><{$val2.bt}></p></li>
 								  <{/foreach}>
-								<!--<li><a href="#">大三实践分未修满名单</a><!--<input type="button" id="more" value="查看" /></li>-->
-								<!--<li><a href="#">3月2日收社会实践登记表</a><!--<input type="button" id="more" value="查看" /></li>-->
-								<!--<li><a href="#">关于环保活动车费报销</a><!--<input type="button" id="more" value="查看" /></li>-->
 								</ul>
 								<a href="Noticecontroller.php?note_title=yes" class="seemore">查看更多..</a>
 							</div>
