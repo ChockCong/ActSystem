@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-17 04:59:14
+<?php /* Smarty version 2.6.30, created on 2017-04-12 07:45:18
          compiled from reaccess.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'reaccess.html', 18, false),)), $this); ?>
@@ -26,7 +26,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 						<div id="back">
 							<ul>
 								<li><i class="glyphicon glyphicon-home"></i></li>
-								<li><a href="#">首页</a></li>
+								<li><a href="Noticecontroller.php">公告通知</a></li>
 								<li><i class="glyphicon glyphicon-menu-right"></i></li>
 								<li><a href="#">活动概览</a></li>
 							</ul>
@@ -63,15 +63,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 </p>
 											</li>
 										<?php endforeach; endif; unset($_from); ?>
-											<li>
-												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#" class="todetele">电脑义务维修</a>
-												<p>2017/3/4 9:00</p>
-											</li>
-											<li>
-												<span>[<p class="actype">志愿服务</p>]</span>
-												<a href="#" class="todetele">电脑义务维修</a>
-												<p>2017/3/4 9:00</p>
 										</ul>
 									</div>
 									</div>
@@ -96,16 +87,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 </p>
 											</li>
 										<?php endforeach; endif; unset($_from); ?>
-											<li>
-												<span>[<p class="actype">社会实践</p>]</span>
-												<a href="#" class="todetele">三下乡社会实践活动</a>
-												<p>2017/7/10 8:00</p>
-											</li>
-											<li>
-												<span>[<p class="actype">社会实践</p>]</span>
-												<a href="#" class="todetele">三下乡社会实践活动</a>
-												<p>2017/7/10 8:00</p>
-											</li>
 										</ul>
 									</div>
 									</div>
@@ -143,18 +124,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'rea
 </p>
 											</li>
 										<?php endforeach; endif; unset($_from); ?>		
-											<li>
-												<a href="#" class="tonote">大三实践分未修满名单</a>
-												<p>2016/7/10 18:00</p>
-											</li>
-											<li>
-												<a href="#" class="tonote">3月2日收社会实践登记表</a>
-												<p>2017/3/1 8:00</p>
-											</li>											
-											<li>
-												<a href="#" class="tonote">关于环保活动车费报销</a>
-												<p>2017/4/3 10:00</p>
-											</li>
 										</ul>
 									</div>
 									</div>

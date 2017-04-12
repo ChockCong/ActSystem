@@ -5,7 +5,6 @@ require_once '../common/comfunc.class.php';
 class Stumsg{
 	function addmsg(){
 		foreach($_POST as $key => $val){
-			//最好加上逻辑 过滤不是字段的  key
 			$data[$key] = $val;
 		}
 		$pwd=md5($data[stupassword]);
@@ -29,7 +28,6 @@ if(!isset($_POST['stuname'])){
 }else{
 	$stumsg=new Stumsg();
 	$cf=new comfunc();
-	//$stumsg->addmsg();
 	$cf->protect("Admin_addstu.php",$stumsg->addmsg());
 	
 }

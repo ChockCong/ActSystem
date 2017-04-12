@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.30, created on 2017-03-14 17:02:35
+<?php /* Smarty version 2.6.30, created on 2017-04-12 06:22:52
          compiled from Sindex.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'Sindex.html', 21, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'Sindex.html', 19, false),)), $this); ?>
 <!DOCTYPE html>
 
 <html>
@@ -17,9 +17,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'Sin
 				<div class="logo"></div>
 				<div class="title">
 					<p>社会实践</p>
-					<a href="../Controller/Indexcontroller.php"><?php echo $_COOKIE['student']; ?>
-</a>
-					<a href="../Controller/Logincontroller.php">注销</a>
 				</div>
 			</div>
 			<div id="nav">

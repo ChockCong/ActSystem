@@ -63,11 +63,8 @@ if($_GET['declare_title']=="declare"){
 }else if($_GET['declare_title']==1){             //操作提交页面
 	if(isset($_POST['submit'])&&isset($_COOKIE['sid'])){		
 		$act=new Act();          
-		//$act->subact();
 		$cf->protect("Declarecontroller.php?declare_title=2",$act->subact());//类方法subact提交活动
 	}else{
-// 		$code = mt_rand(0,1000000);            //避免重复提交的标记
-// 		$_SESSION['code'] = $code;
 		$smarty->display("register.html");      //显示申报页面
 	}
 }else if($_GET['declare_title']==2){            //操作修改删除页面
@@ -79,8 +76,8 @@ if($_GET['declare_title']=="declare"){
 		$smarty->assign("Acts",$Acts);
 		$smarty->display("acalter.html");
 	}else if(isset($_POST['acalter'])){         //修改操作
-		$act=new Act();
-		$act->altact();
+		$act=new Act();		
+		$cf->protect("Declarecontroller.php?declare_title=2",$act->altact());
 		$smarty->display("acalter.html");
 	}else if(isset($_POST['acdele'])){                 //删除操作
 		$act=new Act();

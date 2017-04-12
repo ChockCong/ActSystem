@@ -178,14 +178,14 @@ input[type="submit"]{
 	cursor: pointer;
 	font-size: 0.9em;
 }
-input[type="submit"]:hover{
-	background-color: #516886;
-	color: #FFFFFF;
+/*input[type="submit"]:hover{
+	background: #000000;
+	border: 1px solid #516886;
 }
 input[type="submit"]:hover + i{
-	background-color: transparent;
+	background: transparent;
 	color: #FFFFFF;
-}
+}*/
 .pac i{
 	position: absolute;
 	left: 10px;

@@ -25,9 +25,6 @@
    			setcookie("tag", $tag, time()+36000);
    			setcookie("student", $rs['sname'], time()+36000);
    			header("location:Indexcontroller.php");
-   			//$smarty->assign("student",$rs['sname']);
-   			//$ac->get_show_msg("Indexcontroller.php");
-   			//$smarty->display("index.html");
    		}else{
    			echo "<script type='text/javascript'>";
    			echo "alert('账号或密码错误！');";
@@ -57,12 +54,12 @@
    	$smarty->display("login.html");
    }else{
    	echo "<script type='text/javascript'>";
-   	echo "alert('请保证账号密码身份填写无误！');";
+   	echo "alert('请确保账号密码身份填写无误！');";
    	echo "history.go(-1);";
    	echo "</script>";
    	//$smarty->display("login.html");
    }
 
-   $smarty->my_close ();
+   //$smarty->my_close ();
    
 ?>

@@ -4,7 +4,7 @@ require_once 'client_cookie.php';
 class NotAct{
 	function showAct(){
 		$sh=new SqlHelper();
-		$sa="select hid,hname,kssj,fwdw,lb from adminhd where lb=0 or lb=(select aid from admin where xym=(select sxy from student where sid='$_COOKIE[sid]')) and tag=2 order by kssj desc limit 0,6 ";
+		$sa="select hid,hname,kssj,fwdw,lb from adminhd where lb=0  and tag=2 order by kssj desc limit 0,6 ";
 		$show=$sh->execute_dql2 ($sa);
 		for($i=0;$i<count($show);$i++){
 			if($show[$i][lb]==1) $show[$i][lb]="survice";
