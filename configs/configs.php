@@ -1,5 +1,7 @@
 <?php
-/* 
+require_once '../common/SqlHelper.class.php';
+$sq=new Sqlhelper();
+/*
 $mydbhost = "localhost";
 $mydbuser = "root";
 $mydbpw = "";

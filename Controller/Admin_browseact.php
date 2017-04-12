@@ -37,7 +37,9 @@ class Actmsg{
 	function delAct($hid){
 		$sq=new SqlHelper();
 		$delasql="delete from adminhd where hid in ($hid)";
-		$delmsql="delete from studenthd where hid in ($shid)";
+		$delmsql="delete from studenthd where hid in ($hid)";
+// 		echo $delasql;
+// 		echo $delmsql;
 		if($Del=$sq->execute_dml ($delasql))
 			return $sq->execute_dml ($delmsql);
 		//return $Del;
@@ -53,6 +55,7 @@ if($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['grade'])){
 }else if($_SERVER['REQUEST_METHOD']=="POST" && !empty($_POST['ghid'])){
 	$hdi=$_POST['ghid'];
 	$actMsg=new Actmsg();
+	
 	if($actMsg->delAct($hdi)){
 		$ActMsg=$actMsg->gaMsg(0);
 		$smarty->assign("ActMsg",$ActMsg);
