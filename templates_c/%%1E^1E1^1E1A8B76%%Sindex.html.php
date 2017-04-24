@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.30, created on 2017-04-12 06:22:52
+<?php /* Smarty version 2.6.30, created on 2017-04-23 07:04:43
          compiled from Sindex.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'Sindex.html', 19, false),)), $this); ?>
@@ -37,7 +37,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'Menu', 'Sin
 					<span>一日一善</span>	
 				</div>
 				<p>服务在我心		实践看我行</p>
-				<a href="../Controller/Noticecontroller.php">活动公告查看</a>
+				<a href="../Controller/Nicecontroller.php">活动公告查看</a>
 			</div>
 		</div>
 		<footer>

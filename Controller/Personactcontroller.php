@@ -22,7 +22,7 @@ require_once 'client_cookie.php';
 } //活动信息model
 
 
-if($_GET['myac_title']=="history"){
+if($_GET['myac_title']==1){
 	if(isset($_COOKIE['sid'])){
 	$sid=$_COOKIE['sid'];
 	$peract=new Peract();	

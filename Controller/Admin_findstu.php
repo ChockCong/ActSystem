@@ -4,25 +4,26 @@ require_once '../common/comfunc.class.php';
 class Stumsg{
 	function showmsg($grade,$class,$name,$num){
 		$sq=new SqlHelper();
-		$msg="select sid,snum,sname,szy,sdh from student where ";
+		$msg="select s.sid,s.snum,s.sname,s.szy,s.sdh from student s,admin a where ";
 		if(!empty($grade)){
-			$msg.=" snj=$grade";
+			$msg.=" s.snj=$grade";
 			if(!empty($class)){
-				$msg.=" and sbh=$class";
+				$msg.=" and s.sbh=$class";
 				if(!empty($name)){
-					$msg.=" and sname='$name'";
+					$msg.=" and s.sname='$name'";
 					if(!empty($num)){
-						$msg.=" and snum=$num";
+						$msg.=" and s.snum=$num";
 					}	
 				}else if(!empty($num))
-					$msg.=" and snum=$num";
+					$msg.=" and s.snum=$num";
 			}else if(!empty($name)){
-				$msg.=" and sname='$name'";
+				$msg.=" and s.sname='$name'";
 				if(!empty($num))
-					$msg.=" and snum=$num";
+					$msg.=" and s.snum=$num";
 			}else if(!empty($num))
-				$msg.=" and snum=$num";
+				$msg.=" and s.snum=$num";
 		}
+		$msg.=" and s.sxy=a.xym and a.aid='$_SESSION[aid]'";
 		$Msg=$sq->execute_dql2 ($msg);
 		return json_encode($Msg);
 	}
